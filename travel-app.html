@@ -179,6 +179,12 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
   background:rgba(61,143,173,.1); border:1px solid rgba(61,143,173,.2);
   border-radius:20px;
 }
+.day-wx { display:flex; align-items:center; gap:8px; padding:8px 12px; background:var(--sf); border:1px solid var(--bd); border-radius:11px; margin:0 0 10px; }
+.day-wx-city { font-size:11px; color:var(--tm); flex:1; }
+.day-wx-icon { font-size:18px; }
+.day-wx-temp { font-size:14px; font-weight:600; }
+.day-wx-range { font-size:11px; color:var(--tm); }
+.day-wx-na { font-size:11px; color:var(--tm); flex:1; }
 </style>
 </head>
 <body>
@@ -281,16 +287,6 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
         <div class="tli"><div class="dot" style="border-color:var(--a4)"></div>
           <div class="cd b"><div class="ch"><span class="ci">🧱</span><span class="cn">LEGO House · PIN: ALBK66</span><span class="ctm">D10 12:00</span></div></div>
         </div>
-      </div>
-      <div class="sl">天氣參考（五月下旬 哥本哈根）</div>
-      <div class="wxrow">
-        <div class="wx"><div class="wd">日</div><div class="wi">⛅</div><div class="wt">17°</div></div>
-        <div class="wx"><div class="wd">一</div><div class="wi">🌤️</div><div class="wt">18°</div></div>
-        <div class="wx"><div class="wd">二</div><div class="wi">🌧️</div><div class="wt">14°</div></div>
-        <div class="wx"><div class="wd">三</div><div class="wi">⛅</div><div class="wt">16°</div></div>
-        <div class="wx"><div class="wd">四</div><div class="wi">🌤️</div><div class="wt">17°</div></div>
-        <div class="wx"><div class="wd">五</div><div class="wi">☀️</div><div class="wt">19°</div></div>
-        <div class="wx"><div class="wd">六</div><div class="wi">🌦️</div><div class="wt">15°</div></div>
       </div>
     </div>
 
@@ -1078,6 +1074,106 @@ function navSw(nav, page) {
     document.getElementById('scroll').scrollTop = 0;
   }
 }
+
+// ── 自動跳到當天 ──
+(function autoDay() {
+  var TRIP_START = new Date('2026-05-23T00:00:00');
+  var TRIP_END   = new Date('2026-06-07T00:00:00');
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+  if (today >= TRIP_START && today <= TRIP_END) {
+    var diff = Math.floor((today - TRIP_START) / 86400000);
+    var dayId = 'd' + (diff + 1);
+    var targetTab = document.querySelector('[onclick="go(\'' + dayId + '\',this)"]');
+    go(dayId, targetTab);
+  }
+})();
+
+// ── 逐天即時天氣（Open-Meteo） ──
+(function loadDayWeather() {
+  var WX = {0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',
+            51:'🌦️',53:'🌦️',55:'🌧️',61:'🌧️',63:'🌧️',65:'🌧️',
+            71:'🌨️',73:'🌨️',75:'❄️',77:'🌨️',80:'🌧️',81:'🌧️',
+            82:'⛈️',85:'🌨️',86:'❄️',95:'⛈️',96:'⛈️',99:'⛈️'};
+
+  // 各天：[day id, 日期, 城市名稱, lat, lon, 時區]
+  var DAYS = [
+    ['d1',  '2026-05-23', '曼谷',      13.75, 100.52, 'Asia/Bangkok'],
+    ['d2',  '2026-05-24', '哥本哈根',  55.68,  12.57, 'Europe/Copenhagen'],
+    ['d3',  '2026-05-25', '哥本哈根',  55.68,  12.57, 'Europe/Copenhagen'],
+    ['d4',  '2026-05-26', '哥本哈根',  55.68,  12.57, 'Europe/Copenhagen'],
+    ['d5',  '2026-05-27', '馬爾摩',    55.60,  13.00, 'Europe/Stockholm'],
+    ['d6',  '2026-05-28', '哥本哈根',  55.68,  12.57, 'Europe/Copenhagen'],
+    ['d7',  '2026-05-29', '奧登塞',    55.40,  10.38, 'Europe/Copenhagen'],
+    ['d8',  '2026-05-30', '奧登塞',    55.40,  10.38, 'Europe/Copenhagen'],
+    ['d9',  '2026-05-31', '奧胡斯',    56.16,  10.20, 'Europe/Copenhagen'],
+    ['d10', '2026-06-01', '比隆',      55.73,   9.12, 'Europe/Copenhagen'],
+    ['d11', '2026-06-02', '斯德哥爾摩',59.33,  18.07, 'Europe/Stockholm'],
+    ['d12', '2026-06-03', '斯德哥爾摩',59.33,  18.07, 'Europe/Stockholm'],
+    ['d13', '2026-06-04', '斯德哥爾摩',59.33,  18.07, 'Europe/Stockholm'],
+    ['d14', '2026-06-05', '斯德哥爾摩',59.33,  18.07, 'Europe/Stockholm'],
+    ['d15', '2026-06-06', '斯德哥爾摩',59.33,  18.07, 'Europe/Stockholm'],
+    ['d16', '2026-06-07', '曼谷',      13.75, 100.52, 'Asia/Bangkok']
+  ];
+
+  // 依座標去重，每個唯一城市只取一次 API
+  var cache = {};
+  var fetches = {};
+  DAYS.forEach(function(d) {
+    var key = d[3] + ',' + d[4];
+    if (!fetches[key]) {
+      fetches[key] = fetch(
+        'https://api.open-meteo.com/v1/forecast?latitude=' + d[3] +
+        '&longitude=' + d[4] +
+        '&daily=weathercode,temperature_2m_max,temperature_2m_min' +
+        '&timezone=' + encodeURIComponent(d[5]) +
+        '&forecast_days=16'
+      ).then(function(r){ return r.json(); })
+       .then(function(json) { cache[key] = json.daily; });
+    }
+  });
+
+  Promise.all(Object.values(fetches)).then(function() {
+    DAYS.forEach(function(d) {
+      var dayId = d[0], date = d[1], city = d[2];
+      var key = d[3] + ',' + d[4];
+      var daily = cache[key];
+      var pg = document.getElementById('p-' + dayId);
+      if (!pg) return;
+
+      var hero = pg.querySelector('.hero');
+      if (!hero) return;
+
+      var bar = document.createElement('div');
+      bar.className = 'day-wx';
+
+      if (daily) {
+        var idx = daily.time.indexOf(date);
+        if (idx !== -1) {
+          var icon = WX[daily.weathercode[idx]] || '🌡️';
+          var hi   = Math.round(daily.temperature_2m_max[idx]);
+          var lo   = Math.round(daily.temperature_2m_min[idx]);
+          var avg  = Math.round((hi + lo) / 2);
+          bar.innerHTML =
+            '<span class="day-wx-icon">' + icon + '</span>' +
+            '<span class="day-wx-city">' + city + '</span>' +
+            '<span class="day-wx-temp">' + avg + '°</span>' +
+            '<span class="day-wx-range">' + lo + '° / ' + hi + '°</span>';
+        } else {
+          bar.innerHTML =
+            '<span class="day-wx-city">' + city + '</span>' +
+            '<span class="day-wx-na">超出預報範圍（行程前自動更新）</span>';
+        }
+      } else {
+        bar.innerHTML =
+          '<span class="day-wx-icon">📡</span>' +
+          '<span class="day-wx-na">天氣資料無法載入</span>';
+      }
+
+      hero.insertAdjacentElement('afterend', bar);
+    });
+  }).catch(function() { /* 靜默失敗，不影響主要內容 */ });
+})();
 </script>
 </body>
 </html>
