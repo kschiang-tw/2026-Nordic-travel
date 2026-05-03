@@ -1174,6 +1174,81 @@ function navSw(nav, page) {
     });
   }).catch(function() { /* 靜默失敗，不影響主要內容 */ });
 })();
+
+// ── 卡片狀態管理 ──
+(function cardStateManager() {
+  var STORAGE_KEY = 'hygge2026-card-states';
+  var SCHEMA_VERSION = 1;
+
+  // === Storage ===
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return { version: SCHEMA_VERSION, updatedAt: null, cards: {} };
+      var data = JSON.parse(raw);
+      if (!data || data.version !== SCHEMA_VERSION || !data.cards) {
+        return { version: SCHEMA_VERSION, updatedAt: null, cards: {} };
+      }
+      return data;
+    } catch (e) {
+      console.warn('[cardState] load failed, resetting', e);
+      return { version: SCHEMA_VERSION, updatedAt: null, cards: {} };
+    }
+  }
+
+  function save(state) {
+    state.version = SCHEMA_VERSION;
+    state.updatedAt = new Date().toISOString();
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+      console.warn('[cardState] save failed', e);
+      alert('儲存失敗，可能是瀏覽器空間不足');
+    }
+  }
+
+  // === Card identity ===
+  // cyrb53 hash → base36, deterministic across sessions
+  function hash(str) {
+    var h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+    for (var i = 0; i < str.length; i++) {
+      var ch = str.charCodeAt(i);
+      h1 = Math.imul(h1 ^ ch, 2654435761);
+      h2 = Math.imul(h2 ^ ch, 1597334677);
+    }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507);
+    h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
+    h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    var n = 4294967296 * (2097151 & h2) + (h1 >>> 0);
+    return n.toString(36);
+  }
+
+  function generateCardId(dayId, cardName) {
+    return dayId + '-' + hash(cardName.trim());
+  }
+
+  function indexAllCards() {
+    var cards = document.querySelectorAll('.pg .tli > .cd');
+    cards.forEach(function(card) {
+      var pg = card.closest('.pg');
+      if (!pg || !pg.id || pg.id.indexOf('p-') !== 0) return;
+      var dayId = pg.id.slice(2); // 'p-d3' -> 'd3'
+      var cnEl = card.querySelector('.cn');
+      if (!cnEl) return;
+      card.setAttribute('data-card-id', generateCardId(dayId, cnEl.textContent));
+      card.setAttribute('data-origin-day', dayId);
+    });
+  }
+
+  // === Init ===
+  function init() {
+    indexAllCards();
+    window.__cardState = { load: load, save: save, hash: hash };
+  }
+
+  init();
+})();
 </script>
 </body>
 </html>
