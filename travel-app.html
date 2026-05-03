@@ -185,6 +185,14 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
 .day-wx-temp { font-size:14px; font-weight:600; }
 .day-wx-range { font-size:11px; color:var(--tm); }
 .day-wx-na { font-size:11px; color:var(--tm); flex:1; }
+
+/* ── CARD STATE ── */
+.cd.is-done { opacity:.55; border-left:2.5px solid #5cb85c !important; background:rgba(80,180,80,.06); }
+.cd.is-skip { opacity:.45; border-left:2.5px solid #d9534f !important; background:rgba(180,80,80,.06); }
+.cd.is-skip .cn { text-decoration:line-through; }
+.state-badge { font-size:10px; padding:2px 7px; border-radius:8px; font-weight:600; margin-left:auto; flex-shrink:0; }
+.state-badge.s-done { background:rgba(80,180,80,.2); color:#5cb85c; border:1px solid rgba(80,180,80,.35); }
+.state-badge.s-skip { background:rgba(180,80,80,.2); color:#d9534f; border:1px solid rgba(180,80,80,.35); }
 </style>
 </head>
 <body>
@@ -1241,10 +1249,35 @@ function navSw(nav, page) {
     });
   }
 
+  // === Apply state ===
+  function applyVisualState(state) {
+    // Clear all existing visual state first (idempotent)
+    document.querySelectorAll('.cd.is-done, .cd.is-skip').forEach(function(c) {
+      c.classList.remove('is-done', 'is-skip');
+    });
+    document.querySelectorAll('.state-badge').forEach(function(b) { b.remove(); });
+
+    Object.keys(state.cards).forEach(function(cardId) {
+      var entry = state.cards[cardId];
+      if (!entry || !entry.state) return;
+      var card = document.querySelector('.cd[data-card-id="' + cardId + '"]');
+      if (!card) return;
+      card.classList.add(entry.state === 'done' ? 'is-done' : 'is-skip');
+      var ch = card.querySelector('.ch');
+      if (!ch) return;
+      var badge = document.createElement('span');
+      badge.className = 'state-badge s-' + entry.state;
+      badge.textContent = entry.state === 'done' ? '✓ 完成' : '✕ 放棄';
+      ch.appendChild(badge);
+    });
+  }
+
   // === Init ===
   function init() {
     indexAllCards();
-    window.__cardState = { load: load, save: save, hash: hash };
+    var state = load();
+    applyVisualState(state);
+    window.__cardState = { load: load, save: save, hash: hash, applyVisualState: applyVisualState };
   }
 
   init();
