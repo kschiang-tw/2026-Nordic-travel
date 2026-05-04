@@ -109,6 +109,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
 .ci { font-size:15px; flex-shrink:0; margin-top:1px; }
 .cn { font-size:13.5px; font-weight:500; line-height:1.3; flex:1; }
 .ctm { font-size:11px; color:var(--a2); font-weight:600; flex-shrink:0; }
+.cgo { color:var(--a); font-size:15px; flex-shrink:0; line-height:1.3; opacity:.55; margin-left:2px; }
 .dd { font-size:12px; color:var(--tm); margin-left:23px; line-height:1.55; margin-top:2px; }
 .dd a { color:var(--a); text-decoration:none; }
 
@@ -370,11 +371,11 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           <div class="dd"><a href="https://www.oresundstag.se">→ 官網購票</a>　161 SEK</div></div>
         </div>
         <div class="tli"><div class="dot" style="border-color:var(--yw)"></div>
-          <div class="cd w"><div class="ch"><span class="ci">⛪</span><span class="cn">Vor Frelsers Kirke 救主堂登塔（D6）</span></div>
+          <div class="cd w" onclick="openGuide('copenhagen','attr-vorfrelsers')"><div class="ch"><span class="ci">⛪</span><span class="cn">Vor Frelsers Kirke 救主堂登塔（D6）</span><span class="cgo">›</span></div>
           <div class="dd"><a href="https://billetto.dk/en/e/vor-frelsers-kirkes-tarn-2026-the-tower-of-our-saviour-s-church-2026-billetter-1776929">→ 點此預約</a></div></div>
         </div>
         <div class="tli"><div class="dot" style="border-color:var(--yw)"></div>
-          <div class="cd w"><div class="ch"><span class="ci">🌲</span><span class="cn">Camp Adventure 森林瞭望塔（D7）</span></div>
+          <div class="cd w" onclick="openGuide('copenhagen','attr-campadventure')"><div class="ch"><span class="ci">🌲</span><span class="cn">Camp Adventure 森林瞭望塔（D7）</span><span class="cgo">›</span></div>
           <div class="dd"><a href="https://join.campadventure.dk/tick1.php">→ 點此預約</a>　72hr 前訂省 15 DKK</div></div>
         </div>
         <div class="tli"><div class="dot" style="border-color:var(--yw)"></div>
@@ -388,10 +389,10 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           <div class="cd b"><div class="ch"><span class="ci">🐟</span><span class="cn">Kødbyens Fiskebar</span><span class="ctm">D2 19:30</span></div></div>
         </div>
         <div class="tli"><div class="dot" style="border-color:var(--a4)"></div>
-          <div class="cd b"><div class="ch"><span class="ci">📖</span><span class="cn">HC Andersens Hus</span><span class="ctm">D8 10:00</span></div></div>
+          <div class="cd b" onclick="openGuide('odense','attr-andersens')"><div class="ch"><span class="ci">📖</span><span class="cn">HC Andersens Hus</span><span class="ctm">D8 10:00</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli"><div class="dot" style="border-color:var(--a4)"></div>
-          <div class="cd b"><div class="ch"><span class="ci">🧱</span><span class="cn">LEGO House · PIN: ALBK66</span><span class="ctm">D10 12:00</span></div></div>
+          <div class="cd b" onclick="openGuide('aarhus','attr-lego')"><div class="ch"><span class="ci">🧱</span><span class="cn">LEGO House · PIN: ALBK66</span><span class="ctm">D10 12:00</span><span class="cgo">›</span></div></div>
         </div>
       </div>
     </div>
@@ -473,12 +474,12 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           <div class="chips"><div class="chip">Absalon 雕像</div><div class="chip">Nyhavn 新港</div><div class="chip">Amalienborg 宮</div><div class="chip">大理石教堂</div><div class="chip">皇家劇院</div></div></div>
         </div>
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">🎨</span><span class="cn">Designmuseum Danmark</span><span class="ctm">10–18</span></div>
+          <div class="cd m" onclick="openGuide('copenhagen','attr-designmuseum')"><div class="ch"><span class="ci">🎨</span><span class="cn">Designmuseum Danmark</span><span class="ctm">10–18</span><span class="cgo">›</span></div>
           <div class="dd">Whit Monday 假日特別開放</div>
           <div class="bgs"><span class="bg bt">💡 假日特開</span></div></div>
         </div>
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">⭐</span><span class="cn">Kastellet + 小美人魚</span><span class="ctm">06–20</span></div></div>
+          <div class="cd" onclick="openGuide('copenhagen','attr-kastellet')"><div class="ch"><span class="ci">⭐</span><span class="cn">Kastellet + 小美人魚</span><span class="ctm">06–20</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli t"><div class="dot"></div>
           <div class="cd t"><div class="ch"><span class="ci">⛴️</span><span class="cn">水上巴士 991 南線</span></div>
@@ -503,7 +504,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           <div class="dd">抵達 10:34</div><div class="bgs"><span class="bg bp">64 DKK</span></div></div>
         </div>
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">🖼️</span><span class="cn">Louisiana Museum of Modern Art</span><span class="ctm">11–22</span></div>
+          <div class="cd m" onclick="openGuide('copenhagen','attr-louisiana')"><div class="ch"><span class="ci">🖼️</span><span class="cn">Louisiana Museum of Modern Art</span><span class="ctm">11–22</span><span class="cgo">›</span></div>
           <div class="dd">北歐最美現代美術館</div></div>
         </div>
         <div class="tli t"><div class="dot"></div>
@@ -538,7 +539,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="sl">車站以西 · 靠海</div>
       <div class="tl">
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">🌀</span><span class="cn">Turning Torso</span></div>
+          <div class="cd" onclick="openGuide('malmo','attr-malmo-modern')"><div class="ch"><span class="ci">🌀</span><span class="cn">Turning Torso</span><span class="cgo">›</span></div>
           <div class="dd">Calatrava 扭轉大廈</div></div>
         </div>
         <div class="tli"><div class="dot"></div>
@@ -549,16 +550,16 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="sl">車站以東 · 舊城區</div>
       <div class="tl">
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">🏛️</span><span class="cn">Malmö Rådhus · Stortorget · Lilla Torg</span></div></div>
+          <div class="cd" onclick="openGuide('malmo','attr-malmo-old')"><div class="ch"><span class="ci">🏛️</span><span class="cn">Malmö Rådhus · Stortorget · Lilla Torg</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">💊</span><span class="cn">Apoteket Lejonet 漂亮老藥局</span></div></div>
+          <div class="cd" onclick="openGuide('malmo','attr-malmo-old')"><div class="ch"><span class="ci">💊</span><span class="cn">Apoteket Lejonet 漂亮老藥局</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">📐</span><span class="cn">Form/Design Centre</span></div></div>
+          <div class="cd m" onclick="openGuide('malmo','attr-malmo-culture')"><div class="ch"><span class="ci">📐</span><span class="cn">Form/Design Centre</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">📚</span><span class="cn">Malmö Stadsbibliotek</span><span class="ctm">08:30–20</span></div></div>
+          <div class="cd m" onclick="openGuide('malmo','attr-malmo-culture')"><div class="ch"><span class="ci">📚</span><span class="cn">Malmö Stadsbibliotek</span><span class="ctm">08:30–20</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli o"><div class="dot"></div>
           <div class="cd"><div class="ch"><span class="ci">🌉</span><span class="cn">Öresundsbron Viewpoint</span></div>
@@ -593,7 +594,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           <div class="dd">Olafur Eliasson 設計的圓形橋</div></div>
         </div>
         <div class="tli"><div class="dot"></div>
-          <div class="cd w"><div class="ch"><span class="ci">⛪</span><span class="cn">Vor Frelsers Kirke 登螺旋尖塔</span></div>
+          <div class="cd w" onclick="openGuide('copenhagen','attr-vorfrelsers')"><div class="ch"><span class="ci">⛪</span><span class="cn">Vor Frelsers Kirke 登螺旋尖塔</span><span class="cgo">›</span></div>
           <div class="dd"><a href="https://billetto.dk/en/e/vor-frelsers-kirkes-tarn-2026-the-tower-of-our-saviour-s-church-2026-billetter-1776929">→ 預約登塔</a></div>
           <div class="bgs"><span class="bg bw">⚠️ 需預約</span></div></div>
         </div>
@@ -619,7 +620,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           <div class="dd"><a href="https://maps.app.goo.gl/BeozbtHt4Rp73DsS9">→ Google Map</a> · 📞 +45(0)33559900</div></div>
         </div>
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">🌲</span><span class="cn">Camp Adventure 森林瞭望塔</span><span class="ctm">10–18</span></div>
+          <div class="cd" onclick="openGuide('copenhagen','attr-campadventure')"><div class="ch"><span class="ci">🌲</span><span class="cn">Camp Adventure 森林瞭望塔</span><span class="ctm">10–18</span><span class="cgo">›</span></div>
           <div class="dd">🚗 車程約 1 小時 · 走完約 2 小時</div>
           <div class="bgs"><span class="bg bp">200 DKK 含停車</span><span class="bg bt">72hr前 185 DKK</span></div>
           <div class="dd" style="margin-top:5px"><a href="https://join.campadventure.dk/tick1.php">→ 立即預約</a></div></div>
@@ -648,7 +649,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       </div>
       <div class="tl">
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">📖</span><span class="cn">HC Andersens Hus</span><span class="ctm">10:00–10:30</span></div>
+          <div class="cd m" onclick="openGuide('odense','attr-andersens')"><div class="ch"><span class="ci">📖</span><span class="cn">HC Andersens Hus</span><span class="ctm">10:00–10:30</span><span class="cgo">›</span></div>
           <div class="bgs"><span class="bg bk">✓ 已預約</span></div></div>
         </div>
         <div class="tli"><div class="dot"></div>
@@ -682,7 +683,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       </div>
       <div class="tl">
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">🌈</span><span class="cn">ARoS Aarhus Art Museum</span></div>
+          <div class="cd m" onclick="openGuide('aarhus','attr-aros')"><div class="ch"><span class="ci">🌈</span><span class="cn">ARoS Aarhus Art Museum</span><span class="cgo">›</span></div>
           <div class="dd">Your Rainbow Panorama · Olafur Eliasson</div></div>
         </div>
         <div class="tli m"><div class="dot"></div>
@@ -703,7 +704,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="tl">
         <div class="tli t"><div class="dot"></div><div class="cd t"><div class="ch"><span class="ci">🚗</span><span class="cn">自駕 Aarhus → Billund</span></div><div class="dd">約 1.5 小時</div></div></div>
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">🧱</span><span class="cn">LEGO House</span><span class="ctm">12:00–12:30</span></div>
+          <div class="cd m" onclick="openGuide('aarhus','attr-lego')"><div class="ch"><span class="ci">🧱</span><span class="cn">LEGO House</span><span class="ctm">12:00–12:30</span><span class="cgo">›</span></div>
           <div class="bgs"><span class="bg bk">✓ PIN: ALBK66</span></div></div>
         </div>
         <div class="tli t"><div class="dot"></div>
@@ -914,12 +915,56 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
         <div class="ht">旅遊指南</div>
         <div class="hdate">點選下方進入各指南</div>
       </div>
+      <div onclick="openGuide('copenhagen')" style="cursor:pointer">
+        <div class="gs" style="border-left:2.5px solid #C60C30;margin-bottom:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div class="gtl" style="margin-bottom:4px;color:#C60C30">🇩🇰 哥本哈根 København 旅遊指南</div>
+              <div style="font-size:11px;color:var(--tm)">設計博物館 · 星型堡壘 · 救主堂 · Louisiana · Camp Adventure</div>
+            </div>
+            <div style="color:#C60C30;font-size:18px;margin-left:12px">›</div>
+          </div>
+        </div>
+      </div>
+      <div onclick="openGuide('malmo')" style="cursor:pointer">
+        <div class="gs" style="border-left:2.5px solid var(--a3);margin-bottom:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div class="gtl" style="margin-bottom:4px;color:var(--a3)">🇸🇪 馬爾摩 Malmö 旅遊指南</div>
+              <div style="font-size:11px;color:var(--tm)">建築景點 · 舊城區 · 文化空間 · 設計 · 交通</div>
+            </div>
+            <div style="color:var(--a3);font-size:18px;margin-left:12px">›</div>
+          </div>
+        </div>
+      </div>
+      <div onclick="openGuide('odense')" style="cursor:pointer">
+        <div class="gs" style="border-left:2.5px solid #C60C30;margin-bottom:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div class="gtl" style="margin-bottom:4px;color:#C60C30">🇩🇰 歐登塞 Odense 旅遊指南</div>
+              <div style="font-size:11px;color:var(--tm)">安徒生博物館 · 童年故居 · 城市散步</div>
+            </div>
+            <div style="color:#C60C30;font-size:18px;margin-left:12px">›</div>
+          </div>
+        </div>
+      </div>
+      <div onclick="openGuide('aarhus')" style="cursor:pointer">
+        <div class="gs" style="border-left:2.5px solid #C60C30;margin-bottom:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div class="gtl" style="margin-bottom:4px;color:#C60C30">🇩🇰 奧胡斯 Aarhus 旅遊指南</div>
+              <div style="font-size:11px;color:var(--tm)">ARoS 美術館 · LEGO House（近郊比隆）</div>
+            </div>
+            <div style="color:#C60C30;font-size:18px;margin-left:12px">›</div>
+          </div>
+        </div>
+      </div>
       <div onclick="openGuide('stockholm')" style="cursor:pointer">
         <div class="gs" style="border-left:2.5px solid var(--a);margin-bottom:8px">
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div>
               <div class="gtl" style="margin-bottom:4px">🇸🇪 Hwa & Johan 的斯德哥爾摩指南</div>
-              <div style="font-size:11px;color:var(--tm)">餐廳 · Café · 冰淇淋 · Bar · 購物 · 家具 · 半日遊</div>
+              <div style="font-size:11px;color:var(--tm)">船島美術館 · 餐廳 · Café · Bar · 購物 · 家具 · 半日遊</div>
             </div>
             <div style="color:var(--a);font-size:18px;margin-left:12px">›</div>
           </div>
@@ -936,16 +981,42 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           </div>
         </div>
       </div>
-      <div onclick="openGuide('malmo')" style="cursor:pointer">
-        <div class="gs" style="border-left:2.5px solid var(--a3)">
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <div>
-              <div class="gtl" style="margin-bottom:4px;color:var(--a3)">🇸🇪 馬爾摩 Malmö 旅遊指南</div>
-              <div style="font-size:11px;color:var(--tm)">建築景點 · 舊城區 · 文化空間 · 設計 · 交通</div>
-            </div>
-            <div style="color:var(--a3);font-size:18px;margin-left:12px">›</div>
-          </div>
-        </div>
+    </div>
+
+    <!-- ══ GUIDE: COPENHAGEN ══ -->
+    <div class="pg" id="p-guide-copenhagen">
+      <div class="back-bar">
+        <div class="back-btn" onclick="openGuide('index')">‹ 返回指南</div>
+      </div>
+      <div class="hero" style="--glow:rgba(198,12,48,.15)">
+        <div class="hd">COPENHAGEN GUIDE</div>
+        <div class="ht">哥本哈根<br>旅遊指南</div>
+        <div class="hdate">設計、運河與星型堡壘 · D2–D6</div>
+        <div class="htags"><div class="htag">🇩🇰 丹麥</div><div class="htag">5/24–5/29</div></div>
+      </div>
+      <div class="gs">
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0 0 10px">哥本哈根是丹麥首都，人口約 65 萬，大哥本哈根區逾 130 萬。城市座落於西蘭島東岸，與瑞典馬爾摩隔厄勒海峽相望。自 12 世紀漁村起家，1417 年成為丹麥王室駐地後，逐步發展為北海貿易要地。</p>
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0">20 世紀後期，哥本哈根以單車基礎建設、永續設計與「hygge」生活哲學享譽國際。市區紅磚屋頂、運河與星型堡壘是不變的城市骨架；近年新港改造、Superkilen 公園與 CopenHill 滑雪屋頂發電廠等專案，則展現它持續以設計回應公共空間的當代姿態。</p>
+      </div>
+      <div class="gs" id="attr-designmuseum"><div class="gtl">🏛️ Designmuseum Danmark 丹麥設計博物館</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">📅 5/25 特別開放 10:00–18:00 · ⏱ 建議 1.5–2 小時</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">館藏聚焦丹麥設計黃金時代——Arne Jacobsen、Hans Wegner、Poul Henningsen 等戰後設計師的原版作品為核心收藏。展覽脈絡呈現 1950 年代起，丹麥如何將包浩斯現代主義精神融入傳統木作工藝，發展出兼具實用與極簡的「丹麥現代風格」，影響全球家具與工業設計至今。</div>
+      </div>
+      <div class="gs" id="attr-kastellet"><div class="gtl">⭐ Kastellet + Den Lille Havfrue 星型堡壘 + 小美人魚</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🕕 堡壘 06:00–20:00 · 🚲 適合搭配水上巴士或 Donkey Republic 單車</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">17 世紀由國王克里斯蒂安四世下令建造，從空中俯瞰呈五角星型，是北歐保存最完整的星型堡壘之一。冷戰結束後逐漸轉為市民公園，成為哥本哈根晨跑與野餐的去處。堡壘外的水畔即是 1913 年立起的小美人魚雕像，紀念安徒生 1837 年的同名童話，至今仍是丹麥最具識別性的文化符號。</div>
+      </div>
+      <div class="gs" id="attr-vorfrelsers"><div class="gtl">⛪ Vor Frelsers Kirke 救主堂</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🎫 登塔須事先網路預約 · ⏱ 建議 1 小時 · ⚠️ 強風大雨可能關閉</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1752 年完工的巴洛克教堂，最大特色是塔頂外側那條盤旋上升的金銅色螺旋樓梯，由 400 階組成，逆時針盤旋至 90 公尺高處。設計者 Lauritz de Thurah 將樓梯外露於塔身之上，是歐洲少見的結構手法。登頂後可俯瞰哥本哈根紅磚屋頂與運河格局，視野涵蓋整座舊城。</div>
+      </div>
+      <div class="gs" id="attr-louisiana"><div class="gtl">🚆 近郊：Louisiana Museum of Modern Art 路易斯安那現代美術館</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🚆 中央車站 → Humlebæk 約 24–30 分鐘，單程 48–64 DKK · 🕚 11:00–22:00</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1958 年由收藏家 Knud W. Jensen 創立，地址原為一棟 19 世紀莊園。建築師 Jørgen Bo 與 Vilhelm Wohlert 以低調玻璃迴廊串聯展廳，將藝術、建築、自然三者融為一體。展廳順著海岸地形蜿蜒，戶外雕塑公園面向厄勒海峽，常被列為「世界最美美術館」名單之一。</div>
+      </div>
+      <div class="gs" id="attr-campadventure"><div class="gtl">🌲 近郊：Camp Adventure Forest Tower 森林觀景塔</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🚗 自駕約 1 小時 · 🕙 10:00–18:00 · 💰 現場 200 DKK / 72 小時前線上 185 DKK · ⏱ 步道+登塔約 2 小時</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">2019 年落成，由丹麥事務所 EFFEKT 設計，塔身呈沙漏狀、高 45 公尺，全程無階梯坡道盤旋上升，方便輪椅與嬰兒車通行。塔身位於 Gisselfeld Klosters Skove 自然保護區內，登頂可 360 度俯瞰丹麥南部的森林與起伏地貌，是近年最具話題的環保景觀建築之一。</div>
       </div>
     </div>
 
@@ -957,6 +1028,10 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="hero" style="--glow:rgba(0,106,167,.15)">
         <div class="hd">STOCKHOLM GUIDE</div><div class="ht">Hwa & Johan 的斯德哥爾摩指南</div>
         <div class="hdate">📞 Hwa +46 702605672 · Johan +46 705589804</div>
+      </div>
+      <div class="gs" id="attr-skeppsholmen"><div class="gtl">🎨 Skeppsholmen 船島：Moderna Museet + ArkDes</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🕙 10:00–20:00 · 位於船島（Skeppsholmen）</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">Moderna Museet 1958 年成立，藏有畢卡索、達利、Rauschenberg 與北歐戰後重要藝術家作品；隔壁的 ArkDes（瑞典國立建築與設計中心）則以「人民之家」社會住宅、Bruno Mathsson、Sigurd Lewerentz 等檔案為核心，展現瑞典 20 世紀的城市規劃與設計脈絡。船島本身為 17 世紀海軍基地遺址，建築群多為紅磚與木構造，與展館呼應。館內咖啡廳的落地窗正對 Gamla Stan 舊城天際線，是經典的午後 fika 點。</div>
       </div>
       <div class="gs"><div class="gtl">🚇 交通</div>
         <div class="gi"><div class="gd"></div><div class="gtx">SL App 可買 3 天票，或直接刷信用卡 / Apple Pay</div></div>
@@ -1064,16 +1139,23 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
         <div class="hdate">從哥本哈根出發的創意之都 · D5</div>
         <div class="htags"><div class="htag">🇸🇪 瑞典</div><div class="htag">Kbh H → Malmö C 約 35 min</div></div>
       </div>
-      <div class="gs"><div class="gtl">🏗️ 現代建築 · 新開發區 Västra Hamnen</div>
+      <div class="gs">
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0 0 10px">馬爾摩是瑞典第三大城市，人口約 35 萬，位於斯堪尼亞省最南端。2000 年，全長近 8 公里的厄勒松大橋通車，將馬爾摩與丹麥哥本哈根相連，車程縮短至 35 分鐘，徹底改變這座城市的區位角色。</p>
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0">在此之前，馬爾摩長期仰賴造船業——Kockums 船廠鼎盛時期雇用逾萬名工人，是全球最大的船塢之一。1980 年代船廠相繼關閉後，城市陷入衰退，失業率一度攀升至兩位數。此後二十年，馬爾摩以大規模都市更新為策略，在廢棄碼頭上建起新開發區 Västra Hamnen，並於 2005 年落成 190 公尺的地標建築 Turning Torso。這段從工業重鎮到設計之都的轉型，已成為歐洲城市再生的標準案例之一。</p>
+      </div>
+      <div class="gs" id="attr-malmo-modern"><div class="gtl">🏗️ 現代建築 · 新開發區 Västra Hamnen</div>
+        <div style="font-size:12.5px;line-height:1.7;color:var(--tm);margin:4px 0 10px">Västra Hamnen 的開發始於 1990 年代末，最初作為 2001 年歐洲住宅博覽會的示範基地。Santiago Calatrava 設計的 Turning Torso 以人體脊椎為靈感，高 190 公尺、共 54 層，建成時為北歐最高建築，至今仍是馬爾摩最具識別性的城市符號。</div>
         <div class="gi"><div class="gd"></div><div class="gtx"><strong>Turning Torso</strong> — Santiago Calatrava 設計，高 190 公尺扭轉型摩天大樓，馬爾摩最標誌性地標</div></div>
         <div class="gi"><div class="gd"></div><div class="gtx"><strong>Ohboy Hotell</strong> — 設計感飯店，部分客房備有腳踏車租借 · Lilla Varvsgatan 24</div></div>
       </div>
-      <div class="gs"><div class="gtl">🏛️ 歷史舊城區 Gamla Staden</div>
+      <div class="gs" id="attr-malmo-old"><div class="gtl">🏛️ 歷史舊城區 Gamla Staden</div>
+        <div style="font-size:12.5px;line-height:1.7;color:var(--tm);margin:4px 0 10px">Gamla Staden 保存了馬爾摩中世紀以來的城市骨架。Stortorget 大廣場建於 16 世紀，周圍環繞市政廳與聖彼得教堂；Apoteket Lejonet 藥局創立於 1571 年，是瑞典現存最古老的藥局之一，新文藝復興式木飾至今完好如初。</div>
         <div class="gi"><div class="gd"></div><div class="gtx"><strong>Stortorget 大廣場</strong> — 鄰近市政廳與聖彼得教堂，周邊 16 世紀歷史建築環繞</div></div>
         <div class="gi"><div class="gd"></div><div class="gtx"><strong>Apoteket Lejonet 獅子藥局</strong> — 創業於 1571 年，瑞典最古老藥局之一，新文藝復興風格木飾精緻 · Stortorget 8</div></div>
         <div class="gi"><div class="gd"></div><div class="gtx"><strong>Lilla Torg 小廣場</strong> — 鵝卵石廣場，周圍半木結構建築，歷史氛圍濃厚</div></div>
       </div>
-      <div class="gs"><div class="gtl">🎨 文化 · 藝術 · 創意空間</div>
+      <div class="gs" id="attr-malmo-culture"><div class="gtl">🎨 文化 · 藝術 · 創意空間</div>
+        <div style="font-size:12.5px;line-height:1.7;color:var(--tm);margin:4px 0 10px">馬爾摩近年積極以文化產業為都市轉型引擎。市立圖書館由丹麥建築師 Henning Larsen 設計，以「光之日曆」玻璃帷幕聞名；Form/Design Center 設於 Lilla Torg 古建築內，長年展示北歐工藝與當代設計，是了解馬爾摩設計脈絡的入口。</div>
         <div class="gi"><div class="gd"></div><div class="gtx"><strong>Form/Design Center</strong> — Lilla Torg 附近古建築內，北歐設計與工藝展示，設有藝文書店與選物店 · Lilla torg 9</div></div>
         <div class="gi"><div class="gd"></div><div class="gtx"><strong>Malmö Stadsbibliotek 圖書館</strong> — Henning Larsen 設計，玻璃帷幕「光之日曆」區域可俯瞰綠地，景色優美</div></div>
         <div class="gi"><div class="gd"></div><div class="gtx"><strong>Disgusting Food Museum 不潔食物博物館</strong> — 展出世界各地奇特飲食，視覺與嗅覺衝擊體驗 · Södra Förstadsgatan 2</div></div>
@@ -1087,6 +1169,52 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="gs"><div class="gtl">🚆 交通</div>
         <div class="gi"><div class="gd"></div><div class="gtx">København H → Malmö C 約 35 分鐘</div></div>
         <div class="gi"><div class="gd"></div><div class="gtx">購票：<a href="https://www.oresundstag.se">→ oresundstag.se</a>　D5 去程 161 SEK</div></div>
+      </div>
+    </div>
+
+    <!-- ══ GUIDE: ODENSE ══ -->
+    <div class="pg" id="p-guide-odense">
+      <div class="back-bar">
+        <div class="back-btn" onclick="openGuide('index')">‹ 返回指南</div>
+      </div>
+      <div class="hero" style="--glow:rgba(198,12,48,.13)">
+        <div class="hd">ODENSE GUIDE</div>
+        <div class="ht">歐登塞<br>旅遊指南</div>
+        <div class="hdate">安徒生的故鄉 · D7</div>
+        <div class="htags"><div class="htag">🇩🇰 丹麥</div><div class="htag">5/29–5/30</div></div>
+      </div>
+      <div class="gs">
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0 0 10px">歐登塞是丹麥第三大城市，人口約 18 萬，位於菲英島中央，介於哥本哈根與日德蘭半島之間。1988 年慶祝建城千年，是丹麥歷史最悠久的城市之一。城市最廣為人知的身分，是童話作家 H.C. Andersen（安徒生）1805 年的出生地——他的故居、童年生活遺跡與相關地名構成這座城市的文化主軸。</p>
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0">近年歐登塞透過機器人科技與輕軌系統推動產業轉型，但市中心仍維持中世紀街區與彩色木構建築的紋理。河岸步道、植物園與 H.C. Andersens Hus 串連起來，形成適合慢步調探索的城市尺度。</p>
+      </div>
+      <div class="gs" id="attr-andersens"><div class="gtl">📚 H.C. Andersens Hus 安徒生博物館</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🎫 預約 10:00–10:30 入場 · 含童年故居 H.C. Andersens Barndomshjem</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">2021 年由日本建築師隈研吾操刀重新設計開幕。新館以低矮、半地下的有機曲線量體散落於花園地景中，展廳如樹籬迷宮般交錯，刻意打破傳統博物館的線性敘事。內部以光影、聲音與互動裝置重現《醜小鴨》、《賣火柴的小女孩》等經典童話的場景與情緒；並透過手稿、信件與生平文物，呈現安徒生從鞋匠之子到歐洲文壇巨星的軌跡。</div>
+      </div>
+    </div>
+
+    <!-- ══ GUIDE: AARHUS ══ -->
+    <div class="pg" id="p-guide-aarhus">
+      <div class="back-bar">
+        <div class="back-btn" onclick="openGuide('index')">‹ 返回指南</div>
+      </div>
+      <div class="hero" style="--glow:rgba(198,12,48,.15)">
+        <div class="hd">AARHUS GUIDE</div>
+        <div class="ht">奧胡斯<br>旅遊指南</div>
+        <div class="hdate">日德蘭半島的文化首府 · D8–D10</div>
+        <div class="htags"><div class="htag">🇩🇰 丹麥</div><div class="htag">5/30–6/1</div></div>
+      </div>
+      <div class="gs">
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0 0 10px">奧胡斯是丹麥第二大城市，人口約 35 萬，位於日德蘭半島東岸，是該半島最大的都會區。城市起源可追溯至維京時代，1441 年獲頒城市特許狀，是丹麥最古老的城市之一。</p>
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0">21 世紀以來，奧胡斯以大學城與文化政策著稱：奧胡斯大學是北歐重要的研究機構之一，2017 年獲選為歐洲文化之都。市中心 ARoS 美術館、港邊由 schmidt hammer lassen 設計的 Dokk1 圖書館，與舊城 Den Gamle By 露天博物館形成新舊對照，是丹麥當代設計與歷史並陳最完整的城市之一。</p>
+      </div>
+      <div class="gs" id="attr-aros"><div class="gtl">🌈 ARoS Aarhus Kunstmuseum 奧胡斯美術館</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🎨 必看：頂樓 Your Rainbow Panorama</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">2004 年開幕，由 schmidt hammer lassen 設計。建築量體分為九層，內部空間概念取自但丁《神曲》——從地下室「九圈地獄」的當代沉浸式裝置，到頂樓由冰島裔丹麥籍藝術家 Olafur Eliasson 創作的《Your Rainbow Panorama》（2011）。這條長 150 公尺的環形玻璃步道以紅橙黃綠藍紫漸層染色，讓奧胡斯天際線在不同色光下展現完全不同的城市面貌。</div>
+      </div>
+      <div class="gs" id="attr-lego"><div class="gtl">🧱 LEGO House 樂高之家（近郊 Billund）</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🎫 須憑預約 PIN code 入場（行程：D10 12:00–12:30）</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">2017 年由丹麥建築事務所 BIG 設計開幕，外觀以 21 塊巨型樂高積木錯落堆疊而成，量體本身即是品牌的具象化宣言。比隆是樂高 1932 年的創業地，集團總部至今仍在當地。館內以紅、藍、綠、黃四個體驗區劃分，從幾何拼搭、機械結構到敘事創作，呈現樂高從木製玩具到全球設計教育品牌的演化歷程。</div>
       </div>
     </div>
 
@@ -1177,19 +1305,38 @@ function go(id, el) {
   document.getElementById('scroll').scrollTop = 0;
 }
 
-function openGuide(sub) {
+function openGuide(sub, anchor) {
   document.querySelectorAll('.pg').forEach(p => p.classList.remove('on'));
   document.querySelectorAll('.bi').forEach(n => n.classList.remove('on'));
   var navEl = document.getElementById('nav-guide');
   if (navEl) navEl.classList.add('on');
   document.getElementById('tabs').style.display = 'none';
-  var target = (sub === 'index') ? 'p-guide'
-             : (sub === 'stockholm') ? 'p-guide-stockholm'
-             : (sub === 'malmo') ? 'p-guide-malmo'
-             : 'p-guide-bkk';
+  var map = {
+    'index': 'p-guide',
+    'stockholm': 'p-guide-stockholm',
+    'malmo': 'p-guide-malmo',
+    'copenhagen': 'p-guide-copenhagen',
+    'odense': 'p-guide-odense',
+    'aarhus': 'p-guide-aarhus',
+    'bkk': 'p-guide-bkk'
+  };
+  var target = map[sub] || 'p-guide';
   var p = document.getElementById(target);
   if (p) p.classList.add('on');
-  document.getElementById('scroll').scrollTop = 0;
+  var sc = document.getElementById('scroll');
+  sc.scrollTop = 0;
+  if (anchor) {
+    setTimeout(function() {
+      var a = document.getElementById(anchor);
+      if (a) {
+        var top = a.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop - 12;
+        sc.scrollTo({ top: top, behavior: 'smooth' });
+        a.style.transition = 'box-shadow .4s';
+        a.style.boxShadow = '0 0 0 2px var(--a)';
+        setTimeout(function(){ a.style.boxShadow = ''; }, 1500);
+      }
+    }, 80);
+  }
 }
 
 function navSw(nav, page) {
