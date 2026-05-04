@@ -1381,6 +1381,37 @@ function navSw(nav, page) {
     console.log('[adjust] not yet implemented for', cardId);
   }
 
+  // === Apply moved ===
+  function applyMoved(state) {
+    var moves = [];
+    Object.keys(state.cards).forEach(function(cardId) {
+      var entry = state.cards[cardId];
+      if (entry && entry.moved) {
+        moves.push({ cardId: cardId, toDay: entry.moved.toDay, index: entry.moved.index });
+      }
+    });
+    moves.sort(function(a, b) {
+      if (a.toDay !== b.toDay) return a.toDay < b.toDay ? -1 : 1;
+      return a.index - b.index;
+    });
+
+    moves.forEach(function(m) {
+      var card = document.querySelector('.cd[data-card-id="' + m.cardId + '"]');
+      if (!card) return;
+      var tli = card.closest('.tli');
+      if (!tli) return;
+      var targetPg = document.getElementById('p-' + m.toDay);
+      if (!targetPg) return;
+      var tls = targetPg.querySelectorAll('.tl');
+      var targetTl = tls[tls.length - 1];
+      if (!targetTl) return;
+      var existing = targetTl.querySelectorAll(':scope > .tli');
+      var insertBefore = existing[m.index] || null;
+      if (insertBefore) targetTl.insertBefore(tli, insertBefore);
+      else targetTl.appendChild(tli);
+    });
+  }
+
   // === Apply state ===
   function applyVisualState(state) {
     // Clear all existing visual state first (idempotent)
@@ -1408,12 +1439,13 @@ function navSw(nav, page) {
   function init() {
     indexAllCards();
     var state = load();
+    applyMoved(state);
     applyVisualState(state);
 
     document.querySelectorAll('.cd[data-card-id]').forEach(attachLongPress);
     document.addEventListener('click', handlePopoverClick, true);
 
-    window.__cardState = { load: load, save: save, hash: hash, applyVisualState: applyVisualState };
+    window.__cardState = { load: load, save: save, hash: hash, applyVisualState: applyVisualState, applyMoved: applyMoved };
   }
 
   init();
