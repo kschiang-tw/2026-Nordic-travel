@@ -1381,6 +1381,7 @@ function navSw(nav, page) {
   var activeCard = null;
   var pressTimer = null;
   var pressMoved = false;
+  var popoverScrollHandler = null;
 
   function getPopover() {
     if (!popover) popover = document.getElementById('card-popover');
@@ -1412,11 +1413,24 @@ function navSw(nav, page) {
     pop.style.top = (window.scrollY + rect.top - pop.offsetHeight - 6) + 'px';
     pop.style.left = (window.scrollX + rect.right - pw) + 'px';
     activeCard = card;
+
+    if (popoverScrollHandler) {
+      var prevSc = document.getElementById('scroll');
+      if (prevSc) prevSc.removeEventListener('scroll', popoverScrollHandler);
+    }
+    popoverScrollHandler = function() { hidePopover(); };
+    var sc = document.getElementById('scroll');
+    if (sc) sc.addEventListener('scroll', popoverScrollHandler, { once: true });
   }
 
   function hidePopover() {
     if (popover) popover.hidden = true;
     activeCard = null;
+    if (popoverScrollHandler) {
+      var sc = document.getElementById('scroll');
+      if (sc) sc.removeEventListener('scroll', popoverScrollHandler);
+      popoverScrollHandler = null;
+    }
   }
 
   function setCardState(card, newState) {
