@@ -186,6 +186,111 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
 .day-wx-temp { font-size:14px; font-weight:600; }
 .day-wx-range { font-size:11px; color:var(--tm); }
 .day-wx-na { font-size:11px; color:var(--tm); flex:1; }
+
+/* ── CARD STATE ── */
+.cd.is-done { opacity:.55; border-left:2.5px solid #5cb85c !important; background:rgba(80,180,80,.06); }
+.cd.is-skip { opacity:.45; border-left:2.5px solid #d9534f !important; background:rgba(180,80,80,.06); }
+.cd.is-skip .cn { text-decoration:line-through; }
+.state-badge { font-size:10px; padding:2px 7px; border-radius:8px; font-weight:600; margin-left:auto; flex-shrink:0; }
+.state-badge.s-done { background:rgba(80,180,80,.2); color:#5cb85c; border:1px solid rgba(80,180,80,.35); }
+.state-badge.s-skip { background:rgba(180,80,80,.2); color:#d9534f; border:1px solid rgba(180,80,80,.35); }
+
+/* ── POPOVER ── */
+.card-popover {
+  position:absolute; z-index:100;
+  background:#252840; border:1px solid #3a3d55; border-radius:12px;
+  padding:5px; display:flex; gap:4px;
+  box-shadow:0 6px 20px rgba(0,0,0,.5);
+  font-family:inherit;
+}
+.card-popover[hidden] { display:none; }
+.cpb {
+  display:flex; align-items:center; gap:4px;
+  font-size:12px; padding:7px 10px; border-radius:8px;
+  cursor:pointer; user-select:none; color:#e0e0e0;
+  background:transparent; border:none;
+}
+.cpb:hover, .cpb:active { background:#3a3d55; }
+.cpb.cpb-done { color:#7ed882; }
+.cpb.cpb-adjust { color:#f0a030; }
+.cpb.cpb-skip { color:#e57373; }
+.cpb.cpb-restore { color:#aaa; }
+.cd.is-pressing { transform:scale(.97); transition:transform .1s; user-select:none; -webkit-user-select:none; }
+
+/* ── ADJUST MODAL ── */
+.adjust-modal { position:fixed; inset:0; z-index:200; }
+.adjust-modal[hidden] { display:none; }
+.am-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.55); }
+.am-panel {
+  position:absolute; left:0; right:0; bottom:0;
+  background:var(--bg); border-top-left-radius:18px; border-top-right-radius:18px;
+  max-height:85vh; display:flex; flex-direction:column;
+  padding:14px 14px 24px;
+  border-top:1px solid var(--bd);
+}
+.am-header { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.am-back { background:none; border:none; color:var(--a); font-size:14px; cursor:pointer; padding:4px 8px; }
+.am-back[hidden] { display:none; }
+.am-title { font-size:14px; font-weight:600; flex:1; }
+.am-close { background:none; border:none; color:var(--tm); font-size:18px; cursor:pointer; padding:4px 8px; }
+.am-body { overflow-y:auto; flex:1; }
+.am-day {
+  display:flex; align-items:center; gap:10px;
+  padding:11px 12px; margin-bottom:6px;
+  background:var(--sf); border:1px solid var(--bd); border-radius:11px;
+  cursor:pointer;
+}
+.am-day:active { background:var(--sf2); }
+.am-day-no { font-size:11px; font-weight:700; color:var(--tm); letter-spacing:1px; }
+.am-day-info { flex:1; }
+.am-day-city { font-size:13px; font-weight:500; }
+.am-day-date { font-size:11px; color:var(--tm); margin-top:1px; }
+.insert-point {
+  height:30px; display:flex; align-items:center; justify-content:center;
+  font-size:11px; color:var(--a); cursor:pointer;
+  border:1px dashed rgba(95,176,207,.3); border-radius:8px;
+  margin:4px 0; background:rgba(95,176,207,.04);
+}
+.insert-point:hover, .insert-point:active { background:rgba(95,176,207,.15); border-style:solid; }
+.am-existing {
+  padding:8px 11px; background:var(--sf); border:1px solid var(--bd); border-radius:10px;
+  font-size:12px; color:var(--tm);
+  display:flex; align-items:center; gap:6px;
+}
+.am-existing.is-target { outline:2px solid var(--a2); }
+
+/* ── SETTINGS ── */
+.settings-btn {
+  background:var(--sf); border:1px solid var(--bd); border-radius:50%;
+  width:32px; height:32px; cursor:pointer;
+  display:grid; place-items:center;
+  font-size:15px; color:var(--tm);
+  margin-left:6px;
+}
+.settings-btn:active { background:var(--sf2); }
+
+.settings-modal { position:fixed; inset:0; z-index:200; }
+.settings-modal[hidden] { display:none; }
+.sm-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.55); }
+.sm-panel {
+  position:absolute; left:14px; right:14px; top:50%; transform:translateY(-50%);
+  background:var(--bg); border:1px solid var(--bd); border-radius:14px;
+  padding:18px;
+}
+.sm-title { font-size:15px; font-weight:600; margin-bottom:12px; }
+.sm-row { margin-bottom:10px; }
+.sm-btn {
+  width:100%; padding:11px; border-radius:10px;
+  background:var(--sf); border:1px solid var(--bd); color:var(--tx);
+  font-size:13px; font-weight:500; cursor:pointer;
+  display:flex; align-items:center; gap:8px; justify-content:center;
+}
+.sm-btn:active { background:var(--sf2); }
+.sm-note { font-size:11px; color:var(--tm); margin-top:6px; line-height:1.5; }
+.sm-close {
+  background:none; border:none; color:var(--tm); font-size:14px; cursor:pointer;
+  display:block; margin:8px auto 0;
+}
 </style>
 </head>
 <body>
@@ -201,6 +306,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="flags">
         <div class="flag">🇹🇭</div><div class="flag">🇩🇰</div><div class="flag">🇸🇪</div>
       </div>
+      <button class="settings-btn" id="btn-settings" aria-label="設定">⚙️</button>
     </div>
     <div class="tabs" id="tabs">
       <div class="tb on" onclick="go('overview',this)">總覽</div>
@@ -1157,6 +1263,35 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
 
 </div><!-- /shell -->
 
+<div id="card-popover" class="card-popover" hidden></div>
+<div id="adjust-modal" class="adjust-modal" hidden>
+  <div class="am-backdrop" data-am-close></div>
+  <div class="am-panel">
+    <div class="am-header">
+      <button class="am-back" data-am-back hidden>← 返回</button>
+      <div class="am-title">移到哪一天？</div>
+      <button class="am-close" data-am-close>✕</button>
+    </div>
+    <div class="am-body"></div>
+  </div>
+</div>
+<div id="settings-modal" class="settings-modal" hidden>
+  <div class="sm-backdrop" data-sm-close></div>
+  <div class="sm-panel">
+    <div class="sm-title">設定 / 備份</div>
+    <div class="sm-row">
+      <button class="sm-btn" id="btn-export">📤 匯出備份</button>
+      <div class="sm-note">下載目前所有卡片狀態為 JSON 檔。可儲存到 iCloud / Google Drive 作為備份。</div>
+    </div>
+    <div class="sm-row">
+      <button class="sm-btn" id="btn-import">📥 匯入備份</button>
+      <input type="file" id="import-file" accept=".json,application/json" hidden>
+      <div class="sm-note">從 JSON 備份還原狀態（會覆蓋目前資料）。</div>
+    </div>
+    <button class="sm-close" data-sm-close>關閉</button>
+  </div>
+</div>
+
 <script>
 function go(id, el) {
   document.querySelectorAll('.pg').forEach(p => p.classList.remove('on'));
@@ -1320,6 +1455,460 @@ function navSw(nav, page) {
       hero.insertAdjacentElement('afterend', bar);
     });
   }).catch(function() { /* 靜默失敗，不影響主要內容 */ });
+})();
+
+// ── 卡片狀態管理 ──
+(function cardStateManager() {
+  var STORAGE_KEY = 'hygge2026-card-states';
+  var SCHEMA_VERSION = 1;
+
+  // === Storage ===
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return { version: SCHEMA_VERSION, updatedAt: null, cards: {} };
+      var data = JSON.parse(raw);
+      if (!data || data.version !== SCHEMA_VERSION || !data.cards) {
+        return { version: SCHEMA_VERSION, updatedAt: null, cards: {} };
+      }
+      return data;
+    } catch (e) {
+      console.warn('[cardState] load failed, resetting', e);
+      return { version: SCHEMA_VERSION, updatedAt: null, cards: {} };
+    }
+  }
+
+  function save(state) {
+    state.version = SCHEMA_VERSION;
+    state.updatedAt = new Date().toISOString();
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+      console.warn('[cardState] save failed', e);
+      alert('儲存失敗，可能是瀏覽器空間不足');
+    }
+  }
+
+  // === Card identity ===
+  // cyrb53 hash → base36, deterministic across sessions
+  function hash(str) {
+    var h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+    for (var i = 0; i < str.length; i++) {
+      var ch = str.charCodeAt(i);
+      h1 = Math.imul(h1 ^ ch, 2654435761);
+      h2 = Math.imul(h2 ^ ch, 1597334677);
+    }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507);
+    h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
+    h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    var n = 4294967296 * (2097151 & h2) + (h1 >>> 0);
+    return n.toString(36);
+  }
+
+  function generateCardId(dayId, cardName) {
+    return dayId + '-' + hash(cardName.trim());
+  }
+
+  function indexAllCards() {
+    var cards = document.querySelectorAll('.pg .tli > .cd');
+    cards.forEach(function(card) {
+      var pg = card.closest('.pg');
+      if (!pg || !pg.id || pg.id.indexOf('p-') !== 0) return;
+      var dayId = pg.id.slice(2); // 'p-d3' -> 'd3'
+      var cnEl = card.querySelector('.cn');
+      if (!cnEl) return;
+      card.setAttribute('data-card-id', generateCardId(dayId, cnEl.textContent));
+      card.setAttribute('data-origin-day', dayId);
+    });
+  }
+
+  // === Popover ===
+  var popover = null;
+  var activeCard = null;
+  var pressTimer = null;
+  var pressMoved = false;
+  var popoverScrollHandler = null;
+
+  function getPopover() {
+    if (!popover) popover = document.getElementById('card-popover');
+    return popover;
+  }
+
+  function showPopover(card) {
+    var pop = getPopover();
+    var cardId = card.dataset.cardId;
+    var state = load();
+    var entry = state.cards[cardId] || {};
+    var current = entry.state;
+
+    var buttons = '';
+    if (current === 'done' || current === 'skip') {
+      buttons += '<button class="cpb cpb-restore" data-action="restore">↩️ 還原</button>';
+      buttons += '<button class="cpb cpb-adjust" data-action="adjust">📅 調整</button>';
+    } else {
+      buttons += '<button class="cpb cpb-done" data-action="done">✅ 完成</button>';
+      buttons += '<button class="cpb cpb-adjust" data-action="adjust">📅 調整</button>';
+      buttons += '<button class="cpb cpb-skip" data-action="skip">🗑️ 放棄</button>';
+    }
+    pop.innerHTML = buttons;
+
+    // Position above the card, right-aligned
+    var rect = card.getBoundingClientRect();
+    pop.hidden = false;
+    var pw = pop.offsetWidth;
+    pop.style.top = (window.scrollY + rect.top - pop.offsetHeight - 6) + 'px';
+    pop.style.left = (window.scrollX + rect.right - pw) + 'px';
+    activeCard = card;
+
+    if (popoverScrollHandler) {
+      var prevSc = document.getElementById('scroll');
+      if (prevSc) prevSc.removeEventListener('scroll', popoverScrollHandler);
+    }
+    popoverScrollHandler = function() { hidePopover(); };
+    var sc = document.getElementById('scroll');
+    if (sc) sc.addEventListener('scroll', popoverScrollHandler, { once: true });
+  }
+
+  function hidePopover() {
+    if (popover) popover.hidden = true;
+    activeCard = null;
+    if (popoverScrollHandler) {
+      var sc = document.getElementById('scroll');
+      if (sc) sc.removeEventListener('scroll', popoverScrollHandler);
+      popoverScrollHandler = null;
+    }
+  }
+
+  function setCardState(card, newState) {
+    var state = load();
+    var cardId = card.dataset.cardId;
+    if (!state.cards[cardId]) state.cards[cardId] = {};
+    if (newState === null) {
+      delete state.cards[cardId].state;
+      if (Object.keys(state.cards[cardId]).length === 0) delete state.cards[cardId];
+    } else {
+      state.cards[cardId].state = newState;
+    }
+    save(state);
+    applyVisualState(state);
+  }
+
+  function attachLongPress(card) {
+    function start(e) {
+      if (e.target.closest('a, .chip')) return;
+      pressMoved = false;
+      card.classList.add('is-pressing');
+      pressTimer = setTimeout(function() {
+        card.classList.remove('is-pressing');
+        if (!pressMoved) showPopover(card);
+      }, 500);
+    }
+    function cancel() {
+      clearTimeout(pressTimer);
+      card.classList.remove('is-pressing');
+    }
+    function move() {
+      pressMoved = true;
+      cancel();
+    }
+    card.addEventListener('touchstart', start, { passive: true });
+    card.addEventListener('touchend', cancel);
+    card.addEventListener('touchmove', move, { passive: true });
+    card.addEventListener('mousedown', start);
+    card.addEventListener('mouseup', cancel);
+    card.addEventListener('mouseleave', cancel);
+  }
+
+  function handlePopoverClick(e) {
+    var pop = getPopover();
+    if (pop.hidden) return;
+    var btn = e.target.closest('.cpb');
+    if (btn && activeCard) {
+      var action = btn.dataset.action;
+      var card = activeCard;
+      hidePopover();
+      if (action === 'done') setCardState(card, 'done');
+      else if (action === 'skip') setCardState(card, 'skip');
+      else if (action === 'restore') setCardState(card, null);
+      else if (action === 'adjust') openAdjustModal(card.dataset.cardId);
+      e.stopPropagation();
+      return;
+    }
+    if (!e.target.closest('.card-popover') && !e.target.closest('.cd[data-card-id]')) {
+      hidePopover();
+    }
+  }
+
+  // === Adjust modal ===
+  var DAY_INFO = [
+    { id: 'd1',  city: '曼谷',       date: '5/23 週六' },
+    { id: 'd2',  city: '哥本哈根',    date: '5/24 週日' },
+    { id: 'd3',  city: '哥本哈根',    date: '5/25 週一' },
+    { id: 'd4',  city: '哥本哈根',    date: '5/26 週二' },
+    { id: 'd5',  city: '馬爾摩',      date: '5/27 週三' },
+    { id: 'd6',  city: '哥本哈根',    date: '5/28 週四' },
+    { id: 'd7',  city: '奧登塞',      date: '5/29 週五' },
+    { id: 'd8',  city: '奧登塞',      date: '5/30 週六' },
+    { id: 'd9',  city: '奧胡斯',      date: '5/31 週日' },
+    { id: 'd10', city: '比隆',       date: '6/1 週一' },
+    { id: 'd11', city: '斯德哥爾摩',  date: '6/2 週二' },
+    { id: 'd12', city: '斯德哥爾摩',  date: '6/3 週三' },
+    { id: 'd13', city: '斯德哥爾摩',  date: '6/4 週四' },
+    { id: 'd14', city: '斯德哥爾摩',  date: '6/5 週五' },
+    { id: 'd15', city: '斯德哥爾摩',  date: '6/6 週六' },
+    { id: 'd16', city: '曼谷',       date: '6/7 週日' }
+  ];
+
+  var modal = null;
+  var modalCardId = null;
+  var modalTargetDay = null;
+
+  function getModal() {
+    if (!modal) modal = document.getElementById('adjust-modal');
+    return modal;
+  }
+
+  function openAdjustModal(cardId) {
+    modalCardId = cardId;
+    modalTargetDay = null;
+    renderDayList();
+    getModal().hidden = false;
+  }
+
+  function closeAdjustModal() {
+    getModal().hidden = true;
+    modalCardId = null;
+  }
+
+  function renderDayList() {
+    var m = getModal();
+    m.querySelector('.am-title').textContent = '移到哪一天？';
+    m.querySelector('[data-am-back]').hidden = true;
+    var body = m.querySelector('.am-body');
+    body.innerHTML = '';
+    DAY_INFO.forEach(function(d, i) {
+      var row = document.createElement('div');
+      row.className = 'am-day';
+      var num = (i + 1 < 10) ? '0' + (i + 1) : '' + (i + 1);
+      row.innerHTML =
+        '<div class="am-day-no">DAY ' + num + '</div>' +
+        '<div class="am-day-info">' +
+          '<div class="am-day-city">' + d.city + '</div>' +
+          '<div class="am-day-date">' + d.date + '</div>' +
+        '</div>';
+      row.addEventListener('click', function() {
+        modalTargetDay = d.id;
+        renderInsertPoints(d.id);
+      });
+      body.appendChild(row);
+    });
+  }
+
+  function renderInsertPoints(targetDayId) {
+    var m = getModal();
+    m.querySelector('.am-title').textContent = '選擇插入位置';
+    m.querySelector('[data-am-back]').hidden = false;
+    var body = m.querySelector('.am-body');
+    body.innerHTML = '';
+
+    var pg = document.getElementById('p-' + targetDayId);
+    if (!pg) {
+      body.innerHTML = '<div style="padding:20px; color:var(--tm); text-align:center">找不到該天</div>';
+      return;
+    }
+    var tls = pg.querySelectorAll('.tl');
+    var tl = tls[tls.length - 1];
+    var items = tl ? tl.querySelectorAll(':scope > .tli') : [];
+
+    function makeInsertPoint(index) {
+      var ip = document.createElement('div');
+      ip.className = 'insert-point';
+      ip.textContent = '↓ 插入此處';
+      ip.addEventListener('click', function() {
+        performMove(modalCardId, targetDayId, index);
+      });
+      return ip;
+    }
+
+    function makeExistingItem(tli) {
+      var card = tli.querySelector(':scope > .cd');
+      var name = card && card.querySelector('.cn') ? card.querySelector('.cn').textContent : '(行程)';
+      var icon = card && card.querySelector('.ci') ? card.querySelector('.ci').textContent : '•';
+      var time = card && card.querySelector('.ctm') ? card.querySelector('.ctm').textContent : '';
+      var div = document.createElement('div');
+      div.className = 'am-existing';
+      var isTarget = card && card.dataset.cardId === modalCardId;
+      if (isTarget) div.classList.add('is-target');
+      div.innerHTML = '<span>' + icon + '</span><span style="flex:1">' + name + (isTarget ? ' <em style="color:var(--a2);font-style:normal;font-size:10px">（這張）</em>' : '') + '</span>' + (time ? '<span style="color:var(--a2);font-weight:600">' + time + '</span>' : '');
+      return div;
+    }
+
+    body.appendChild(makeInsertPoint(0));
+    items.forEach(function(tli, i) {
+      body.appendChild(makeExistingItem(tli));
+      body.appendChild(makeInsertPoint(i + 1));
+    });
+  }
+
+  function performMove(cardId, targetDayId, index) {
+    var state = load();
+    if (!state.cards[cardId]) state.cards[cardId] = {};
+    state.cards[cardId].moved = { toDay: targetDayId, index: index };
+    save(state);
+    closeAdjustModal();
+    location.reload();
+  }
+
+  function handleModalClick(e) {
+    if (!e.target.closest('#adjust-modal')) return;
+    if (e.target.matches('[data-am-close]')) {
+      closeAdjustModal();
+    } else if (e.target.matches('[data-am-back]')) {
+      modalTargetDay = null;
+      renderDayList();
+    }
+  }
+
+  // === Settings + backup ===
+  function exportBackup() {
+    var state = load();
+    var json = JSON.stringify(state, null, 2);
+    var blob = new Blob([json], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    var date = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = 'hygge2026-backup-' + date + '.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+  }
+
+  function importBackup(file) {
+    var reader = new FileReader();
+    reader.onload = function() {
+      try {
+        var data = JSON.parse(reader.result);
+        if (!data || data.version !== SCHEMA_VERSION || typeof data.cards !== 'object') {
+          alert('檔案格式不正確，無法匯入');
+          return;
+        }
+        if (!confirm('將覆蓋目前所有狀態，確定要匯入？')) return;
+        save(data);
+        location.reload();
+      } catch (e) {
+        alert('讀取失敗：' + e.message);
+      }
+    };
+    reader.onerror = function() { alert('讀取檔案失敗'); };
+    reader.readAsText(file);
+  }
+
+  function openSettings() {
+    document.getElementById('settings-modal').hidden = false;
+  }
+  function closeSettings() {
+    document.getElementById('settings-modal').hidden = true;
+  }
+
+  function handleSettingsClick(e) {
+    if (e.target.id === 'btn-settings') {
+      openSettings();
+    } else if (e.target.matches('[data-sm-close]')) {
+      closeSettings();
+    } else if (e.target.id === 'btn-export') {
+      exportBackup();
+      closeSettings();
+    } else if (e.target.id === 'btn-import') {
+      document.getElementById('import-file').click();
+    }
+  }
+
+  // === Apply moved ===
+  function applyMoved(state) {
+    var moves = [];
+    Object.keys(state.cards).forEach(function(cardId) {
+      var entry = state.cards[cardId];
+      if (entry && entry.moved) {
+        moves.push({ cardId: cardId, toDay: entry.moved.toDay, index: entry.moved.index });
+      }
+    });
+    moves.sort(function(a, b) {
+      if (a.toDay !== b.toDay) return a.toDay < b.toDay ? -1 : 1;
+      return a.index - b.index;
+    });
+
+    moves.forEach(function(m) {
+      var card = document.querySelector('.cd[data-card-id="' + m.cardId + '"]');
+      if (!card) return;
+      var tli = card.closest('.tli');
+      if (!tli) return;
+      var targetPg = document.getElementById('p-' + m.toDay);
+      if (!targetPg) return;
+      var tls = targetPg.querySelectorAll('.tl');
+      var targetTl = tls[tls.length - 1];
+      if (!targetTl) return;
+      var existing = targetTl.querySelectorAll(':scope > .tli');
+      var insertBefore = existing[m.index] || null;
+      if (insertBefore) targetTl.insertBefore(tli, insertBefore);
+      else targetTl.appendChild(tli);
+    });
+  }
+
+  // === Apply state ===
+  function applyVisualState(state) {
+    // Clear all existing visual state first (idempotent)
+    document.querySelectorAll('.cd.is-done, .cd.is-skip').forEach(function(c) {
+      c.classList.remove('is-done', 'is-skip');
+    });
+    document.querySelectorAll('.state-badge').forEach(function(b) { b.remove(); });
+
+    Object.keys(state.cards).forEach(function(cardId) {
+      var entry = state.cards[cardId];
+      if (!entry || !entry.state) return;
+      var card = document.querySelector('.cd[data-card-id="' + cardId + '"]');
+      if (!card) return;
+      card.classList.add(entry.state === 'done' ? 'is-done' : 'is-skip');
+      var ch = card.querySelector('.ch');
+      if (!ch) return;
+      var badge = document.createElement('span');
+      badge.className = 'state-badge s-' + entry.state;
+      badge.textContent = entry.state === 'done' ? '✓ 完成' : '✕ 放棄';
+      ch.appendChild(badge);
+    });
+  }
+
+  // === Init ===
+  function init() {
+    indexAllCards();
+    var state = load();
+    applyMoved(state);
+    applyVisualState(state);
+
+    document.querySelectorAll('.cd[data-card-id]').forEach(attachLongPress);
+    document.addEventListener('click', handlePopoverClick, true);
+    document.addEventListener('click', handleModalClick);
+    document.addEventListener('click', handleSettingsClick);
+
+    var importFile = document.getElementById('import-file');
+    if (importFile) {
+      importFile.addEventListener('change', function(e) {
+        var f = e.target.files && e.target.files[0];
+        if (f) importBackup(f);
+        e.target.value = '';
+      });
+    }
+
+    window.__cardState = {
+      load: load, save: save, hash: hash,
+      applyVisualState: applyVisualState, applyMoved: applyMoved,
+      openAdjustModal: openAdjustModal, exportBackup: exportBackup
+    };
+  }
+
+  init();
 })();
 </script>
 </body>
