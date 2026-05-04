@@ -217,6 +217,17 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
 .cpb.cpb-restore { color:#aaa; }
 .cd.is-pressing { transform:scale(.97); transition:transform .1s; user-select:none; -webkit-user-select:none; }
 
+/* ── ICONS ── */
+.icon { width:1.05em; height:1.05em; flex-shrink:0; vertical-align:-2px; display:inline-block; }
+.ci { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; color:var(--tm); }
+.cd.f .ci, .cd.b .ci, .cd.w .ci { color:var(--a2); }
+.bic { color:var(--tm); }
+.bi.on .bic { color:var(--a); }
+.bic .icon { width:22px; height:22px; }
+.cpb .icon, .sm-btn .icon { width:14px; height:14px; }
+.settings-btn .icon { width:16px; height:16px; color:var(--tm); }
+.am-back .icon, .am-close .icon { width:13px; height:13px; }
+
 /* ── ADJUST MODAL ── */
 .adjust-modal { position:fixed; inset:0; z-index:200; }
 .adjust-modal[hidden] { display:none; }
@@ -306,7 +317,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="flags">
         <div class="flag">🇹🇭</div><div class="flag">🇩🇰</div><div class="flag">🇸🇪</div>
       </div>
-      <button class="settings-btn" id="btn-settings" aria-label="設定">⚙️</button>
+      <button class="settings-btn" id="btn-settings" aria-label="設定" data-emoji="⚙️">⚙️</button>
     </div>
     <div class="tabs" id="tabs">
       <div class="tb on" onclick="go('overview',this)">總覽</div>
@@ -1280,11 +1291,11 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
   <div class="sm-panel">
     <div class="sm-title">設定 / 備份</div>
     <div class="sm-row">
-      <button class="sm-btn" id="btn-export">📤 匯出備份</button>
+      <button class="sm-btn" id="btn-export"><span data-emoji="📤">📤</span> 匯出備份</button>
       <div class="sm-note">下載目前所有卡片狀態為 JSON 檔。可儲存到 iCloud / Google Drive 作為備份。</div>
     </div>
     <div class="sm-row">
-      <button class="sm-btn" id="btn-import">📥 匯入備份</button>
+      <button class="sm-btn" id="btn-import"><span data-emoji="📥">📥</span> 匯入備份</button>
       <input type="file" id="import-file" accept=".json,application/json" hidden>
       <div class="sm-note">從 JSON 備份還原狀態（會覆蓋目前資料）。</div>
     </div>
@@ -1542,14 +1553,15 @@ function navSw(nav, page) {
     var entry = state.cards[cardId] || {};
     var current = entry.state;
 
+    var ic = (window.__icons && window.__icons.make) ? window.__icons.make : function(){ return ''; };
     var buttons = '';
     if (current === 'done' || current === 'skip') {
-      buttons += '<button class="cpb cpb-restore" data-action="restore">↩️ 還原</button>';
-      buttons += '<button class="cpb cpb-adjust" data-action="adjust">📅 調整</button>';
+      buttons += '<button class="cpb cpb-restore" data-action="restore">' + ic('↩️') + ' 還原</button>';
+      buttons += '<button class="cpb cpb-adjust" data-action="adjust">' + ic('📅') + ' 調整</button>';
     } else {
-      buttons += '<button class="cpb cpb-done" data-action="done">✅ 完成</button>';
-      buttons += '<button class="cpb cpb-adjust" data-action="adjust">📅 調整</button>';
-      buttons += '<button class="cpb cpb-skip" data-action="skip">🗑️ 放棄</button>';
+      buttons += '<button class="cpb cpb-done" data-action="done">' + ic('✅') + ' 完成</button>';
+      buttons += '<button class="cpb cpb-adjust" data-action="adjust">' + ic('📅') + ' 調整</button>';
+      buttons += '<button class="cpb cpb-skip" data-action="skip">' + ic('🗑️') + ' 放棄</button>';
     }
     pop.innerHTML = buttons;
 
@@ -1906,6 +1918,103 @@ function navSw(nav, page) {
       applyVisualState: applyVisualState, applyMoved: applyMoved,
       openAdjustModal: openAdjustModal, exportBackup: exportBackup
     };
+  }
+
+  init();
+})();
+
+// ── 扁平圖示替換（Lucide 風格 SVG）──
+(function iconReplacer() {
+  // 24x24 viewBox, stroke-based, currentColor
+  var ICONS = {
+    // 交通
+    '✈️': '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4 6 2 8l5 4-2 3H3l-1 1 3 2 2 3 1-1v-2l3-2 4 5 2-2"/>',
+    '🛫': '<path d="M14.6 16.6 21 11M3 21h18M5 11l9-3 5-5c1-1 2-1 2 0s0 2-1 3l-5 5-3 9-2-2 1-5-4 1-2 2-1-1 2-3z"/>',
+    '🚆': '<rect x="5" y="3" width="14" height="14" rx="2"/><path d="M9 17 7 21M15 17l2 4M5 11h14"/><circle cx="9" cy="7" r=".5" fill="currentColor"/><circle cx="15" cy="7" r=".5" fill="currentColor"/>',
+    '🚇': '<rect x="5" y="3" width="14" height="14" rx="2"/><path d="M9 17 7 21M15 17l2 4M5 11h14M9 7h6"/>',
+    '🚕': '<path d="M5 17v-3l2-6h10l2 6v3"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M9 4h6"/>',
+    '🚗': '<path d="M5 17v-3l2-6h10l2 6v3M3 17h18"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/>',
+    '🚴': '<circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="m6 17 4-7h5l3 7M14 5l2 3-3 2"/>',
+    '🚶': '<circle cx="13" cy="4" r="1.5"/><path d="m9 20 3-6 4 2 1 4M11 14l-2-4 5-3 4 4M9 9l-2 1"/>',
+    '⛴️': '<path d="M3 17c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2M5 13l1-5h12l1 5M9 8V5h6v3"/>',
+    '⛵': '<path d="M3 17c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2M5 17 11 4v13M11 17l8-4-3-3"/>',
+    // 住宿與建築
+    '🏨': '<path d="M3 21h18M5 21V8h14v13M9 12h2M13 12h2M9 16h2M13 16h2M3 8h18l-2-3H5z"/>',
+    '🏠': '<path d="m3 11 9-7 9 7v10H3z"/><path d="M9 21v-6h6v6"/>',
+    '🏡': '<path d="m3 11 9-7 9 7v10H3z"/><path d="M9 21v-6h6v6"/><path d="M2 4h6"/>',
+    '🏬': '<path d="M3 21h18M4 21V8l8-4 8 4v13M9 14h2v3H9zM13 14h2v3h-2zM9 9h2v2H9zM13 9h2v2h-2z"/>',
+    '🏰': '<path d="M3 21V9l2-1V5l2 2 2-2v3l2 1V5l2 2 2-2v3l2 1V5l2 2 2-2v4l2 1v12z"/><path d="M10 21v-5h4v5"/>',
+    '⛪': '<path d="M3 21h18M5 21V11l7-4 7 4v10M11 21v-4h2v4M11 5V2h2v3M9 5h6"/>',
+    '🏛️': '<path d="M3 21h18M3 9h18M3 9 12 4l9 5M5 9v10M9 9v10M15 9v10M19 9v10"/>',
+    '🏗️': '<path d="M4 21V8h12L4 21M4 8 16 4l4 12M4 21h16"/><circle cx="9" cy="14" r="1"/>',
+    // 文化娛樂
+    '🎨': '<path d="M12 2a10 10 0 1 0 5 18.5c1-1 0-2-1-2h-1c-1 0-2-1-2-2 0-1 1-2 2-2h2c2 0 4-1 4-3.5C21 6 17 2 12 2z"/><circle cx="7" cy="11" r="1"/><circle cx="9" cy="7" r="1"/><circle cx="14" cy="6" r="1"/><circle cx="17" cy="9" r="1"/>',
+    '🎭': '<circle cx="8" cy="10" r="5"/><circle cx="16" cy="14" r="5"/>',
+    '🖼️': '<rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 16 6-6 4 4 3-3 5 5"/><circle cx="9" cy="10" r="1"/>',
+    '📷': '<path d="M3 7h4l2-2h6l2 2h4v12H3z"/><circle cx="12" cy="13" r="4"/>',
+    '📖': '<path d="M3 4h7v16H3zM21 4h-7v16h7z"/><path d="M3 4c2 0 4 1 7 1M21 4c-2 0-4 1-7 1"/>',
+    '📚': '<path d="M4 19V5h4v14H4zM10 19V5h4v14h-4zM18 5l3 13-4 1L14 6z"/>',
+    '🐟': '<path d="M3 12c2-5 6-7 10-7 4 0 7 3 8 7-1 4-4 7-8 7-4 0-8-2-10-7z"/><path d="m17 9 4-3v12l-4-3"/><circle cx="8" cy="11" r=".7" fill="currentColor"/>',
+    '🥘': '<circle cx="12" cy="13" r="7"/><path d="M5 13h14M3 9h18M7 9V6M12 9V5M17 9V6"/>',
+    '🍴': '<path d="M5 3v8c0 1 1 2 2 2v8M9 3v8c0 1-1 2-2 2M15 3v18M19 3c-2 1-3 3-3 6v3h3"/>',
+    // 自然
+    '🌲': '<path d="M12 2 5 11h3l-3 5h3l-3 5h14l-3-5h3l-3-5h3z"/><path d="M12 21v-3"/>',
+    '🌳': '<path d="M12 2c-3 0-6 2-6 6 0 1 0 2 1 3-2 1-3 3-3 5 0 3 2 5 5 5h6c3 0 5-2 5-5 0-2-1-4-3-5 1-1 1-2 1-3 0-4-3-6-6-6z"/><path d="M12 21v-6"/>',
+    '🌉': '<path d="M3 17h18M3 17V7M21 17V7M3 7c4 5 14 5 18 0M7 17v-5M11 17v-7M13 17v-7M17 17v-5"/>',
+    '🏖️': '<path d="M3 21h18M5 21l7-12 7 12M9 14h6"/><circle cx="6" cy="6" r="3"/><path d="m4 3 1 1M9 6h2M5 8 4 9M7 4l1 1"/>',
+    '⭐': '<path d="m12 2 3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/>',
+    '🌇': '<circle cx="12" cy="14" r="4"/><path d="M3 18h18M12 6v2M5 9l1 1M19 9l-1 1M3 14h2M19 14h2"/>',
+    '🌈': '<path d="M3 17a9 9 0 0 1 18 0M5 17a7 7 0 0 1 14 0M7 17a5 5 0 0 1 10 0M9 17a3 3 0 0 1 6 0"/>',
+    '🌀': '<path d="M12 12a4 4 0 0 0-4-4 4 4 0 0 1 4-4 4 4 0 0 1 4 4 4 4 0 0 0-4 4z"/><path d="M12 12a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4z"/>',
+    // 物件 / 其他
+    '🛍️': '<path d="M5 7h14l-1 14H6zM9 7V4a3 3 0 0 1 6 0v3"/>',
+    '👑': '<path d="M3 8v9h18V8l-5 4-4-7-4 7z"/><path d="M3 17h18"/>',
+    '🔭': '<path d="m4 14 4-9 5 2-3 8z"/><path d="m13 7 5 2-2 5-5-2M11 14v6M8 20h6"/>',
+    '🛋️': '<path d="M3 11v6h18v-6"/><path d="M3 11a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M5 17v2M19 17v2M7 11V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/>',
+    '🧱': '<rect x="3" y="5" width="18" height="14"/><path d="M3 9h18M3 13h18M3 17h18M8 5v4M14 5v4M5 9v4M11 9v4M17 9v4M8 13v4M14 13v4"/>',
+    '💊': '<path d="M5 12a7 7 0 0 1 14 0 7 7 0 0 1-14 0z" transform="rotate(45 12 12)"/><path d="M9 9l6 6"/>',
+    '💡': '<path d="M9 18h6M10 21h4M8 14a5 5 0 1 1 8 0c-1 1-2 2-2 3v1h-4v-1c0-1-1-2-2-3z"/>',
+    '📐': '<path d="m4 4 16 16H4z"/><path d="M9 14h2v2H9zM13 18h2v2h-2z"/>',
+    '♻️': '<path d="m7 19-3-2 3-2M7 17h6c2 0 3-1 3-3V8M17 5l3 2-3 2M17 7h-3l-2 4M11 12 8 7H5"/>',
+    // 按鈕類
+    '✅': '<path d="m4 12 5 5 11-11"/>',
+    '🗑️': '<path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 11v6M14 11v6"/>',
+    '📅': '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/>',
+    '↩️': '<path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/>',
+    '📤': '<path d="M3 16v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3M16 8l-4-4-4 4M12 4v12"/>',
+    '📥': '<path d="M3 16v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3M8 12l4 4 4-4M12 4v12"/>',
+    '⚙️': '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M5 5l2 2M17 17l2 2M2 12h3M19 12h3M5 19l2-2M17 7l2-2"/>',
+    // Bottom nav
+    '🗺️': '<path d="M9 4 3 6v15l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v15M15 6v15"/>',
+    '🍜': '<path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M3 11c0-3 4-5 9-5s9 2 9 5M9 6V3M13 6V2M17 6V3"/>',
+    '📋': '<rect x="6" y="4" width="12" height="17" rx="1"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1M9 10h6M9 14h6M9 18h4"/>'
+  };
+
+  function makeIcon(emoji) {
+    var key = (emoji || '').trim();
+    var d = ICONS[key];
+    if (!d) return null;
+    return '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>';
+  }
+
+  function replaceEmojiInElement(el) {
+    var txt = el.textContent.trim();
+    var svg = makeIcon(txt);
+    if (svg) el.innerHTML = svg;
+  }
+
+  function replaceByDataEmoji(el) {
+    var key = el.getAttribute('data-emoji');
+    var svg = makeIcon(key);
+    if (svg) el.innerHTML = svg;
+  }
+
+  function init() {
+    document.querySelectorAll('.ci').forEach(replaceEmojiInElement);
+    document.querySelectorAll('.bic').forEach(replaceEmojiInElement);
+    document.querySelectorAll('[data-emoji]').forEach(replaceByDataEmoji);
+    // expose for popover/settings to inject SVG
+    window.__icons = { make: makeIcon };
   }
 
   init();
