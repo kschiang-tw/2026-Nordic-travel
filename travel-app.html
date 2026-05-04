@@ -1494,12 +1494,59 @@ function navSw(nav, page) {
     });
   }
 
-  // Stub — full implementation in Task 6
   function renderInsertPoints(targetDayId) {
-    var body = getModal().querySelector('.am-body');
-    body.innerHTML = '<div style="padding:20px; color:var(--tm); text-align:center">第 2 步施工中</div>';
-    getModal().querySelector('.am-title').textContent = '選擇插入位置';
-    getModal().querySelector('[data-am-back]').hidden = false;
+    var m = getModal();
+    m.querySelector('.am-title').textContent = '選擇插入位置';
+    m.querySelector('[data-am-back]').hidden = false;
+    var body = m.querySelector('.am-body');
+    body.innerHTML = '';
+
+    var pg = document.getElementById('p-' + targetDayId);
+    if (!pg) {
+      body.innerHTML = '<div style="padding:20px; color:var(--tm); text-align:center">找不到該天</div>';
+      return;
+    }
+    var tls = pg.querySelectorAll('.tl');
+    var tl = tls[tls.length - 1];
+    var items = tl ? tl.querySelectorAll(':scope > .tli') : [];
+
+    function makeInsertPoint(index) {
+      var ip = document.createElement('div');
+      ip.className = 'insert-point';
+      ip.textContent = '↓ 插入此處';
+      ip.addEventListener('click', function() {
+        performMove(modalCardId, targetDayId, index);
+      });
+      return ip;
+    }
+
+    function makeExistingItem(tli) {
+      var card = tli.querySelector(':scope > .cd');
+      var name = card && card.querySelector('.cn') ? card.querySelector('.cn').textContent : '(行程)';
+      var icon = card && card.querySelector('.ci') ? card.querySelector('.ci').textContent : '•';
+      var time = card && card.querySelector('.ctm') ? card.querySelector('.ctm').textContent : '';
+      var div = document.createElement('div');
+      div.className = 'am-existing';
+      var isTarget = card && card.dataset.cardId === modalCardId;
+      if (isTarget) div.classList.add('is-target');
+      div.innerHTML = '<span>' + icon + '</span><span style="flex:1">' + name + (isTarget ? ' <em style="color:var(--a2);font-style:normal;font-size:10px">（這張）</em>' : '') + '</span>' + (time ? '<span style="color:var(--a2);font-weight:600">' + time + '</span>' : '');
+      return div;
+    }
+
+    body.appendChild(makeInsertPoint(0));
+    items.forEach(function(tli, i) {
+      body.appendChild(makeExistingItem(tli));
+      body.appendChild(makeInsertPoint(i + 1));
+    });
+  }
+
+  function performMove(cardId, targetDayId, index) {
+    var state = load();
+    if (!state.cards[cardId]) state.cards[cardId] = {};
+    state.cards[cardId].moved = { toDay: targetDayId, index: index };
+    save(state);
+    closeAdjustModal();
+    location.reload();
   }
 
   function handleModalClick(e) {
