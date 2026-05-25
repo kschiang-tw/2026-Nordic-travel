@@ -455,14 +455,14 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="sl">市區探索</div>
       <div class="tl">
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">🛍️</span><span class="cn">Strøget 步行街</span></div>
+          <div class="cd" onclick="openGuide('copenhagen','attr-stroget')"><div class="ch"><span class="ci">🛍️</span><span class="cn">Strøget 步行街</span><span class="cgo">›</span></div>
           <div class="chips"><div class="chip">Jacobson plus</div><div class="chip">Illums Bolighus 10-19</div><div class="chip">HAY House 10-18</div></div></div>
         </div>
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">👑</span><span class="cn">Kongens Nytorv 國王廣場</span></div></div>
+          <div class="cd" onclick="openGuide('copenhagen','attr-kongensnytorv')"><div class="ch"><span class="ci">👑</span><span class="cn">Kongens Nytorv 國王廣場</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">🔭</span><span class="cn">Rundetaarn 圓塔</span><span class="ctm">10–20</span></div></div>
+          <div class="cd m" onclick="openGuide('copenhagen','attr-rundetaarn')"><div class="ch"><span class="ci">🔭</span><span class="cn">Rundetaarn 圓塔</span><span class="ctm">10–20</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli"><div class="dot"></div>
           <div class="cd" onclick="openGuide('copenhagen','attr-kastellet')"><div class="ch"><span class="ci">⭐</span><span class="cn">Kastellet + 小美人魚</span><span class="ctm">06–20</span><span class="cgo">›</span></div>
@@ -497,7 +497,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           <div class="dd">24 分鐘</div><div class="bgs"><span class="bg bp">48 DKK</span></div></div>
         </div>
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">🏖️</span><span class="cn">Bellevue Beach + Skovshoved</span></div>
+          <div class="cd" onclick="openGuide('copenhagen','attr-bellevue')"><div class="ch"><span class="ci">🏖️</span><span class="cn">Bellevue Beach + Skovshoved</span><span class="cgo">›</span></div>
           <div class="dd">AJ 設計更衣亭 → 步行 20min → Olivers Garage 09-20</div></div>
         </div>
         <div class="tli t"><div class="dot"></div>
@@ -516,15 +516,15 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       </div>
       <div class="tl">
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">🏨</span><span class="cn">SAS Royal Hotel · Radisson Collection Royal</span></div>
+          <div class="cd" onclick="openGuide('copenhagen','attr-sasroyal')"><div class="ch"><span class="ci">🏨</span><span class="cn">SAS Royal Hotel · Radisson Collection Royal</span><span class="cgo">›</span></div>
           <div class="dd">Arne Jacobsen 設計 · 造訪 Lobby/大廳（Egg Chair、Swan Chair）</div></div>
         </div>
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">🏛️</span><span class="cn">Ny Carlsberg Glyptotek 新嘉士伯美術館</span><span class="ctm">10–17</span></div>
+          <div class="cd m" onclick="openGuide('copenhagen','attr-glyptotek')"><div class="ch"><span class="ci">🏛️</span><span class="cn">Ny Carlsberg Glyptotek 新嘉士伯美術館</span><span class="ctm">10–17</span><span class="cgo">›</span></div>
           <div class="dd">古典雕塑與印象派 · 棕櫚廳</div></div>
         </div>
         <div class="tli"><div class="dot"></div>
-          <div class="cd"><div class="ch"><span class="ci">🛍️</span><span class="cn">Strøget 步行街</span></div>
+          <div class="cd" onclick="openGuide('copenhagen','attr-stroget')"><div class="ch"><span class="ci">🛍️</span><span class="cn">Strøget 步行街</span><span class="cgo">›</span></div>
           <div class="chips"><div class="chip">Jacobson plus</div><div class="chip">Illums Bolighus 10-19</div><div class="chip">HAY House 10-18</div></div></div>
         </div>
       </div>
@@ -588,9 +588,9 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       </div>
       <div class="sl">回哥本哈根（視時間）</div>
       <div class="tl">
-        <div class="tli o"><div class="dot"></div><div class="cd"><div class="ch"><span class="ci">🏠</span><span class="cn">House of Finn Juhl</span><span class="ctm">10–16</span></div><div class="bgs"><span class="bg bo">視時間</span></div></div></div>
-        <div class="tli o"><div class="dot"></div><div class="cd"><div class="ch"><span class="ci">🎭</span><span class="cn">Superkilen Park</span></div><div class="bgs"><span class="bg bo">視時間</span></div></div></div>
-        <div class="tli o"><div class="dot"></div><div class="cd"><div class="ch"><span class="ci">⛪</span><span class="cn">Grundtvigs Kirke 風琴教堂</span></div><div class="bgs"><span class="bg bo">視時間</span></div></div></div>
+        <div class="tli o"><div class="dot"></div><div class="cd" onclick="openGuide('copenhagen','attr-finnjuhl')"><div class="ch"><span class="ci">🏠</span><span class="cn">House of Finn Juhl</span><span class="ctm">10–16</span><span class="cgo">›</span></div><div class="bgs"><span class="bg bo">視時間</span></div></div></div>
+        <div class="tli o"><div class="dot"></div><div class="cd" onclick="openGuide('copenhagen','attr-superkilen')"><div class="ch"><span class="ci">🎭</span><span class="cn">Superkilen Park</span><span class="cgo">›</span></div><div class="bgs"><span class="bg bo">視時間</span></div></div></div>
+        <div class="tli o"><div class="dot"></div><div class="cd" onclick="openGuide('copenhagen','attr-grundtvigs')"><div class="ch"><span class="ci">⛪</span><span class="cn">Grundtvigs Kirke 風琴教堂</span><span class="cgo">›</span></div><div class="bgs"><span class="bg bo">視時間</span></div></div></div>
       </div>
     </div>
 
@@ -604,10 +604,10 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="tl">
         <div class="tli"><div class="dot"></div><div class="cd"><div class="ch"><span class="ci">🏰</span><span class="cn">Christianborg Slot</span></div><div class="dd">路過</div></div></div>
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">📖</span><span class="cn">Det Kgl. Bibliotek 黑鑽石</span><span class="ctm">08–20</span></div></div>
+          <div class="cd m" onclick="openGuide('copenhagen','attr-blackdiamond')"><div class="ch"><span class="ci">📖</span><span class="cn">Det Kgl. Bibliotek 黑鑽石</span><span class="ctm">08–20</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli m"><div class="dot"></div>
-          <div class="cd m"><div class="ch"><span class="ci">🏗️</span><span class="cn">Dansk Arkitektur Center</span><span class="ctm">10–21</span></div></div>
+          <div class="cd m" onclick="openGuide('copenhagen','attr-dac')"><div class="ch"><span class="ci">🏗️</span><span class="cn">Dansk Arkitektur Center</span><span class="ctm">10–21</span><span class="cgo">›</span></div></div>
         </div>
         <div class="tli t"><div class="dot"></div>
           <div class="cd t"><div class="ch"><span class="ci">🌉</span><span class="cn">步行 Lille Langebro → Cirkelbroen</span></div>
@@ -1037,6 +1037,50 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       <div class="gs" id="attr-campadventure"><div class="gtl">🌲 近郊：Camp Adventure Forest Tower 森林觀景塔</div>
         <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🚗 自駕約 1 小時 · 🕙 10:00–18:00 · 💰 現場 200 DKK / 72 小時前線上 185 DKK · ⏱ 步道+登塔約 2 小時</div>
         <div style="font-size:13px;line-height:1.75;color:var(--tx)">2019 年落成，由丹麥事務所 EFFEKT 設計，塔身呈沙漏狀、高 45 公尺，全程無階梯坡道盤旋上升，方便輪椅與嬰兒車通行。塔身位於 Gisselfeld Klosters Skove 自然保護區內，登頂可 360 度俯瞰丹麥南部的森林與起伏地貌，是近年最具話題的環保景觀建築之一。</div>
+      </div>
+      <div class="gs" id="attr-stroget"><div class="gtl">🛍️ Strøget 步行街</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🚶 連接市政廳廣場 ↔ 國王新廣場，全長 1.1 km</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1962 年改造完成，是歐洲最早、也是最長的步行購物街之一。一路串連 HAY House、Illums Bolighus、Royal Copenhagen 旗艦店等丹麥設計品牌，亦穿越多座中世紀小巷與廣場，是體驗哥本哈根日常街道尺度的最佳場域。</div>
+      </div>
+      <div class="gs" id="attr-kongensnytorv"><div class="gtl">👑 Kongens Nytorv 國王新廣場</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🚇 地鐵 M3/M4 Kongens Nytorv 站</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1670 年由國王克里斯蒂安五世下令開闢，是哥本哈根最大、最具代表性的廣場之一。中央立有國王騎馬像，周邊環繞 18 世紀建築群——皇家劇院、Magasin du Nord 百貨、d'Angleterre 飯店與通往 Nyhavn 新港的入口都在此交會。</div>
+      </div>
+      <div class="gs" id="attr-rundetaarn"><div class="gtl">🔭 Rundetaarn 圓塔</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🕙 10:00–20:00 · ⏱ 建議 30–45 分鐘</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1642 年由國王克里斯蒂安四世建造，高 36 公尺，是歐洲最古老仍在運作的天文觀測塔之一。塔內以螺旋斜坡（Equestrian Staircase）取代樓梯，據傳當年沙皇彼得大帝曾騎馬登頂。塔頂平台可俯瞰哥本哈根舊城屋頂，至今仍保有天文觀測功能。</div>
+      </div>
+      <div class="gs" id="attr-bellevue"><div class="gtl">🏖️ Bellevue Beach + Skovshoved · AJ 海濱建築群</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🚆 S-tog Klampenborg 站 · 步行 5 分鐘</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1932 年由 Arne Jacobsen 完整設計的海濱度假區。AJ 為 Bellevue 海灘打造藍白條紋更衣亭、救生員瞭望塔、餐廳、戲院與住宅 Bellavista，是丹麥少見的早期「總體設計」案例。沿海步行 20 分鐘可抵 Skovshoved 加油站（1937），AJ 以瓷釉蕈狀吊頂設計的這座小型加油站至今仍可加油，被公認為丹麥現代主義建築精品。</div>
+      </div>
+      <div class="gs" id="attr-sasroyal"><div class="gtl">🏨 Radisson Collection Royal · 原 SAS Royal Hotel</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">📍 Hammerichsgade 1 · 大廳免費參觀</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1960 年由 Arne Jacobsen 完整設計，從建築量體、室內裝潢到家具與餐具一手包辦的「總體設計」典範，也是世界第一座由設計師完整主導的設計飯店。22 層的玻璃帷幕量體呼應紐約 Lever House，AJ 為大廳量身打造了 Egg Chair 與 Swan Chair。606 號房至今仍保留 1960 年原貌，供旅客入住。</div>
+      </div>
+      <div class="gs" id="attr-glyptotek"><div class="gtl">🏛️ Ny Carlsberg Glyptotek 新嘉士伯美術館</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🕙 10:00–17:00（週一休） · ⏱ 建議 2–3 小時</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1888 年由嘉士伯啤酒創辦人之子 Carl Jacobsen 創立，是丹麥規模最大的私人藝術捐贈案例之一。Vilhelm Dahlerup 設計的原館以紅磚與威尼斯式拱廊為特色，1996 年再由 Henning Larsen 操刀擴建現代展廳。館藏涵蓋古埃及、希臘羅馬雕塑與印象派繪畫（含丹麥唯一一批高更早期作品），中央 Palmehaven 棕櫚廳玻璃穹頂下是哥本哈根經典的咖啡停留點。</div>
+      </div>
+      <div class="gs" id="attr-finnjuhl"><div class="gtl">🏠 House of Finn Juhl 芬尤住宅</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🕙 10:00–16:00 · 📍 Ordrup（北郊）</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1942 年丹麥家具大師 Finn Juhl 為自己設計並興建的住宅，位於 Ordrup 林間。屋內所有家具、燈具、紡織與藝術品幾乎都由 Juhl 親自挑選或設計，是觀察丹麥現代家具設計思維的最佳現場。屋主過世後依其遺願完整保存，2008 年起對外開放，由 Ordrupgaard 美術館管理。</div>
+      </div>
+      <div class="gs" id="attr-superkilen"><div class="gtl">🎭 Superkilen Park 超級線型公園</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">📍 Nørrebro 區 · 全日開放</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">2012 年完工的線型城市公園，位於移民社區密度最高的 Nørrebro。由 BIG、Topotek 1 與藝術團體 Superflex 共同設計，分為紅、黑、綠三色帶。園內擺置從 60 多個國家蒐集而來的 108 件「日常物件」——印度遊樂設施、智利長椅、巴西塗鴉、伊朗噴泉等，將多元族裔文化具體化為公共空間，是當代都市公共空間設計的代表案例。</div>
+      </div>
+      <div class="gs" id="attr-grundtvigs"><div class="gtl">⛪ Grundtvigs Kirke 葛籣特威格教堂</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">📍 Bispebjerg 區 · 教堂內部免費參觀</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">1921 年動工、1940 年完工，是丹麥少見的表現主義教堂。由 P. V. Jensen-Klint 設計，外觀以六百萬塊黃色磚砌成階梯山牆，造型靈感取自巨型管風琴與哥德教堂的垂直線條。內部以白色磚牆形成宛若白色森林的列柱空間，是丹麥 20 世紀最具雕塑感的宗教建築之一。</div>
+      </div>
+      <div class="gs" id="attr-blackdiamond"><div class="gtl">📖 Det Kgl. Bibliotek 黑鑽石</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🕙 08:00–20:00 · 免費入館</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">丹麥皇家圖書館 1999 年完工的擴建館，由 schmidt hammer lassen 操刀，立面以黑色花崗岩與斜切玻璃帷幕構成，朝向水岸傾斜的造型如打磨過的寶石，因此得名「黑鑽石」。舊館與新館以玻璃中庭相連，公共閱覽空間、咖啡廳與展廳均對外開放，是哥本哈根當代建築的重要範例。</div>
+      </div>
+      <div class="gs" id="attr-dac"><div class="gtl">🏗️ Dansk Arkitektur Center · DAC</div>
+        <div style="font-size:11.5px;color:var(--td);margin:0 0 8px;line-height:1.6">🕙 10:00–21:00 · 位於 BLOX 內</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx)">丹麥建築中心，2018 年遷入由 OMA / Rem Koolhaas 設計的 BLOX 複合建築內。BLOX 量體跨越運河與環島車道，將辦公、住宅、運動中心與公共展廳堆疊組合，是 OMA「混合都市」實驗的代表作。DAC 常年展示丹麥當代建築與都市規劃議題，並設有「Hello Copenhagen」常設展介紹首都建築。</div>
       </div>
     </div>
 
