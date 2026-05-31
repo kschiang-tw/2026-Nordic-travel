@@ -303,6 +303,61 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
   display:block; margin:8px auto 0;
 }
 .sm-version { font-size:10px; color:var(--tm); text-align:center; margin-top:10px; opacity:.5; }
+
+/* ===== Schleswig-Wars map page (namespaced sw-) ===== */
+#sw-root{
+  --dk:#b1543f; --fief:#d6a48f; --conf:#cdbb95; --de:#6f93a3;
+  --sea:#e7ece9; --gold:#c0883b;
+  color:var(--tx,#2c2520);
+}
+#sw-root .sw-hero{margin:2px 2px 14px}
+#sw-root .sw-kick{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--a,#3d8fad);font-weight:700}
+#sw-root .sw-hero h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:27px;line-height:1.15;margin:6px 0 4px;color:var(--tx,#2c2520)}
+#sw-root .sw-hero p{font-size:13px;color:var(--sub,#8a7d72)}
+#sw-root .sw-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:4px 0 14px}
+#sw-root .sw-step{cursor:pointer;border:1px solid var(--line,#e6ddcf);background:var(--card,#fdfaf4);
+  color:var(--sub,#8a7d72);border-radius:12px;padding:8px 4px;text-align:center;transition:all .3s;line-height:1.25;font:inherit}
+#sw-root .sw-step .yr{display:block;font-family:'DM Serif Display',serif;font-size:15px;color:var(--tx,#2c2520)}
+#sw-root .sw-step .nm{font-size:10.5px;letter-spacing:.02em}
+#sw-root .sw-step[aria-selected="true"]{background:var(--tx,#2c2520);border-color:var(--tx,#2c2520)}
+#sw-root .sw-step[aria-selected="true"] .yr{color:#f7e9c8}
+#sw-root .sw-step[aria-selected="true"] .nm{color:#e9dcc6}
+#sw-root .sw-mapcard{background:var(--card,#fdfaf4);border:1px solid var(--line,#e6ddcf);border-radius:18px;
+  padding:10px;box-shadow:0 6px 22px -14px rgba(60,45,25,.35);overflow:hidden}
+#sw-root .sw-mapcard svg{display:block;width:100%;height:auto}
+#sw-root .sw-legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:12px 4px 0}
+#sw-root .sw-legend span{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--sub,#8a7d72)}
+#sw-root .sw-legend i{width:13px;height:13px;border-radius:3px;border:1px solid rgba(0,0,0,.18);flex:none}
+#sw-root .sw-panel{background:var(--card,#fdfaf4);border:1px solid var(--line,#e6ddcf);border-radius:16px;padding:16px 16px 14px;margin-top:14px}
+#sw-root .sw-panel .sw-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--a,#3d8fad);font-weight:700}
+#sw-root .sw-panel h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:22px;margin:4px 0 1px;color:var(--tx,#2c2520)}
+#sw-root .sw-panel .sw-yrs{font-size:12px;color:var(--sub,#8a7d72);letter-spacing:.06em;margin-bottom:10px}
+#sw-root .sw-panel p{font-size:14px;color:#3a342b;margin-bottom:12px}
+#sw-root .sw-panel p b{color:var(--dk);font-weight:700}
+#sw-root .sw-stat{display:flex;align-items:center;gap:10px;border-top:1px dashed var(--line,#e6ddcf);padding-top:12px}
+#sw-root .sw-stat .sw-num{font-family:'DM Serif Display',serif;font-size:13px;white-space:nowrap;color:var(--tx,#2c2520)}
+#sw-root .sw-bar{flex:1;height:9px;background:#ece2d2;border-radius:6px;overflow:hidden;border:1px solid #e0d3bf}
+#sw-root .sw-bar i{display:block;height:100%;width:100%;border-radius:6px;background:linear-gradient(90deg,var(--dk),#cf6a52);transition:width .6s cubic-bezier(.5,0,.2,1)}
+#sw-root .sw-note{font-size:11.5px;color:var(--sub,#8a7d72);margin-top:8px}
+#sw-root .sw-nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+#sw-root .sw-nav button{cursor:pointer;background:var(--card,#fdfaf4);border:1px solid var(--a,#3d8fad);color:var(--a,#3d8fad);
+  padding:9px 18px;border-radius:22px;font:inherit;font-size:13px;font-weight:500;transition:.2s}
+#sw-root .sw-nav button:active:not(:disabled){background:var(--a,#3d8fad);color:#fff}
+#sw-root .sw-nav button:disabled{opacity:.3;border-color:var(--line,#e6ddcf);color:var(--sub,#8a7d72);cursor:default}
+#sw-root .sw-foot{margin-top:18px;text-align:center;font-size:10.5px;color:var(--sub,#8a7d72);line-height:1.7}
+#sw-root .sw-region{transition:fill .6s cubic-bezier(.5,0,.2,1);stroke:#7a6f5e;stroke-width:.5;stroke-linejoin:round}
+#sw-root .sw-bline{fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .45s}
+#sw-root .sw-bline.show{opacity:1}
+#sw-root .sw-bhi{stroke:var(--gold);stroke-width:3.4;filter:drop-shadow(0 0 2px rgba(192,136,59,.5))}
+#sw-root .sw-bhi2{stroke:var(--a,#3d8fad);stroke-width:3}
+#sw-root .sw-bfaint{stroke:#9c8a64;stroke-width:1;stroke-dasharray:2.5 2.5;opacity:.55}
+#sw-root .sw-dvk{fill:none;stroke:#7a4a2c;stroke-width:2;stroke-dasharray:3 2.5;opacity:0;transition:opacity .45s}
+#sw-root .sw-dvk.show{opacity:.85}
+#sw-root .sw-mk{opacity:0;transition:opacity .4s}
+#sw-root .sw-mk.show{opacity:1}
+#sw-root .sw-rlbl{font-family:inherit;font-weight:700;fill:#fff;paint-order:stroke;stroke:rgba(60,45,30,.35);stroke-width:2px;letter-spacing:.04em}
+#sw-root .sw-clbl{font-family:inherit;fill:var(--tx,#2c2520);opacity:.7}
+#sw-root .sw-blbl{font-family:inherit;font-weight:700}
 </style>
 </head>
 <body>
@@ -991,13 +1046,24 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
         </div>
       </div>
       <div onclick="openGuide('bkk')" style="cursor:pointer">
-        <div class="gs" style="border-left:2.5px solid var(--a2)">
+        <div class="gs" style="border-left:2.5px solid var(--a2);margin-bottom:8px">
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div>
               <div class="gtl" style="margin-bottom:4px;color:var(--a2)">🛫 BKK 曼谷轉機 · JCB 貴賓室攻略</div>
               <div style="font-size:11px;color:var(--tm)">準備文件 · 前往路線 · Miracle Lounge G 區 3F</div>
             </div>
             <div style="color:var(--a2);font-size:18px;margin-left:12px">›</div>
+          </div>
+        </div>
+      </div>
+      <div onclick="openGuide('schleswig')" style="cursor:pointer">
+        <div class="gs" style="border-left:2.5px solid #b1543f">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div class="gtl" style="margin-bottom:4px;color:#b1543f">🗺️ 歷史 · 石勒蘇益格戰爭</div>
+              <div style="font-size:11px;color:var(--tm)">1848–1920 · 丹麥南界的消長 · 互動地圖</div>
+            </div>
+            <div style="color:#b1543f;font-size:18px;margin-left:12px">›</div>
           </div>
         </div>
       </div>
@@ -1282,6 +1348,39 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       </div>
     </div>
 
+    <!-- ══ GUIDE: SCHLESWIG WARS ══ -->
+    <div class="pg" id="p-guide-schleswig">
+      <div class="back-bar">
+        <div class="back-btn" onclick="openGuide('index')">‹ 返回指南</div>
+      </div>
+      <section id="sw-root">
+        <div class="sw-hero">
+          <div class="sw-kick">Slesvigske Krige · 1848–1920</div>
+          <h1>普丹戰爭與領土變遷</h1>
+          <p>石勒蘇益格的兩場戰爭，與丹麥南界的消長。點四個年代切換。</p>
+        </div>
+        <div class="sw-steps" id="sw-steps" role="tablist"></div>
+        <div class="sw-mapcard"><svg id="sw-map" role="img" aria-label="日德蘭半島南部領土變化地圖"></svg></div>
+        <div class="sw-legend">
+          <span><i style="background:#b1543f"></i>丹麥領土</span>
+          <span><i style="background:#d6a48f"></i>石勒蘇益格(丹麥采邑)</span>
+          <span><i style="background:#cdbb95"></i>德意志邦聯(丹麥王兼領)</span>
+          <span><i style="background:#6f93a3"></i>割予普魯士／德意志</span>
+        </div>
+        <div class="sw-panel">
+          <div class="sw-tag" id="sw-tag"></div>
+          <h2 id="sw-title"></h2>
+          <div class="sw-yrs" id="sw-yrs"></div>
+          <p id="sw-body"></p>
+          <div class="sw-stat"><span class="sw-num" id="sw-statlabel"></span><div class="sw-bar"><i id="sw-bar"></i></div></div>
+          <div class="sw-note" id="sw-note"></div>
+          <div class="sw-nav"><button id="sw-prev">← 上一步</button><button id="sw-next">下一步 →</button></div>
+        </div>
+        <div class="sw-foot">地圖採真實海岸線(Eurostat NUTS,2021)，歷史界線為示意。<br>
+          Schleswig 石勒蘇益格 · Holstein 荷爾斯泰因 · Sønderjylland 南日德蘭(北石勒蘇益格)</div>
+      </section>
+    </div>
+
     <!-- ══ GUIDE: NOTES ══ -->
     <div class="pg" id="p-notes">
       <div class="hero"><div class="hd">TRAVEL NOTES</div><div class="ht">重要資訊</div></div>
@@ -1384,7 +1483,8 @@ function openGuide(sub, anchor) {
     'copenhagen': 'p-guide-copenhagen',
     'odense': 'p-guide-odense',
     'aarhus': 'p-guide-aarhus',
-    'bkk': 'p-guide-bkk'
+    'bkk': 'p-guide-bkk',
+    'schleswig': 'p-guide-schleswig'
   };
   var target = map[sub] || 'p-guide';
   var p = document.getElementById(target);
@@ -2073,6 +2173,80 @@ function navSw(nav, page) {
   }
 
   init();
+})();
+
+/* ===== Schleswig-Wars map logic (self-contained IIFE) ===== */
+(function(){
+  if(!document.getElementById('sw-map')) return;
+  const MAP={"viewBox":"0 0 480.0 721.3","regions":{"denmarkProper":"M464.5,332.9 L470.0,336.6 L469.3,353.6 L461.0,347.9 L464.5,332.9Z M420.9,445.8 L434.7,443.7 L438.6,451.0 L417.5,463.9 L399.2,488.4 L391.9,509.6 L348.1,507.4 L306.0,480.8 L307.0,463.9 L314.5,455.2 L329.7,454.9 L354.0,471.2 L390.9,451.8 L366.8,417.3 L329.7,407.9 L310.4,329.0 L331.5,322.0 L364.0,291.1 L370.5,296.1 L377.1,337.6 L385.0,325.1 L390.5,307.4 L387.8,285.9 L422.3,263.9 L448.9,275.0 L450.3,327.7 L457.2,349.2 L448.9,352.7 L443.0,341.5 L429.9,348.4 L417.1,360.9 L416.8,376.0 L435.5,394.1 L411.6,414.2 L411.0,429.4 L420.3,432.8 L420.9,445.8Z M394.7,326.4 L398.2,331.9 L404.3,331.9 L404.7,318.3 L394.7,326.4Z M363.3,250.1 L375.3,244.1 L376.7,258.2 L366.8,256.9 L363.3,250.1Z M351.6,172.8 L346.3,163.4 L359.1,161.3 L359.5,174.6 L351.6,172.8Z M316.3,69.9 L318.0,63.4 L325.6,63.4 L325.0,75.4 L319.4,81.1 L316.3,69.9Z M292.8,78.5 L297.0,71.2 L311.8,68.1 L313.2,77.7 L308.0,87.1 L292.8,78.5Z M48.3,360.9 L37.6,353.9 L46.3,309.6 L60.1,292.7 L40.4,255.3 L46.6,223.7 L40.8,198.4 L46.9,175.4 L89.8,204.4 L95.3,199.7 L98.4,176.7 L120.9,148.3 L132.6,164.7 L131.9,181.9 L149.9,173.3 L139.8,152.2 L137.7,125.0 L130.8,119.5 L115.4,124.7 L104.3,157.4 L93.5,169.4 L63.5,169.1 L53.8,148.3 L81.5,104.3 L156.4,91.8 L208.2,27.2 L254.5,10.0 L261.0,74.3 L239.7,127.6 L238.3,162.6 L230.3,171.2 L240.7,172.0 L254.5,196.3 L288.3,198.7 L296.3,221.6 L278.4,252.7 L267.9,250.4 L259.3,260.4 L252.4,238.1 L238.3,252.2 L232.4,301.3 L209.9,307.4 L210.9,329.0 L182.3,329.3 L192.3,347.9 L183.3,365.4 L59.7,365.4 L54.8,353.1 L48.3,360.9Z M280.0,485.8 L276.2,489.4 L272.5,471.7 L277.0,455.2 L294.6,428.6 L296.3,439.8 L280.0,485.8Z M224.8,435.4 L223.4,416.0 L216.5,416.0 L202.4,404.0 L190.6,359.6 L250.0,348.8 L263.2,370.3 L270.7,352.3 L274.9,355.2 L286.6,416.0 L271.1,452.6 L250.0,438.0 L224.8,435.4Z M262.1,318.3 L260.7,308.3 L269.0,298.4 L275.2,299.2 L271.1,317.3 L262.1,318.3Z M257.6,285.9 L265.6,276.0 L267.6,291.1 L259.3,296.1 L257.6,285.9Z M240.3,461.2 L242.7,458.3 L255.5,463.0 L250.4,475.6 L240.3,461.2Z M82.2,169.4 L82.8,184.5 L75.6,187.1 L68.7,173.3 L82.2,169.4Z","northSchleswig":"M70.4,428.1 L73.2,412.6 L83.2,413.4 L79.1,422.0 L81.1,432.0 L76.3,435.9 L70.4,428.1Z M183.3,365.4 L176.8,378.1 L184.1,403.2 L179.5,416.0 L172.0,416.0 L171.6,438.0 L194.7,434.6 L208.6,445.0 L215.5,463.0 L186.1,469.5 L173.6,462.6 L159.2,472.5 L147.4,475.9 L130.8,465.6 L86.6,459.6 L88.0,384.6 L76.3,372.1 L67.6,385.4 L59.7,365.4 L183.3,365.4Z","southSchleswig":"M207.2,604.4 L199.9,605.7 L170.6,594.2 L148.8,597.6 L160.2,576.9 L156.4,561.0 L136.4,553.2 L122.9,546.7 L106.0,564.4 L92.1,554.8 L109.1,536.2 L107.1,516.1 L88.4,475.9 L86.6,459.6 L130.8,465.6 L147.4,475.9 L159.2,472.5 L159.2,473.8 L165.7,473.8 L205.4,481.6 L215.1,504.4 L209.6,525.5 L227.9,537.5 L217.2,552.7 L223.7,566.0 L222.0,583.7 L208.2,589.3 L207.2,604.4Z M93.3,517.4 L91.1,530.2 L79.4,526.0 L79.4,520.3 L93.3,517.4Z M63.5,502.7 L59.0,509.2 L52.5,499.3 L61.1,487.6 L63.5,502.7Z M83.2,486.8 L81.1,497.5 L72.8,497.5 L63.9,491.5 L68.0,485.5 L83.2,486.8Z M62.9,466.9 L53.2,466.9 L58.7,447.9 L62.9,451.8 L62.9,466.9Z","holstein":"M138.8,627.3 L122.9,627.3 L104.9,604.1 L116.4,596.3 L104.6,581.1 L106.0,564.4 L122.9,546.7 L136.4,553.2 L156.4,561.0 L160.2,576.9 L148.8,597.6 L170.6,594.2 L199.9,605.7 L207.2,604.4 L208.2,589.3 L222.0,583.7 L223.7,566.0 L217.2,552.7 L227.9,537.5 L228.6,551.4 L243.8,538.0 L278.0,558.4 L298.7,547.1 L311.1,556.6 L310.8,576.4 L284.5,597.1 L289.7,609.1 L295.6,614.8 L282.8,638.6 L284.5,649.6 L300.1,665.2 L267.3,711.3 L255.5,707.9 L240.7,700.2 L234.2,689.8 L228.9,683.3 L227.9,659.5 L219.2,654.8 L187.5,679.9 L165.1,655.3 L145.4,629.5 L138.8,627.3Z M20.7,588.5 L10.0,573.3 L17.9,569.6 L22.7,574.3 L20.7,588.5Z M323.9,525.2 L329.5,540.1 L316.3,541.1 L307.0,534.6 L307.0,525.2 L310.1,521.6 L323.9,525.2Z"},"lines":{"kongeaa":"M183.3,365.4 L59.7,365.4","border1920":"M159.2,472.5 L147.4,475.9 M147.4,475.9 L130.8,465.6 M130.8,465.6 L122.9,464.8 M122.9,464.8 L86.6,459.6","eider":"M208.2,589.3 L207.2,604.4 M207.2,604.4 L199.9,605.7 M199.9,605.7 L170.6,594.2 M170.6,594.2 L148.8,597.6 M148.8,597.6 L160.2,576.9 M160.2,576.9 L156.4,561.0 M156.4,561.0 L136.4,553.2 M136.4,553.2 L122.9,546.7 M122.9,546.7 L106.0,564.4 M227.9,537.5 L217.2,552.7 M217.2,552.7 L223.7,566.0 M223.7,566.0 L222.0,583.7 M222.0,583.7 L215.5,586.8 M215.5,586.8 L208.2,589.3"},"markers":{"dybbol":{"x":188.5,"y":459.8},"fredericia":{"x":189.4,"y":352.4},"isted":{"x":168.2,"y":523.2},"bov":{"x":157.2,"y":459.8},"kobenhavn":{"x":449.1,"y":334.5},"flensborg":{"x":159.9,"y":480.9},"hamborg":{"x":211.5,"y":681.0},"kiel":{"x":223.5,"y":555.8},"dvk_a":{"x":155.3,"y":528.1},"dvk_b":{"x":181.1,"y":528.1},"lbl_dkproper":{"x":120.3,"y":233.7},"lbl_nschl":{"x":124.9,"y":437.0},"lbl_sschl":{"x":148.0,"y":507.0},"lbl_holst":{"x":198.6,"y":607.8}}};
+  const C={dk:'#b1543f',fief:'#d6a48f',conf:'url(#sw-hatch)',de:'#6f93a3'};
+  const REGIONS=['denmarkProper','northSchleswig','southSchleswig','holstein'];
+  const M=MAP.markers, $=id=>document.getElementById(id);
+  const svg=$('sw-map'); svg.setAttribute('viewBox',MAP.viewBox);
+  const VB=MAP.viewBox.split(' ').map(Number);
+  let s='<defs><pattern id="sw-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
+   +'<rect width="6" height="6" fill="#cdbb95"/><line x1="0" y1="0" x2="0" y2="6" stroke="#a8925f" stroke-width="1"/></pattern></defs>';
+  s+='<rect x="0" y="0" width="'+VB[2]+'" height="'+VB[3]+'" fill="#e7ece9"/>';
+  REGIONS.forEach(r=>{ s+='<path id="sw-'+r+'" class="sw-region" d="'+MAP.regions[r]+'"></path>'; });
+  s+='<path id="sw-eider" class="sw-bline" d="'+MAP.lines.eider+'"></path>';
+  s+='<path id="sw-kongeaa" class="sw-bline" d="'+MAP.lines.kongeaa+'"></path>';
+  s+='<path id="sw-border1920" class="sw-bline" d="'+MAP.lines.border1920+'"></path>';
+  s+='<path id="sw-danevirke" class="sw-dvk" d="M '+M.dvk_a.x+' '+M.dvk_a.y+' L '+M.dvk_b.x+' '+M.dvk_b.y+'"></path>';
+  [['lbl_dkproper','丹麥王國',10],['lbl_nschl','北石勒蘇益格',8.4],['lbl_sschl','南石勒蘇益格',7.6],['lbl_holst','荷爾斯泰因／勞恩堡',7.6]]
+   .forEach(([k,t,fs])=>{ s+='<text class="sw-rlbl" x="'+M[k].x+'" y="'+M[k].y+'" font-size="'+fs+'" text-anchor="middle">'+t+'</text>'; });
+  [['kobenhavn','København','start',5],['flensborg','Flensborg','end',-4],['hamborg','Hamborg','middle',0],['kiel','Kiel','start',5]]
+   .forEach(([k,t,anc,dx])=>{ s+='<circle cx="'+M[k].x+'" cy="'+M[k].y+'" r="1.8" fill="#2c2520" opacity=".75"/>'
+     +'<text class="sw-clbl" x="'+(M[k].x+dx)+'" y="'+(M[k].y-3)+'" font-size="7" text-anchor="'+anc+'">'+t+'</text>'; });
+  function bm(k,label,anc,dx,big){const m=M[k],r=big?5:3.4;
+    return '<g id="sw-m-'+k+'" class="sw-mk"><circle cx="'+m.x+'" cy="'+m.y+'" r="'+r+'" fill="rgba(177,84,63,.16)" stroke="#b1543f" stroke-width="'+(big?1.7:1.3)+'"/>'
+     +'<circle cx="'+m.x+'" cy="'+m.y+'" r="1.4" fill="#b1543f"/>'
+     +'<text class="sw-blbl" x="'+(m.x+dx)+'" y="'+(m.y-(big?7:5))+'" font-size="'+(big?8.2:7.4)+'" fill="#b1543f" text-anchor="'+anc+'">'+label+'</text></g>';}
+  s+=bm('fredericia','Fredericia 1849','start',7,false)+bm('bov','Bov 1848','end',-6,false)
+    +bm('isted','Isted 1850','end',-6,false)+bm('dybbol','Dybbøl 1864 ✦','start',8,true);
+  svg.innerHTML=s;
+
+  const steps=[
+   {tag:'階段一',title:'戰前的格局',yrs:'1815–1847',
+    body:'丹麥國王在王國以南兼領三個公國:<b>石勒蘇益格</b>是丹麥采邑,而<b>荷爾斯泰因</b>與<b>勞恩堡</b>同屬德意志邦聯。北石勒蘇益格說丹麥語、南部說德語,語言界線與政治界線並不一致。古老的 Danevirke 防線標示著南方的傳統屏障。',
+    fills:{denmarkProper:'dk',northSchleswig:'fief',southSchleswig:'fief',holstein:'conf'},
+    markers:[],borders:{eider:'bfaint',kongeaa:'bfaint'},danevirke:true,size:100,
+    statlabel:'丹麥君主國全境',note:'三公國連同本土,構成完整的「丹麥君主國」。'},
+   {tag:'第一次戰爭',title:'三年戰爭',yrs:'1848–1851',
+    body:'1848 革命之年,公國的德意志派起兵,普魯士介入支援。丹麥在 <b>Fredericia(1849)</b>、<b>Isted(1850)</b> 等役獲勝;在俄、英強權施壓下普魯士撤兵,<b>戰前邊界全部恢復</b>。丹麥贏了,但根本矛盾原封不動。',
+    fills:{denmarkProper:'dk',northSchleswig:'fief',southSchleswig:'fief',holstein:'conf'},
+    markers:['fredericia','bov','isted'],borders:{eider:'bfaint',kongeaa:'bfaint'},danevirke:true,size:100,
+    statlabel:'領土無變動',note:'戰勝卻維持現狀——危機只是被推遲。'},
+   {tag:'第二次戰爭',title:'普丹戰爭',yrs:'1864',
+    body:'丹麥 1863 年新憲法欲把石勒蘇益格綁得更緊,違反國際協議。俾斯麥率普魯士聯合奧地利出兵。丹軍棄守 Danevirke,在 <b>Dybbøl(迪伯爾)</b>慘敗。依《維也納和約》,<b>三個公國全數割讓</b>,南界退回 Kongeå(國王河,圖中金線)。',
+    fills:{denmarkProper:'dk',northSchleswig:'de',southSchleswig:'de',holstein:'de'},
+    markers:['dybbol'],borders:{kongeaa:'bhi'},danevirke:false,size:60,
+    statlabel:'丹麥版圖',note:'一口氣失去約 40% 領土與人口——近代史上最深的剋傷。'},
+   {tag:'戰後重劃',title:'公投回歸',yrs:'1920',
+    body:'一戰後依公投決定歸屬。<b>北石勒蘇益格(Sønderjylland)</b>多數選擇回歸丹麥;中段 Flensborg 一帶選擇留在德國。這條 1920 年劃定的界線(圖中藍線),正是<b>今日的丹麥—德國邊界</b>。',
+    fills:{denmarkProper:'dk',northSchleswig:'dk',southSchleswig:'de',holstein:'de'},
+    markers:[],borders:{'border1920':'bhi2'},danevirke:false,size:67,
+    statlabel:'丹麥版圖(迄今)',note:'北界南移一段;南石勒蘇益格與荷爾斯泰因仍屬德國。'},
+  ];
+  let cur=0; const stepsEl=$('sw-steps');
+  steps.forEach((st,i)=>{const b=document.createElement('button');b.className='sw-step';b.setAttribute('role','tab');
+    b.innerHTML='<span class="yr">'+st.yrs.split('–')[0]+'</span><span class="nm">'+st.title+'</span>';
+    b.onclick=()=>go(i);stepsEl.appendChild(b);});
+  function go(i){cur=Math.max(0,Math.min(steps.length-1,i));const st=steps[cur];
+    REGIONS.forEach(r=>$('sw-'+r).setAttribute('fill',C[st.fills[r]]));
+    ['eider','kongeaa','border1920'].forEach(b=>$('sw-'+b).setAttribute('class','sw-bline'));
+    Object.entries(st.borders||{}).forEach(([b,cls])=>$('sw-'+b).setAttribute('class','sw-bline show sw-'+cls));
+    $('sw-danevirke').classList.toggle('show',st.danevirke);
+    document.querySelectorAll('#sw-root .sw-mk').forEach(m=>m.classList.remove('show'));
+    st.markers.forEach(m=>$('sw-m-'+m).classList.add('show'));
+    $('sw-tag').textContent=st.tag;$('sw-title').textContent=st.title;$('sw-yrs').textContent=st.yrs;
+    $('sw-body').innerHTML=st.body;$('sw-statlabel').textContent=st.statlabel;
+    $('sw-bar').style.width=st.size+'%';$('sw-note').textContent=st.note;
+    Array.from(stepsEl.children).forEach((b,j)=>b.setAttribute('aria-selected',j===cur));
+    $('sw-prev').disabled=cur===0;$('sw-next').disabled=cur===steps.length-1;}
+  $('sw-prev').onclick=()=>go(cur-1); $('sw-next').onclick=()=>go(cur+1);
+  window.addEventListener('keydown',e=>{const root=$('sw-root');if(!root||root.offsetParent===null)return;
+    if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+  go(0);
 })();
 </script>
 </body>
