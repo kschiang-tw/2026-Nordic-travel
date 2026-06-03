@@ -174,7 +174,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
 .gtx strong { color:var(--tx); font-weight:500; }
 
 /* ── SKANSEN MAP ── */
-#skansen-map { height:300px; width:100%; border-radius:12px; border:1px solid var(--bd); background:var(--sf2); z-index:0; }
+#skansen-map, #tax-map { height:300px; width:100%; border-radius:12px; border:1px solid var(--bd); background:var(--sf2); z-index:0; }
 .sk-maphint { font-size:10.5px; color:var(--td); margin-top:6px; text-align:center; }
 .sk-legend { display:flex; flex-wrap:wrap; gap:6px 12px; margin-top:9px; }
 .sk-legend span { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--tm); }
@@ -949,6 +949,12 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           <div class="bgs"><span class="bg bw">⏰ 最晚 10:45 出發</span></div></div>
         </div>
         <div class="tli t"><div class="dot"></div>
+          <div class="cd t"><div class="ch"><span class="ci">🛂</span><span class="cn">T5 辦退稅（Planet / Global Blue）</span><span class="ctm">check-in 前</span></div>
+          <div class="dd">兩家分開辦・商品勿先託運・帶齊護照＋商品＋收據＋登機證</div>
+          <div class="bgs"><span class="bg bw">⏰ 退稅要在 check-in／託運之前</span></div>
+          <div class="dd" style="margin-top:5px"><a onclick="openGuide('tax')" style="cursor:pointer;color:var(--a)">→ 查看完整退稅攻略與櫃檯地圖</a></div></div>
+        </div>
+        <div class="tli t"><div class="dot"></div>
           <div class="cd t"><div class="ch"><span class="ci">✈️</span><span class="cn">TG961 ARN → BKK</span><span class="ctm">13:50</span></div>
           <div class="dd">抵達 05:50(+1)</div></div>
         </div>
@@ -1080,6 +1086,17 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
               <div style="font-size:11px;color:var(--tm)">準備文件 · 前往路線 · Miracle Lounge G 區 3F</div>
             </div>
             <div style="color:var(--a2);font-size:18px;margin-left:12px">›</div>
+          </div>
+        </div>
+      </div>
+      <div onclick="openGuide('tax')" style="cursor:pointer">
+        <div class="gs" style="border-left:2.5px solid #006AA7;margin-bottom:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div class="gtl" style="margin-bottom:4px;color:#006AA7">🛂 ARN T5 退稅指南 · 櫃檯地圖</div>
+              <div style="font-size:11px;color:var(--tm)">Planet · Global Blue · 海關蓋章 · 互動地圖 · 6/6 當天動線（D15）</div>
+            </div>
+            <div style="color:#006AA7;font-size:18px;margin-left:12px">›</div>
           </div>
         </div>
       </div>
@@ -1497,6 +1514,92 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       </div>
     </div>
 
+    <!-- ══ GUIDE: TAX REFUND (ARN T5) ══ -->
+    <div class="pg" id="p-guide-tax">
+      <div class="back-bar">
+        <div class="back-btn" onclick="openGuide('index')">‹ 返回指南</div>
+      </div>
+      <div class="hero" style="--glow:rgba(0,106,167,.16)">
+        <div class="hd">ARN · TERMINAL 5</div>
+        <div class="ht">Arlanda T5<br>退稅指南</div>
+        <div class="hdate">📅 2026年6月6日 離境 · TG961 ARN → BKK 13:50（Terminal 5）</div>
+        <div class="htags"><div class="htag">🇸🇪 瑞典</div><div class="htag">D15</div><div class="htag">互動地圖</div></div>
+      </div>
+
+      <div class="gs" style="border-left:2.5px solid var(--rd)">
+        <div class="gtl" style="color:var(--rd)">⚠️ 核心原則</div>
+        <div class="gi"><div class="gd" style="background:var(--rd)"></div><div class="gtx"><strong>離開瑞典（歐盟最後出境點）前必須完成 Tax Free Form 驗證／蓋章</strong>，否則無法退款。TG961 飛 BKK，ARN 就是出歐盟的出境點，<strong>在這裡辦完即可</strong>，不必等曼谷或台灣。</div></div>
+        <div class="gi"><div class="gd" style="background:var(--rd)"></div><div class="gtx"><strong>退稅要在 check-in／託運之前辦</strong>　商品須能隨時取出供查驗，<strong>勿先裝箱託運</strong>。</div></div>
+        <div class="gi"><div class="gd" style="background:var(--rd)"></div><div class="gtx"><strong>建議起飛前約 3 小時抵達</strong>　TG961 13:50 起飛 → 約 <strong>10:45–11:00 前抵 T5</strong>，先辦退稅再 check-in（手上同時有 Planet 與 Global Blue 兩家單據，需分開辦理，留足緩衝）。</div></div>
+        <div class="gi"><div class="gd" style="background:var(--rd)"></div><div class="gtx"><strong>四樣帶齊</strong>　護照 + 商品 + 收據 + 登機證。</div></div>
+      </div>
+
+      <div class="gs">
+        <div class="gtl">🗺️ 退稅櫃檯互動地圖（OpenStreetMap）</div>
+        <div id="tax-map"></div>
+        <div class="sk-legend">
+          <span><i style="background:#8a7d72"></i>出境流程（大廳・報到・安檢・接駁）</span>
+          <span><i style="background:#c07840"></i>Planet / Forex 退稅</span>
+          <span><i style="background:#006AA7"></i>Global Blue 退稅</span>
+          <span><i style="background:#a51931"></i>海關 Customs 蓋章</span>
+        </div>
+        <div class="sk-maphint">點圖釘看說明 · 數字為 6/6 當天建議順序 · 機場室內櫃檯無法精準定位，<strong>釘位為示意</strong>，底圖為真實 OSM 街道</div>
+      </div>
+
+      <div class="gs">
+        <div class="gtl">🧭 6/6 當天動線（建議順序）</div>
+        <div class="sk-route"><span class="sk-num">1</span><div class="gtx"><strong>抵達 T5 出境大廳，先辦退稅</strong>（check-in／託運之前）— 約起飛前 3 小時</div></div>
+        <div class="sk-route"><span class="sk-num">2</span><div class="gtx"><strong>Global Blue</strong> — landside 櫃檯（出境大廳<strong>資訊櫃台旁</strong>）驗證／刷退</div></div>
+        <div class="sk-route"><span class="sk-num">3</span><div class="gtx"><strong>Planet</strong> — 安檢前 <strong>Aviator Flight Services</strong> 櫃檯（<strong>WH Smith 店區</strong>）辦驗證</div></div>
+        <div class="sk-route"><span class="sk-num">4</span><div class="gtx"><strong>海關 Customs 蓋章</strong> — <strong>非北歐三國（瑞／丹／挪以外）</strong>開立的單子，須先找海關蓋章才能退款</div></div>
+        <div class="sk-route"><span class="sk-num">5</span><div class="gtx"><strong>check-in／託運行李</strong>（退稅辦完後）</div></div>
+        <div class="sk-route"><span class="sk-num">6</span><div class="gtx"><strong>過安檢 Security</strong></div></div>
+        <div class="sk-route"><span class="sk-num">7</span><div class="gtx"><strong>Forex（安檢後 airside）</strong> — Planet <strong>單筆 &gt; 25,000 SEK</strong> 或需安檢後退款者，到此驗證表單／領款</div></div>
+      </div>
+
+      <div class="gs" style="border-left:2.5px solid #c07840">
+        <div class="gtl" style="color:#c07840">🟠 Planet 退稅</div>
+        <div class="gi"><div class="gd" style="background:#c07840"></div><div class="gtx"><strong>安檢前驗證</strong>　T5 <strong>Aviator Flight Services</strong> 櫃檯（WH Smith 店區）· 每日 <strong>05:00–21:30</strong></div></div>
+        <div class="gi"><div class="gd" style="background:#c07840"></div><div class="gtx"><strong>安檢後驗證／退款</strong>　T5 <strong>Forex</strong>（airside）· 每日 <strong>08:00–20:00</strong></div></div>
+        <div class="gi"><div class="gd" style="background:#c07840"></div><div class="gtx"><strong>一般流程</strong>　T5 出發 → 安檢前找 Aviator 櫃檯辦驗證</div></div>
+        <div class="gi"><div class="gd" style="background:#c07840"></div><div class="gtx"><strong>單筆購買 &gt; 25,000 SEK</strong>　須過安檢後，直接到 <strong>Forex</strong> 驗證表單</div></div>
+        <div class="gi"><div class="gd" style="background:#c07840"></div><div class="gtx">瑞典／丹麥／挪威開立的單子，Planet（或 Forex）可<strong>代海關出口驗證</strong></div></div>
+      </div>
+
+      <div class="gs" style="border-left:2.5px solid #006AA7">
+        <div class="gtl" style="color:#006AA7">🔵 Global Blue 退稅</div>
+        <div class="gi"><div class="gd" style="background:#006AA7"></div><div class="gtx"><strong>landside（安檢前）</strong>　T5 出境大廳的 Global Blue landside 櫃檯（<strong>資訊櫃台旁</strong>）· 約 <strong>05:20–18:45</strong></div></div>
+        <div class="gi"><div class="gd" style="background:#006AA7"></div><div class="gtx">landside 櫃檯<strong>多半只能刷退信用卡</strong>；現金退款通常要到 airside 或另收手續費（每張約 30 SEK）</div></div>
+        <div class="gi"><div class="gd" style="background:#006AA7"></div><div class="gtx"><strong>每張表單最多扣除約 €2.00 驗證費</strong></div></div>
+        <div class="gi"><div class="gd" style="background:#006AA7"></div><div class="gtx"><strong>櫃檯關門時</strong>　到入境層海關，或 <strong>24 小時開放的海關大樓</strong>（搭免費接駁巴士 <strong>Alfa 線</strong>）辦理出口驗證；蓋章後也可投 T5 的退稅郵筒</div></div>
+      </div>
+
+      <div class="gs">
+        <div class="gtl">🤝 兩家共通規則</div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><strong>瑞典／丹麥／挪威</strong>開立的表單 → Planet 或 Global Blue <strong>可直接代海關蓋章</strong></div></div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><strong>其他歐盟國家</strong>開立的表單 → 須<strong>先找海關（Customs）蓋章</strong>，才能退款</div></div>
+        <div class="gi"><div class="gd"></div><div class="gtx">商品一律須能取出查驗，<strong>勿先託運</strong></div></div>
+        <div class="gi"><div class="gd"></div><div class="gtx">金額大時，<strong>刷退信用卡</strong>通常比領現金省手續費</div></div>
+      </div>
+
+      <div class="gs" style="border-left:2.5px solid var(--a3)">
+        <div class="gtl" style="color:var(--a3)">✅ 出發前一晚（6/5）檢查清單</div>
+        <div class="gi"><div class="gd" style="background:var(--a3)"></div><div class="gtx">所有退稅單據（Planet / Global Blue）依商店分類整理好</div></div>
+        <div class="gi"><div class="gd" style="background:var(--a3)"></div><div class="gtx">對應收據齊全</div></div>
+        <div class="gi"><div class="gd" style="background:var(--a3)"></div><div class="gtx">要查驗的商品放手提行李或方便取出處（<strong>勿裝進託運箱</strong>）</div></div>
+        <div class="gi"><div class="gd" style="background:var(--a3)"></div><div class="gtx">確認退款方式（建議信用卡刷退）</div></div>
+        <div class="gi"><div class="gd" style="background:var(--a3)"></div><div class="gtx">護照、登機證、信用卡備妥</div></div>
+      </div>
+
+      <div class="gs">
+        <div class="gtl">🔗 資料來源</div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><a href="https://www.swedavia.com/arlanda/service/global-blue-vat-refund2/">Swedavia 官方・Global Blue (VAT refund) @ Arlanda</a></div></div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><a href="https://taxfree.weareplanet.com/countries/sweden">Planet Tax Free・Sweden VAT Refund</a></div></div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><a href="https://cs.globalblue.com/s/article/How-to-get-a-refund-if-the-airport-refund-office-is-closed?language=en_US">Global Blue・退稅櫃檯關門時怎麼辦（24h 海關 / Alfa 接駁）</a></div></div>
+        <div class="gi"><div class="gd"></div><div class="gtx">底圖 © OpenStreetMap 貢獻者</div></div>
+      </div>
+    </div>
+
     <!-- ══ GUIDE: NOTES ══ -->
     <div class="pg" id="p-notes">
       <div class="hero"><div class="hd">TRAVEL NOTES</div><div class="ht">重要資訊</div></div>
@@ -1601,7 +1704,8 @@ function openGuide(sub, anchor) {
     'aarhus': 'p-guide-aarhus',
     'bkk': 'p-guide-bkk',
     'schleswig': 'p-guide-schleswig',
-    'skansen': 'p-guide-skansen'
+    'skansen': 'p-guide-skansen',
+    'tax': 'p-guide-tax'
   };
   var target = map[sub] || 'p-guide';
   var p = document.getElementById(target);
@@ -1609,6 +1713,7 @@ function openGuide(sub, anchor) {
   var sc = document.getElementById('scroll');
   sc.scrollTop = 0;
   if (sub === 'skansen') initSkansenMap();
+  if (sub === 'tax') initTaxMap();
   if (anchor) {
     setTimeout(function() {
       var a = document.getElementById(anchor);
@@ -1669,6 +1774,51 @@ function initSkansenMap() {
   });
   skansenMap.fitBounds(bounds, { padding:[28,28] });
   setTimeout(function(){ skansenMap.invalidateSize(); }, 150);
+}
+
+// ── ARN T5 退稅櫃檯互動地圖（Leaflet + OpenStreetMap）──
+// 室內櫃檯無法精準定位，釘位為示意；底圖為真實 OSM 街道。
+var taxMap = null;
+function initTaxMap() {
+  if (typeof L === 'undefined') return;            // Leaflet 尚未載入
+  var el = document.getElementById('tax-map');
+  if (!el) return;
+  if (taxMap) { setTimeout(function(){ taxMap.invalidateSize(); }, 120); return; }
+
+  var COLORS = { flow:'#8a7d72', planet:'#c07840', gb:'#006AA7', customs:'#a51931' };
+  // [lat, lon, 類別, 名稱, 說明, 路線序號(可空)]
+  var POIS = [
+    [59.64990, 17.91860, 'flow',    'T5 出境大廳', '抵達後先辦退稅，check-in／託運之前；商品須能取出供查驗', 1],
+    [59.64960, 17.91900, 'gb',      'Global Blue（landside）', '出境大廳資訊櫃台旁・約 05:20–18:45・多半只能刷退信用卡', 2],
+    [59.65010, 17.91930, 'planet',  'Planet — Aviator 櫃檯', '安檢前・WH Smith 店區・每日 05:00–21:30', 3],
+    [59.64980, 17.91970, 'customs', '海關 Customs 蓋章', '非北歐三國（瑞／丹／挪以外）開立的單子，先在此蓋章', 4],
+    [59.64940, 17.91830, 'flow',    'Check-in／託運櫃檯', '退稅辦完後再報到、託運行李', 5],
+    [59.65040, 17.92010, 'flow',    '安檢 Security', '過安檢進入 airside', 6],
+    [59.65070, 17.92070, 'planet',  'Forex（airside・安檢後）', 'Planet 單筆 > 25,000 SEK 或需安檢後退款者・每日 08:00–20:00', 7],
+    [59.64840, 17.92290, 'customs', '24h 海關大樓 Customs Building', '櫃檯關門時的備案・24 小時開放・搭免費接駁巴士 Alfa 線可達']
+  ];
+
+  taxMap = L.map('tax-map', { scrollWheelZoom:false, attributionControl:true })
+            .setView([59.6499, 17.9195], 16);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(taxMap);
+
+  var bounds = [];
+  POIS.forEach(function(d) {
+    var lat = d[0], lon = d[1], color = COLORS[d[2]], name = d[3], desc = d[4], num = d[5];
+    bounds.push([lat, lon]);
+    var html = num
+      ? '<div style="background:'+color+';width:24px;height:24px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(45deg);color:#fff;font-size:12px;font-weight:700;font-family:DM Sans,sans-serif">'+num+'</span></div>'
+      : '<div style="background:'+color+';width:16px;height:16px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>';
+    var icon = L.divIcon({ className:'', html:html, iconSize:[24,24], iconAnchor:[12, num?22:12], popupAnchor:[0, num?-22:-10] });
+    L.marker([lat, lon], { icon:icon })
+      .addTo(taxMap)
+      .bindPopup('<div class="sk-pop"><b>'+name+'</b><span>'+desc+'</span></div>');
+  });
+  taxMap.fitBounds(bounds, { padding:[28,28] });
+  setTimeout(function(){ taxMap.invalidateSize(); }, 150);
 }
 
 function navSw(nav, page) {
