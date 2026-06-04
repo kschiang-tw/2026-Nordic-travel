@@ -920,7 +920,7 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
         </div>
         <div class="tli m"><div class="dot"></div>
           <div class="cd m"><div class="ch"><span class="ci">🌲</span><span class="cn">Skogskyrkogården 林地墓園</span><span class="ctm">24/7</span></div>
-          <div class="dd">UNESCO 世界文化遺產 · <a href="https://historiskavandringar.stockholm.se/skogskyrkogarden-eng">Audio Guide EN</a></div>
+          <div class="dd">UNESCO 世界文化遺產 · <a href="#" onclick="navSw('guide','guide');openGuide('skogskyrkogarden');return false;">📖 建築史詩導讀</a> · <a href="https://historiskavandringar.stockholm.se/skogskyrkogarden-eng">Audio Guide EN</a></div>
           <div class="bgs"><span class="bg bt">UNESCO · 免費</span></div></div>
         </div>
         <div class="tli"><div class="dot"></div>
@@ -1093,6 +1093,17 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
             <div>
               <div class="gtl" style="margin-bottom:4px;color:var(--a3)">🏡 Skansen 露天博物館・地圖攻略</div>
               <div style="font-size:11px;color:var(--tm)">互動地圖 · 建議路線 · 北歐動物 · 城區工藝 · 交通票價（D12 · 6/3）</div>
+            </div>
+            <div style="color:var(--a3);font-size:18px;margin-left:12px">›</div>
+          </div>
+        </div>
+      </div>
+      <div onclick="openGuide('skogskyrkogarden')" style="cursor:pointer">
+        <div class="gs" style="border-left:2.5px solid var(--a3);margin-bottom:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div class="gtl" style="margin-bottom:4px;color:var(--a3)">🌲 林地墓園 Skogskyrkogården · 建築史詩</div>
+              <div style="font-size:11px;color:var(--tm)">UNESCO 世界遺產 · 阿斯普隆德與勞倫茲 · 生命・死亡・再生（D13 · 6/4）</div>
             </div>
             <div style="color:var(--a3);font-size:18px;margin-left:12px">›</div>
           </div>
@@ -1534,6 +1545,84 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       </div>
     </div>
 
+    <!-- ══ GUIDE: SKOGSKYRKOGÅRDEN 林地墓園 ══ -->
+    <div class="pg" id="p-guide-skogskyrkogarden">
+      <div class="back-bar">
+        <div class="back-btn" onclick="openGuide('index')">‹ 返回指南</div>
+      </div>
+      <div class="hero" style="--glow:rgba(78,158,114,.16)">
+        <div class="hd">SKOGSKYRKOGÅRDEN</div>
+        <div class="ht">林地墓園<br>生命・死亡・再生</div>
+        <div class="hdate">📅 2026年6月4日（四）· UNESCO 世界文化遺產（1994）</div>
+        <div class="htags"><div class="htag">🇸🇪 瑞典</div><div class="htag">D13</div><div class="htag">20 世紀建築史詩</div></div>
+      </div>
+
+      <div class="gs">
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0 0 10px">位於瑞典斯德哥爾摩的<strong>林地墓園（Skogskyrkogården）</strong>，於 1994 年被聯合國教科文組織列入世界文化遺產。它是 20 世紀建築史上的極致傑作，徹底顛覆了過去歐洲墓園「高聳紀念碑、整齊林蔭道、彰顯階級與財富」的刻板印象。</p>
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0 0 10px">這裡沒有一絲陰暗與恐懼，取而代之的是松林、陽光、陰影與起伏的山丘。它完美地將建築融入自然景觀，講述著一個關於「生命、死亡與再生」的永恆循環。</p>
+        <p style="font-size:13.5px;line-height:1.75;color:var(--tx);margin:0">然而，在這座神聖而寧靜的墓園背後，卻隱藏著長達 25 年的複雜設計過程、兩位天才建築師之間的決裂與背叛，以及一段讓人唏噓的建築史遺憾。</p>
+      </div>
+
+      <div class="gs">
+        <div class="gtl">🪨 一、誕生始末：從「碎石場」到世界遺產</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 10px">20 世紀初，斯德哥爾摩人口急速膨脹，城市急需一座新的公墓。1912 年，市府買下了城市南部安斯基得（Enskede）的一片土地——那裡當時是一處長滿松樹的廢棄碎石採掘場，地形坑窪不平。</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 8px">1914 年，公墓委員會發起了一場國際設計競賽。與以往不同，委員會提出了一個跨時代的願景：</div>
+        <div class="gi"><div class="gd"></div><div class="gtx">不要宏偉的紀念碑，提倡<strong>「死而平等」</strong>（所有人不論貧富，墓碑尺寸與待遇皆相同）。</div></div>
+        <div class="gi"><div class="gd"></div><div class="gtx">必須最大程度地<strong>保留原始的森林與地形</strong>。</div></div>
+        <div class="gi"><div class="gd"></div><div class="gtx">要讓造訪者感受到生命與死亡是不斷交替的自然循環（<strong>Life–Death–Life</strong>）。</div></div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:10px 0 10px">當時年僅 30 歲的兩位瑞典年輕建築師——<strong>貢納爾·阿斯普隆德（Gunnar Asplund）</strong>與<strong>西格德·勞倫茲（Sigurd Lewerentz）</strong>攜手合作，提交了名為 <strong>「Tallum」（松林）</strong> 的方案。</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0">在 53 件參賽作品中，絕大多數設計師都試圖「剷平土地、砍伐樹木、建立幾何對稱的秩序」，<strong>唯有阿斯普隆德與勞倫茲選擇順應自然、保留松林，將北歐神話與大自然的原始情感作為核心</strong>。這個方案最終脫穎而出，奪得頭獎。工程於 1917 年正式動工。</div>
+      </div>
+
+      <div class="gs">
+        <div class="gtl">🏛️ 二、核心建築理念與設計巧思</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 10px">林地墓園的設計跨越了北歐古典主義（Nordic Classicism）到成熟實用主義／功能主義（Functionalism）的演變。兩位建築師各司其職：勞倫茲主要負責宏觀的景觀規劃與南側教堂；阿斯普隆德則主要負責核心的建築群與火葬場。他們共同創造了一條精心編排的「治癒旅程」，利用空間與光影，帶領喪親者走過從悲傷到釋懷的情感過程。</div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--a3);margin:14px 0 6px">1. 冥想之丘（Almhöjden / Meditation Grove）與大十字架</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 8px">進入墓園主入口，首先映入眼簾的是一片極其開闊的草坪，遠處有一座平緩起伏的山丘，山丘頂端矗立著一尊由巨大花崗岩製成的十字架。</div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><strong>理念</strong>：這個十字架刻意不帶任何傳統基督受難的細節，強調它是一個<strong>超越宗教、開放給所有信仰（甚至無神論者）的抽象象徵</strong>，靈感源自浪漫主義畫家卡斯帕·大衛·弗里德里希的畫作《波羅的海的十字架》，象徵在孤獨荒涼的世界中的一絲希望。</div></div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><strong>動線</strong>：通往山丘頂端的階梯經過精密計算——越往上走，階梯的高度越低、步伐越輕鬆。象徵著隨著親人入土為安，生者的悲傷與沉重步伐也逐漸減輕。</div></div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--a3);margin:14px 0 6px">2. 林地小教堂（Skogskapellet）</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 8px">由阿斯普隆德設計，於 1920 年落成，是墓園內第一座建築。</div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><strong>理念</strong>：它深藏於密林之中，外觀極其樸素，模仿了阿斯普隆德見過的「原始茅屋（Primitive Hut）」，屋頂覆蓋著木瓦，與周圍高聳的松樹融為一體。然而推開大門進入內部，卻是一個潔白、明亮且帶有圓頂玻璃天窗的古典空間。這種「外在自然質樸、內在神聖純潔」的強烈對比，給予心靈極大的震撼與安慰。</div></div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--a3);margin:14px 0 6px">3. 七井之路（Sju brunnars stig / Way of Seven Wells）</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 8px">這是一條長達近一公里的筆直步道，兩側是由高聳松樹夾道而成的翠綠高牆。</div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><strong>理念</strong>：這條路是一場關於「光影與時間」的儀式。步道從入口的明亮開闊，逐漸走入深邃、陰暗的松林深處。這種刻意營造的幽暗與漫長，是為了讓送葬的隊伍在沉靜中沉澱情緒，最終通往道路盡頭的「復活教堂」。</div></div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--a3);margin:14px 0 6px">4. 復活教堂（Uppståndelsekapellet）</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 8px">由勞倫茲於 1925 年獨立設計。</div>
+        <div class="gi"><div class="gd"></div><div class="gtx"><strong>理念</strong>：這是一座嚴謹的北歐古典主義傑作。最著名的設計是它的<strong>動線不走回頭路</strong>：家屬從西側莊嚴的希臘式柱廊進入教堂，面向祭壇進行告別；儀式結束後，教堂北側的大門會緩緩打開，家屬直接走向外面的森林與陽光。象徵著逝者已逝，而生者必須告別過去、面向新生的光明。</div></div>
+      </div>
+
+      <div class="gs" style="border-left:2.5px solid var(--rd)">
+        <div class="gtl" style="color:var(--rd)">⚡ 三、歷史爭議與大師決裂：一場關於藝術與背叛的悲劇</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0">林地墓園雖然在今天被奉為神作，但它的建造過程長達 25 年（1915–1940）。在這漫長的歲月裡，由於一戰後的經濟蕭條、市府預算不斷削減，設計圖被迫修改了無數次。在巨大的壓力下，公墓委員會、阿斯普隆德、勞倫茲三方爆發了嚴重的衝突。</div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--rd);margin:14px 0 6px">1. 悲劇的導火線：林地火葬場（The Woodland Crematorium）</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 8px">到了 1930 年代，隨著現代火葬觀念的普及，市府決定在墓園內建造一座大型火葬場及三座相連的新教堂（信仰、希望、聖十字教堂）。</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0">此時現代主義（Modernism / Functionalism）在歐洲興起。阿斯普隆德的建築風格逐漸轉向輕盈、理性的功能主義；而勞倫茲則依然堅持他那種充滿神秘感、極致工藝、帶有紀念碑式厚重感的古典與景觀哲學。公墓委員會對勞倫茲慢條斯理、追求極致完美的固執作風感到極度不耐煩，同時也更偏好阿斯普隆德那種更具現代感、高效率且省預算的設計。</div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--rd);margin:14px 0 6px">2. 決裂與驅逐</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 8px">1936 年，公墓委員會做出了一個極其粗暴且殘忍的決定：<strong>解僱勞倫茲，並將火葬場及後續所有的設計權，單獨交給阿斯普隆德。</strong></div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0">這對勞倫茲來說是毀滅性的打擊。他與阿斯普隆德是多年的至交好友，共同為這個墓園奮鬥了 20 年。然而面對委員會的決定，阿斯普隆德選擇了接受，並獨自完成了火葬場的設計。勞倫茲憤怒、失望至極，他認為自己遭到了好友的背叛。他當即收拾行李，徹底離開了斯德哥爾摩，甚至在接下來的二十年裡幾乎放棄了主流建築實踐，轉行去開了一家製造鋼窗的工廠，與建築界斷絕往來。</div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--rd);margin:14px 0 6px">3. 命運的殘酷諷刺</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 8px">1940 年，阿斯普隆德傾盡心血、採用「柔和現代主義」設計的林地火葬場終於落成。這座建築堪稱現代主義的巔峰，其巨大的機械螢幕牆可以緩緩降入地下，讓室內與室外的森林在儀式中融為一體。然而，命運卻開了一個極其殘酷的玩笑。</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0 0 8px"><strong>火葬場竣工後僅僅四個月，阿斯普隆德因長期積勞成疾，猝然離世，享年 55 歲。</strong></div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0"><strong>這座全新火葬場啟用後所舉行的一場葬禮，送進去的遺體，正是阿斯普隆德自己。</strong>也是在全場降下機械牆、讓森林向他告別的唯一一次儀式。他最終被安葬在自己設計的「聖十字教堂」旁，墓碑上只刻著簡單的一句話：<em>"His work lives"（他的作品永存）</em>。</div>
+
+        <div style="font-size:13px;font-weight:700;color:var(--rd);margin:14px 0 6px">4. 晚年的和解與迴響</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0">阿斯普隆德去世後，林地墓園的傳奇並未結束。1961 年，墓園需要建造一座「沉思花園（Remembrance Garden）」。這一次，市府重新找回了已經白髮蒼蒼、年過七旬的勞倫茲。勞倫茲放下了當年的恩怨，重新回到了這片他與亡友共同構思的土地。他設計了一片極其美麗的冥想散步區，並在這裡為林地墓園畫下了完美的句點。勞倫茲晚年也因為另外兩座教堂（聖馬克、聖彼得教堂）重新震驚世界建築界，被尊為「建築師的建築師」。</div>
+      </div>
+
+      <div class="gs" style="border-left:2.5px solid var(--a3)">
+        <div class="gtl" style="color:var(--a3)">🌲 總結</div>
+        <div style="font-size:13px;line-height:1.75;color:var(--tx);margin:0">林地墓園不僅僅是一座墓園，它是一首用土地、松林、混凝土和光影寫就的生命史詩。它記錄了瑞典建築從古典走向現代的輝煌歷程，卻也封存了阿斯普隆德與勞倫茲這對天才之間，從並肩作戰到因時代巨變而決裂、最終生死相隔的唏噓故事。當你漫步在七井之路的松林陰影中，那種極致的寧靜，或許正是兩位大師用一生糾葛為世人換來的靈魂避難所。</div>
+      </div>
+    </div>
+
     <!-- ══ GUIDE: TAX REFUND (ARN T5) ══ -->
     <div class="pg" id="p-guide-tax">
       <div class="back-bar">
@@ -1750,6 +1839,7 @@ function openGuide(sub, anchor) {
     'bkk': 'p-guide-bkk',
     'schleswig': 'p-guide-schleswig',
     'skansen': 'p-guide-skansen',
+    'skogskyrkogarden': 'p-guide-skogskyrkogarden',
     'tax': 'p-guide-tax'
   };
   var target = map[sub] || 'p-guide';
