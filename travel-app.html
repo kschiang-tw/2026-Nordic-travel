@@ -394,6 +394,87 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
 #sw-root .sw-rlbl{font-family:inherit;font-weight:700;fill:#fff;paint-order:stroke;stroke:rgba(60,45,30,.35);stroke-width:2px;letter-spacing:.04em}
 #sw-root .sw-clbl{font-family:inherit;fill:var(--tx,#2c2520);opacity:.7}
 #sw-root .sw-blbl{font-family:inherit;font-weight:700}
+
+/* ══ SKOGSKYRKOGÅRDEN 語音導覽 (sa-) ══ */
+#sa-root{ --sa-path:#6c7068; --sa-land:#7c8b66; --sa-build:#3a513f; --sa-grave:#9a7536; --sa-brass:#9a7536; --sa-pine:#3a513f; }
+#sa-root .sa-hero{ background:linear-gradient(160deg,#fdfaf4,#f1ece1); border:1px solid var(--bd); border-radius:var(--r); padding:18px 17px 15px; margin-bottom:10px; position:relative; overflow:hidden; }
+#sa-root .sa-hero::after{ content:""; position:absolute; right:-30px; top:-30px; width:130px; height:130px; border-radius:50%; background:radial-gradient(circle,rgba(58,81,63,.10),transparent 70%); }
+#sa-root .sa-kicker{ font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--sa-pine); margin-bottom:5px; }
+#sa-root .sa-title{ font-family:'DM Serif Display',serif; font-size:25px; line-height:1.12; color:var(--tx); margin-bottom:6px; }
+#sa-root .sa-sub{ font-size:12px; color:var(--tm); line-height:1.5; }
+#sa-root .sa-chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+#sa-root .sa-chip{ display:inline-flex; align-items:center; gap:4px; padding:4px 11px; border-radius:20px; font-size:11px; font-weight:500; color:var(--sa-pine); background:rgba(58,81,63,.07); border:1px solid rgba(58,81,63,.18); }
+#sa-root .sa-chip b{ font-weight:700; }
+
+#sa-root .sa-reno{ display:flex; gap:10px; background:#fbf2e2; border:1px solid rgba(154,117,54,.35); border-left:3px solid var(--sa-brass); border-radius:13px; padding:12px 14px; margin-bottom:10px; }
+#sa-root .sa-reno .sa-ricon{ font-size:18px; line-height:1.3; }
+#sa-root .sa-reno .sa-rtx{ font-size:12px; line-height:1.65; color:#6b5326; }
+#sa-root .sa-reno .sa-rtx b{ color:#5a4519; font-weight:700; }
+
+#sa-root .sa-fold{ background:var(--sf); border:1px solid var(--bd); border-radius:14px; margin-bottom:8px; overflow:hidden; }
+#sa-root .sa-fhead{ display:flex; align-items:center; gap:9px; width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:13px 14px; font-family:inherit; }
+#sa-root .sa-fhead .sa-fic{ font-size:15px; }
+#sa-root .sa-fhead .sa-ftl{ font-family:'DM Serif Display',serif; font-size:15.5px; color:var(--tx); flex:1; }
+#sa-root .sa-fhead .sa-farr{ font-size:12px; color:var(--tm); transition:transform .25s; }
+#sa-root .sa-fold.open .sa-fhead .sa-farr{ transform:rotate(90deg); }
+#sa-root .sa-fbody{ display:none; padding:0 15px 14px; }
+#sa-root .sa-fold.open .sa-fbody{ display:block; }
+#sa-root .sa-fbody p{ font-size:13px; line-height:1.78; color:var(--tx); margin:0 0 9px; }
+#sa-root .sa-fbody p:last-child{ margin-bottom:0; }
+#sa-root .sa-bgh{ font-size:12px; font-weight:700; color:var(--sa-pine); margin:12px 0 5px; }
+#sa-root .sa-tl{ display:flex; gap:11px; padding:6px 0; border-bottom:1px dashed var(--bd); }
+#sa-root .sa-tl:last-child{ border-bottom:none; }
+#sa-root .sa-tly{ font-family:'DM Serif Display',serif; font-size:13px; color:var(--sa-brass); min-width:62px; flex-shrink:0; }
+#sa-root .sa-tlt{ font-size:12px; line-height:1.6; color:var(--tm); }
+
+/* 地圖 */
+#sa-root .sa-mapwrap{ background:var(--sf); border:1px solid var(--bd); border-radius:14px; padding:12px; margin-bottom:8px; }
+#sa-root .sa-maptl{ font-family:'DM Serif Display',serif; font-size:15px; color:var(--tx); margin-bottom:3px; }
+#sa-root .sa-maphint{ font-size:10.5px; color:var(--td); line-height:1.5; margin-bottom:9px; }
+#sa-root .sa-map{ width:100%; height:auto; display:block; border-radius:10px; background:linear-gradient(170deg,#f3efe6,#eae3d6); border:1px solid var(--bd); }
+#sa-root .sa-map .sa-pin{ cursor:pointer; }
+#sa-root .sa-map .sa-pin circle{ transition:transform .15s; transform-box:fill-box; transform-origin:center; }
+#sa-root .sa-map .sa-pin:active circle{ transform:scale(1.25); }
+#sa-root .sa-map .sa-pinlbl{ font-family:'DM Sans',sans-serif; font-weight:700; fill:#fff; font-size:9px; pointer-events:none; }
+#sa-root .sa-map .sa-axislbl{ font-family:'DM Sans',sans-serif; font-size:8.5px; font-weight:700; fill:#5a4519; letter-spacing:.03em; }
+#sa-root .sa-legend{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+#sa-root .sa-legend span{ display:inline-flex; align-items:center; gap:5px; font-size:11px; color:var(--tm); }
+#sa-root .sa-legend i{ width:11px; height:11px; border-radius:50%; display:inline-block; }
+
+/* 站卡片 */
+#sa-root .sa-stop{ background:var(--sf); border:1px solid var(--bd); border-radius:14px; margin-bottom:8px; overflow:hidden; scroll-margin-top:12px; transition:box-shadow .4s; }
+#sa-root .sa-stop.hl{ box-shadow:0 0 0 2px var(--sa-brass); }
+#sa-root .sa-shead{ display:flex; align-items:center; gap:11px; width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:12px 13px; font-family:inherit; }
+#sa-root .sa-badge{ width:30px; height:30px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:14px; font-family:'DM Serif Display',serif; }
+#sa-root .sa-snames{ flex:1; min-width:0; }
+#sa-root .sa-szh{ font-family:'DM Serif Display',serif; font-size:15.5px; color:var(--tx); line-height:1.2; }
+#sa-root .sa-ssv{ font-size:10.5px; color:var(--td); margin-top:1px; }
+#sa-root .sa-sarr{ font-size:12px; color:var(--tm); transition:transform .25s; flex-shrink:0; }
+#sa-root .sa-stop.open .sa-sarr{ transform:rotate(90deg); }
+#sa-root .sa-sbody{ display:none; padding:0 14px 14px; }
+#sa-root .sa-stop.open .sa-sbody{ display:block; }
+#sa-root .sa-tags{ display:flex; flex-wrap:wrap; gap:5px; margin:2px 0 10px; }
+#sa-root .sa-tag{ font-size:10px; padding:2px 8px; border-radius:9px; background:var(--sf2); color:var(--tm); border:1px solid var(--bd); }
+#sa-root .sa-summary{ font-family:'DM Serif Display',serif; font-style:italic; font-size:14px; line-height:1.65; color:var(--sa-pine); border-left:2.5px solid var(--sa-brass); padding-left:11px; margin:0 0 12px; }
+#sa-root .sa-sec{ margin-bottom:10px; }
+#sa-root .sa-sec h4{ font-size:12px; font-weight:700; color:var(--sa-pine); margin:0 0 4px; }
+#sa-root .sa-sec p{ font-size:13px; line-height:1.78; color:var(--tx); margin:0; }
+#sa-root .sa-cap{ font-size:11px; font-style:italic; color:var(--tm); line-height:1.5; margin:0 0 10px; }
+#sa-root .sa-photo{ width:100%; border-radius:10px; border:1px solid var(--bd); display:block; margin:0 0 4px; }
+#sa-root .sa-ph-ph{ display:flex; align-items:center; justify-content:center; gap:7px; width:100%; min-height:78px; border-radius:10px; border:1px dashed var(--bd2); background:var(--sf2); color:var(--tm); font-size:12px; margin:0 0 4px; }
+#sa-root .sa-pcap{ font-size:10.5px; color:var(--td); line-height:1.5; margin:0 0 11px; }
+#sa-root .sa-btns{ display:flex; flex-wrap:wrap; gap:7px; margin:11px 0 0; }
+#sa-root .sa-btn{ display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:600; padding:7px 12px; border-radius:20px; text-decoration:none; cursor:pointer; border:1px solid transparent; }
+#sa-root .sa-btn.audio{ color:#fff; background:var(--sa-pine); }
+#sa-root .sa-btn.sv{ color:var(--sa-pine); background:rgba(58,81,63,.08); border-color:rgba(58,81,63,.2); }
+#sa-root .sa-btn.nav{ color:var(--sa-brass); background:rgba(154,117,54,.09); border-color:rgba(154,117,54,.25); }
+#sa-root .sa-note{ font-size:11px; line-height:1.6; color:var(--tm); background:var(--sf2); border-radius:9px; padding:8px 10px; margin-top:11px; }
+#sa-root .sa-note::before{ content:"ℹ︎ "; color:var(--td); }
+
+#sa-root .sa-footer{ background:var(--sf); border:1px solid var(--bd); border-radius:14px; padding:14px 15px; margin-bottom:8px; }
+#sa-root .sa-footer .sa-fttl{ font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--td); margin-bottom:8px; }
+#sa-root .sa-footer p{ font-size:11.5px; line-height:1.7; color:var(--tm); margin:0 0 7px; }
+#sa-root .sa-footer a{ color:var(--sa-pine); text-decoration:none; word-break:break-all; }
 </style>
 </head>
 <body>
@@ -1109,6 +1190,17 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
           </div>
         </div>
       </div>
+      <div onclick="openGuide('skogs-audio')" style="cursor:pointer">
+        <div class="gs" style="border-left:2.5px solid #3a513f;margin-bottom:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div class="gtl" style="margin-bottom:4px;color:#3a513f">🎧 林地公墓語音導覽 · 13 站</div>
+              <div style="font-size:11px;color:var(--tm)">官方語音漫步 · 離線地圖 · 七井之路 · 街景 360（D13 · 6/4）</div>
+            </div>
+            <div style="color:#3a513f;font-size:18px;margin-left:12px">›</div>
+          </div>
+        </div>
+      </div>
       <div onclick="openGuide('bkk')" style="cursor:pointer">
         <div class="gs" style="border-left:2.5px solid var(--a2);margin-bottom:8px">
           <div style="display:flex;align-items:center;justify-content:space-between">
@@ -1623,6 +1715,14 @@ html, body { height:100%; background:var(--bg); color:var(--tx); font-family:'DM
       </div>
     </div>
 
+    <!-- ══ GUIDE: SKOGSKYRKOGÅRDEN 語音導覽 (13 站) ══ -->
+    <div class="pg" id="p-guide-skogs-audio">
+      <div class="back-bar">
+        <div class="back-btn" onclick="openGuide('index')">‹ 返回指南</div>
+      </div>
+      <div id="sa-root"></div>
+    </div>
+
     <!-- ══ GUIDE: TAX REFUND (ARN T5) ══ -->
     <div class="pg" id="p-guide-tax">
       <div class="back-bar">
@@ -1840,6 +1940,7 @@ function openGuide(sub, anchor) {
     'schleswig': 'p-guide-schleswig',
     'skansen': 'p-guide-skansen',
     'skogskyrkogarden': 'p-guide-skogskyrkogarden',
+    'skogs-audio': 'p-guide-skogs-audio',
     'tax': 'p-guide-tax'
   };
   var target = map[sub] || 'p-guide';
@@ -1848,6 +1949,7 @@ function openGuide(sub, anchor) {
   var sc = document.getElementById('scroll');
   sc.scrollTop = 0;
   if (sub === 'skansen') initSkansenMap();
+  if (sub === 'skogs-audio') renderSkogsAudio();
   if (anchor) {
     setTimeout(function() {
       var a = document.getElementById(anchor);
@@ -2653,6 +2755,388 @@ function navSw(nav, page) {
     if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
   go(0);
 })();
+</script>
+
+<!-- ══ SKOGSKYRKOGÅRDEN 語音導覽：離線資料 + 自繪 SVG 地圖 ══ -->
+<script>
+const SA_DATA = {
+  "meta": { "start": "Sockenvägen 主入口", "distanceKm": 3.2, "durationMin": 80, "stopCount": 13 },
+  "intro": "世界遺產林地公墓被視為現代建築最重要的創作之一。在這趟語音導覽中，你將漫步於松樹、步道，以及林地禮拜堂、紀念大廳、復活禮拜堂等建築之間。你會聽見這座場所誕生的背景，以及建築師 Gunnar Asplund 與 Sigurd Lewerentz 的願景。",
+  "renovation": "林地火葬場（Skogskrematoriet）及其三座禮拜堂目前正在整修。部分地點可能不易就近參觀，你或許需要繞道而行；但仍可收聽各段音檔並觀看投影片影像。整修工程預計於 2027 年完成。",
+  "credits": "腳本與旁白：Eva Larsson，斯德哥爾摩市立博物館建築史學者。製作：Fredrik Emmersfors、Ljudambassaden 與斯德哥爾摩市立博物館。",
+  "audioWalkUrl": "https://historiskavandringar.stockholm.se/skogskyrkogarden-eng",
+  "source": "https://skogskyrkogarden.stockholm/en/explore/",
+  "background": [
+    { "h": "背景", "b": "19 世紀末，斯德哥爾摩市負責轄區內新公墓的興建。1895 年，南墓園（Södra begravningsplatsen）完工。瑞典僅有兩個城市自行負責公墓事務，其餘地區則由瑞典教會負責。1900 年代初，斯德哥爾摩人口快速成長，對墓地的需求隨之增加。市府決定擴建南墓園，並為新區塊舉辦設計競圖。" },
+    { "h": "競圖", "b": "1914 年秋，市府為新公墓舉辦設計競圖。主辦單位尋求創新的構想，強調造訪者應能感受到生與死綿延不絕的循環。競圖規範指出：場地應具美感與藝術性；園區應莊嚴、沒有大型紀念碑，所有人的墓位大小一致；應盡可能保留森林與自然環境。這些新觀念受到 19 世紀的浪漫主義、現代設計與平等理念的啟發。競圖吸引了眾多建築師與景觀設計師參加。年輕建築師 Gunnar Asplund 與 Sigurd Lewerentz 以名為「Tallum」的方案勝出。1910 年代的經濟困難迫使兩人多次修改並簡化方案，地景工程直到 1917 年才開始動工。" }
+  ],
+  "timeline": [
+    ["1912", "斯德哥爾摩市決定擴建南墓園。"],
+    ["1914–15", "Gunnar Asplund 與 Sigurd Lewerentz 以方案「Tallum」贏得競圖。"],
+    ["1920", "南墓園落成啟用，建有 Asplund 設計的小型林地禮拜堂（Skogskapellet）。"],
+    ["1921", "南墓園一分為二並改名：Skogskyrkogården 與 Sandsborgskyrkogården。"],
+    ["1923", "員工服務建築 Tallum 涼亭完工；圍牆開始興建。"],
+    ["1925", "Lewerentz 設計的復活禮拜堂落成啟用。"],
+    ["1932", "圍牆歷時 10 年完工，於艱困時期提供就業。"],
+    ["1930–35", "Lewerentz 設計的主入口開闊地景與 Almhöjden 完成。"],
+    ["1936–40", "大型林地火葬場建成啟用；最後僅 Asplund 一人主持，他於 10 月辭世。"],
+    ["1961", "紀念林落成，由再度回歸的 Lewerentz 設計。"],
+    ["1994", "林地公墓成為世界遺產。"],
+    ["1999", "Greta Garbo 安葬於林地禮拜堂南側。"],
+    ["2009–15", "新火葬場規劃、興建並啟用，建築師為 Johan Celsing。"]
+  ],
+  "stops": [
+    {
+      "n": 1, "cat": "path", "titleZh": "Sockenvägen 主入口", "titleSv": "Main entrance · Sockenvägen",
+      "lat": 59.2712414, "lng": 18.1027507, "tags": [],
+      "summary": "導覽起點。踏入主入口，迎面而來的是起伏、開闊的地景。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/c16x5_xxlarge/focalpoint=0.51|0.32/siteassets/utforska-skogskyrkogarden/landskapet/korset_ek_2204.jpg?format=jpeg", "caption": "主入口的開闊地景與花崗岩十字架。攝影：Mattias Ek。" },
+      "sections": [ { "heading": "", "body": "踏入主入口後，你最先注意到的特色之一，便是矗立在起伏、開闊地景中的大型花崗岩十字架。這片入口地景由 Sigurd Lewerentz 在 1930–1935 年間完成。" } ],
+      "streetView": [], "note": "此站為導覽起點，官方未提供獨立內文；以上摘自官方對主入口地景與花崗岩十字架的描述。"
+    },
+    {
+      "n": 2, "cat": "path", "titleZh": "Kapellslingan／Gunnar Asplunds väg", "titleSv": "Kapellslingan / Gunnar Asplunds väg",
+      "lat": 59.2730, "lng": 18.1015, "tags": [],
+      "summary": "步行過場點。沿園內主動線前行。",
+      "photo": null,
+      "sections": [ { "heading": "", "body": "Kapellslingan（禮拜堂環道）串連起各座禮拜堂與停車點，是行走墓園的主動線之一，沿途由步道與樹列引導視線與步調。" } ],
+      "streetView": [], "note": "此站為步行過場點，官方未提供獨立導覽內文。"
+    },
+    {
+      "n": 3, "cat": "path", "titleZh": "Gunnar Asplunds väg", "titleSv": "Gunnar Asplunds väg",
+      "lat": 59.2755, "lng": 18.0990, "tags": [],
+      "summary": "步行過場點。以建築師 Gunnar Asplund 命名的道路。",
+      "photo": null,
+      "sections": [ { "heading": "", "body": "以建築師 Gunnar Asplund 命名的道路。沿途可感受設計者如何以緩坡、樹列與視線引導，鋪陳由入口走向核心建築群的節奏。" } ],
+      "streetView": [], "note": "此站為步行過場點，官方未提供獨立導覽內文。"
+    },
+    {
+      "n": 4, "cat": "land", "titleZh": "榆樹丘 Almhöjden", "titleSv": "The Elm Grove · Almhöjden",
+      "lat": 59.2763788, "lng": 18.0979602, "tags": ["Sigurd Lewerentz", "約 1935"],
+      "summary": "Almhöjden 提供眺望地景與森林的視野，是休憩與沉思之處。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/c16x5_xxlarge/siteassets/utforska-skogskyrkogarden/landskapet/almhojden-silhuett.jpg?format=jpeg", "caption": "Almhöjden 榆樹丘。攝影：Susanne Hallmann。" },
+      "sections": [
+        { "heading": "", "body": "Almhöjden 是一座冥想之丘，就位於主入口右側。" },
+        { "heading": "", "body": "Almhöjden 與其周圍地景約於 1935 年完成，是貫穿這一帶的山脊的自然一部分。丘頂的矮牆，連同榆樹與階梯，皆由 Sigurd Lewerentz 設計。" },
+        { "heading": "", "body": "一道順著山丘輪廓而上的長階梯通往丘頂。階梯愈往上踏階愈淺，讓攀登的感覺較不費力。" }
+      ],
+      "streetView": [], "note": ""
+    },
+    {
+      "n": 5, "cat": "land", "titleZh": "七井之路 Sju brunnars stig", "titleSv": "Path of Seven Wells",
+      "lat": 59.2727, "lng": 18.0999, "tags": ["近 900 公尺"],
+      "summary": "七井之路是一條漫長的步道，專為沉思生命的循環而設計。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/c16x5_xxlarge/focalpoint=0.49|0.67/siteassets/utforska-skogskyrkogarden/landskapet/sju-brunnars-stig-ssm_10066205s.jpg?format=jpeg", "caption": "七井之路，筆直穿越松林。攝影：Mattias Ek。" },
+      "sections": [
+        { "heading": "", "body": "這條筆直的步道穿越松林，綿延近 900 公尺，連接 Almhöjden 與復活禮拜堂。" },
+        { "heading": "", "body": "行走其間，你可以沉思生與死，或許是在為復活禮拜堂的儀式作準備。在左側，樺樹成排筆直栽植，將設計與自然優美地融合在一起。" },
+        { "heading": "", "body": "這條路原本是松林中的防火帶。建築師將它改造成通往復活禮拜堂的景觀路徑。雖然他們原本打算沿途設置七口井，但這些井從未建成。" }
+      ],
+      "streetView": [], "note": ""
+    },
+    {
+      "n": 6, "cat": "build", "titleZh": "復活禮拜堂 Uppståndelsekapellet", "titleSv": "Chapel of Resurrection · Sju brunnars väg",
+      "lat": 59.2690456, "lng": 18.1018420, "tags": ["Sigurd Lewerentz", "1925"],
+      "summary": "這座樸素而沉靜的復活禮拜堂，入口會引領造訪者穿過一座由十二根列柱支撐的廳堂。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/c16x5_xxlarge/focalpoint=0.5|0.44/siteassets/utforska-skogskyrkogarden/byggnaderna/uppstandelsekapellet-ssm_10066082s.jpg?format=jpeg", "caption": "復活禮拜堂。攝影：Mattias Ek。" },
+      "sections": [
+        { "heading": "", "body": "在 Asplund 完成小型的林地禮拜堂後，園區需要一座更大的禮拜堂。選定的地點位於七井之路的南端。從 Almhöjden 到這座禮拜堂的步道將近 900 公尺長，沿途景致動人。" },
+        { "heading": "高雅卻有點難懂", "body": "建築師 Sigurd Lewerentz 設計了園區的第二座禮拜堂。起初，他主要專注於地景的設計。歷經數年工作與許多現場實驗後，禮拜堂於 1925 年完工。Lewerentz 鮮少談論自己的建築理念，因此後人對他的想法所知甚少。落成之際，這座禮拜堂評價兩極：有些人覺得高雅，有些人則認為難以理解。" },
+        { "heading": "古典與現代", "body": "復活禮拜堂以其入口上方、由 Ivar Johnson 創作的雕塑群命名。這座禮拜堂十分獨特——狹長而高聳——帶來與林地禮拜堂截然不同的體驗。建築嚴謹而簡潔，帶有些微的不對稱。室內細節同時反映了古典與現代建築。地板尤其美麗，以珍貴的卡拉拉大理石製成，意在於艱難的時刻提供美感與支撐。" }
+      ],
+      "streetView": [ { "label": "復活禮拜堂內部", "url": "https://goo.gl/maps/azBaeVU9PNmvJzks5" } ], "note": ""
+    },
+    {
+      "n": 7, "cat": "build", "titleZh": "Tallum 涼亭（遊客中心）", "titleSv": "Tallum Pavilion · Tallumpaviljongen",
+      "lat": 59.2708620, "lng": 18.1039218, "tags": ["Gunnar Asplund", "1923"],
+      "summary": "林地公墓於 1920 年啟用時，需要空間來容納在地景與禮拜堂工作的員工，並存放工具與機具。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/c16x5_xxlarge/focalpoint=0.48|0.7/siteassets/utforska-skogskyrkogarden/byggnaderna/tallumpaviljongen_ek_0997.jpg?format=jpeg", "caption": "Tallum 涼亭。攝影：Mattias Ek。" },
+      "sections": [
+        { "heading": "", "body": "建築師 Gunnar Asplund 與其團隊設計了名為「Ekonomigården」的建築，於 1923 年完工。其中設有置物櫃、更衣室、用餐區、洗衣設施，以及存放工具與種子的儲藏室。建築中央是一間有圓頂天花板的小室，作為辦公室之用，例如發放工人的薪資。「Ekonomigården」後來改名為 Tallum 涼亭。" },
+        { "heading": "今日的遊客中心", "body": "如今，現代化的工作空間與各式機具車庫設於 Tallum 涼亭對面。在林地公墓被指定為世界遺產後，涼亭被改建為展覽空間與咖啡館。它現在被稱為遊客中心，於夏季月份營運。" }
+      ],
+      "streetView": [], "note": ""
+    },
+    {
+      "n": 8, "cat": "grave", "titleZh": "Greta Garbo 之墓", "titleSv": "Greta Garbo's grave",
+      "lat": 59.2730252, "lng": 18.1047435, "tags": ["1999 安葬"],
+      "summary": "傳奇影星 Greta Garbo 的長眠之地。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/medium/siteassets/utforska-skogskyrkogarden/historia/gerta-garbos-grav-960-2_ek_1763.jpg?format=jpeg", "caption": "Greta Garbo 之墓。攝影：Mattias Ek。" },
+      "sections": [ { "heading": "", "body": "1990 年於紐約逝世後，Greta Garbo 於 1999 年安葬於林地公墓，墓位在林地禮拜堂南側。" } ],
+      "streetView": [], "note": "官方未提供此站的獨立導覽內文；以上摘自官方歷史頁。"
+    },
+    {
+      "n": 9, "cat": "build", "titleZh": "林地禮拜堂 Skogskapellet", "titleSv": "The Woodland Chapel · Skogskapellet",
+      "lat": 59.2740643, "lng": 18.1035070, "tags": ["Gunnar Asplund", "1920"],
+      "summary": "林地禮拜堂是一座位於森林中、沒有窗戶的小型木造建築；取而代之的是，光線從屋頂的開口灑入。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/c16x5_xxlarge/focalpoint=0.5|0.59/siteassets/utforska-skogskyrkogarden/byggnaderna/skogskapellet-ssm_10065810s.jpg?format=jpeg", "caption": "林地禮拜堂。攝影：Mattias Ek。" },
+      "sections": [
+        { "heading": "", "body": "Gunnar Asplund 設計了林地公墓的第一座禮拜堂。經過數次修改後，它成為林地禮拜堂——一座坐落於森林中的小型木造建築。" },
+        { "heading": "不尋常而美麗", "body": "1920 年，墓園隨著林地禮拜堂的落成而啟用；這座禮拜堂雖小，卻被認為不尋常而美麗。" },
+        { "heading": "光從上方而來", "body": "這座親密的禮拜堂沒有窗戶。日光從內穹頂的一個開口灑入，其餘空間則由燭光照亮。紅色石灰岩地板經過細心設計，在難以直視他人目光或棺木的時刻提供依靠。禮拜堂的象徵符號極簡而低調，能容納各種人生哲學。" },
+        { "heading": "骷髏與死亡天使", "body": "禮拜堂的裝飾包含骷髏，這是傳統的死亡象徵。Carl Milles 的雕塑「死亡天使」安置於屋頂上，這在當初曾引起部分人士的抗議。" },
+        { "heading": "cap", "body": "蛇可以同時象徵死亡與永生。" }
+      ],
+      "streetView": [ { "label": "林地禮拜堂內部", "url": "https://goo.gl/maps/V4nKSvjKZ6K8LvGs6" } ], "note": ""
+    },
+    {
+      "n": 10, "cat": "build", "titleZh": "紀念大廳 Monumenthallen", "titleSv": "The Monument Hall · Korsets stig",
+      "lat": 59.27672, "lng": 18.10030, "tags": ["Gunnar Asplund"],
+      "summary": "位於聖十字禮拜堂前方的寬敞大廳，為大型儀式提供聚集與空間。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/medium/siteassets/utforska-skogskyrkogarden/byggnaderna/heliga-korset-orgel-ssm_10008328s.jpg?format=jpeg", "caption": "聖十字禮拜堂的管風琴。攝影：Mattias Ek。" },
+      "sections": [ { "heading": "", "body": "寬敞的紀念大廳位於聖十字禮拜堂前方，作為聚集的場所，並為大型儀式提供額外的空間。面向大廳的一整面玻璃牆可以降入地板之中，將空間敞開。" } ],
+      "streetView": [ { "label": "紀念大廳", "url": "https://goo.gl/maps/N51oYTEggtQ7fHCS9" } ], "note": "紀念大廳屬於林地火葬場建築群，目前整修中。"
+    },
+    {
+      "n": 11, "cat": "build", "titleZh": "聖十字禮拜堂（林地火葬場）", "titleSv": "Chapel of the Holy Cross · Woodland Crematorium",
+      "lat": 59.27690, "lng": 18.10060, "tags": ["Gunnar Asplund", "1940"],
+      "summary": "林地火葬場是林地公墓中最大的建築。它包含三座禮拜堂——信、望與聖十字——以及一座紀念大廳。火葬場已不再使用。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/c16x5_xxlarge/siteassets/utforska-skogskyrkogarden/skogskrematoriet-ssm_10008591s.jpg?format=jpeg", "caption": "林地火葬場與 John Lundkvist 的雕塑「復活」。攝影：Mattias Ek。" },
+      "sections": [
+        { "heading": "整修通知", "body": "林地火葬場，連同其三座禮拜堂——信、望與聖十字——正因整修而關閉，工程預計約持續兩年。" },
+        { "heading": "", "body": "最初，這棟主建築——容納各禮拜堂與如今已停用的火葬場——原本預定是墓園的第一座建築。然而，主要因經濟因素，其興建被延後。" },
+        { "heading": "Lewerentz 被撤出此案", "body": "建築師 Sigurd Lewerentz 與 Gunnar Asplund 共同設計這棟建築直到 1936 年，當時斯德哥爾摩市將此案完全交給 Asplund。彼時，現代主義建築已蔚為風潮，強調功能與效率。" },
+        { "heading": "有正面與背面的建築", "body": "林地火葬場低調地座落於開闊地景的邊緣。三座禮拜堂面向開闊的場地，而昔日的火葬場與服務區域則位於後方。" },
+        { "heading": "柔性現代主義", "body": "這棟建築體現了 Gunnar Asplund 在 1930 年代特有的柔性現代主義。他以多元的材質設計了三座禮拜堂的室內，包括石材、陶瓷、木材、玻璃與金屬。" }
+      ],
+      "streetView": [
+        { "label": "聖十字禮拜堂", "url": "https://goo.gl/maps/yF1gwJaXJErdGrkL9" },
+        { "label": "信之禮拜堂 Tron", "url": "https://goo.gl/maps/r1hmePUZEM8zbEJC9" },
+        { "label": "望之禮拜堂 Hoppet", "url": "https://goo.gl/maps/QMCQT6MKye7Ziw8j8" }
+      ],
+      "note": "目前整修中，現場可能無法靠近。"
+    },
+    {
+      "n": 12, "cat": "land", "titleZh": "紀念大廳外・花崗岩十字架", "titleSv": "The Granite Cross · Granitkorset",
+      "lat": 59.2765032, "lng": 18.0998616, "tags": ["Gunnar Asplund", "1939"],
+      "summary": "踏入主入口後，你最先注意到的特色之一，便是矗立在起伏、開闊地景中的大型花崗岩十字架。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/c8x5_medium/siteassets/utforska-skogskyrkogarden/landskapet/korset-puff_2-ek_2204.jpg?format=jpeg", "caption": "花崗岩十字架。攝影：Mattias Ek。" },
+      "sections": [
+        { "heading": "", "body": "這座花崗岩十字架由 Gunnar Asplund 設計、於 1939 年豎立，矗立在林地火葬場前方的草坪上。它的建成得益於一筆匿名捐款。" },
+        { "heading": "", "body": "林地公墓是一座向所有人開放的墓園，不分宗教信仰。雖然十字架傳統上是基督宗教中象徵死後生命的符號，在這裡它也可以單純地被視為這座墓園的象徵。" }
+      ],
+      "streetView": [], "note": "從 Almhöjden 望出去，十字架後方便是林地火葬場與紀念大廳，是經典取景視角。"
+    },
+    {
+      "n": 13, "cat": "build", "titleZh": "新火葬場 Nya krematoriet", "titleSv": "The New Crematorium · Östanvindsvägen 6",
+      "lat": 59.2768733, "lng": 18.1036606, "tags": ["Johan Celsing", "2014"],
+      "summary": "新火葬場座落於森林中一處隱蔽的區域。裡面設有先進的技術設備。",
+      "photo": { "url": "https://skogskyrkogarden.stockholm/optimized/c16x5_xxlarge/siteassets/utforska-skogskyrkogarden/byggnaderna/nya_krematoriet_01_ioana_marinescu.jpg?format=jpeg", "caption": "新火葬場「林中之石」。攝影：Ioana Marinescu。" },
+      "sections": [
+        { "heading": "", "body": "這棟磚砌建築於 2014 年落成啟用。它的設計能讓希望在火化過程中在場陪伴的親屬得以參與。" },
+        { "heading": "", "body": "火化爐淨化後的廢氣經由地下導引至林地火葬場的舊煙囪排放。" },
+        { "heading": "舊火葬場已不敷使用", "body": "由於林地公墓 1940 年的原火葬場日漸老舊且不切實用，市府決定興建新設施。2009 年舉辦競圖，由建築師 Johan Celsing 與 Müller Illien Landschaftarchitekten 設計、名為「林中之石（A Stone in the Forest）」的方案勝出。" },
+        { "heading": "關於火化", "body": "火化是指焚化逝者。它在特殊的爐中進行，約需兩小時。骨灰之後可放入骨灰罈或精美的袋中，並安葬於墓中、骨灰葬區，或撒於紀念林的地面上。瑞典自 1880 年代起即允許火化。起初並不普遍，許多人認為它怪異而不適；20 世紀後逐漸普遍。如今瑞典約有八成的逝者選擇火化，城市中又比鄉村更為常見。" }
+      ],
+      "streetView": [ { "label": "新火葬場內部", "url": "https://goo.gl/maps/4eGTbJexFXcWe5zBA" } ], "note": ""
+    }
+  ]
+};
+
+const SA_CAT = {
+  path:  { color:'#6c7068', label:'入口・步道' },
+  land:  { color:'#7c8b66', label:'地景' },
+  build: { color:'#3a513f', label:'建築' },
+  grave: { color:'#9a7536', label:'墓' }
+};
+
+function saEsc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function saAttr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;'); }
+
+// 線上顯示縮圖；離線（圖片載入失敗）自動換成「照片需連線檢視」佔位，避免破圖
+function saPhotoErr(img){
+  var d = document.createElement('div');
+  d.className = 'sa-ph-ph';
+  d.textContent = '🖼️ 照片需連線檢視';
+  img.replaceWith(d);
+}
+
+function saRenderSections(secs){
+  return secs.map(function(s){
+    if(s.heading === 'cap') return '<p class="sa-cap">'+saEsc(s.body)+'</p>';
+    if(s.heading === '')    return '<div class="sa-sec"><p>'+saEsc(s.body)+'</p></div>';
+    return '<div class="sa-sec"><h4>'+saEsc(s.heading)+'</h4><p>'+saEsc(s.body)+'</p></div>';
+  }).join('');
+}
+
+function saRenderStop(st){
+  var cat = SA_CAT[st.cat] || SA_CAT.path;
+  var tags = (st.tags && st.tags.length)
+    ? '<div class="sa-tags">'+st.tags.map(function(t){return '<span class="sa-tag">'+saEsc(t)+'</span>';}).join('')+'</div>' : '';
+  var photo = '';
+  if(st.photo){
+    photo = '<img class="sa-photo" loading="lazy" src="'+saAttr(st.photo.url)+'" alt="'+saAttr(st.photo.caption)+'" onerror="saPhotoErr(this)">'
+          + '<div class="sa-pcap">'+saEsc(st.photo.caption)+'</div>';
+  }
+  // 按鈕：語音（共用）／街景 360（逐項）／地圖導航
+  var btns = '<a class="sa-btn audio" href="'+saAttr(SA_DATA.audioWalkUrl)+'" target="_blank" rel="noopener">🎧 收聽語音導覽</a>';
+  (st.streetView||[]).forEach(function(sv){
+    btns += '<a class="sa-btn sv" href="'+saAttr(sv.url)+'" target="_blank" rel="noopener">🧭 街景 360 · '+saEsc(sv.label)+'</a>';
+  });
+  btns += '<a class="sa-btn nav" href="https://www.google.com/maps/search/?api=1&query='+st.lat+','+st.lng+'" target="_blank" rel="noopener">📍 地圖導航</a>';
+
+  var note = st.note ? '<div class="sa-note">'+saEsc(st.note)+'</div>' : '';
+
+  return '<div class="sa-stop" id="sa-stop-'+st.n+'">'
+    + '<button class="sa-shead" onclick="saToggleStop(this)">'
+    +   '<span class="sa-badge" style="background:'+cat.color+'">'+st.n+'</span>'
+    +   '<span class="sa-snames"><span class="sa-szh">'+saEsc(st.titleZh)+'</span><span class="sa-ssv">'+saEsc(st.titleSv)+'</span></span>'
+    +   '<span class="sa-sarr">›</span>'
+    + '</button>'
+    + '<div class="sa-sbody">'
+    +   tags
+    +   '<p class="sa-summary">'+saEsc(st.summary)+'</p>'
+    +   saRenderSections(st.sections)
+    +   photo
+    +   '<div class="sa-btns">'+btns+'</div>'
+    +   note
+    + '</div></div>';
+}
+
+function saToggleStop(btn){ btn.parentNode.classList.toggle('open'); }
+function saToggleFold(btn){ btn.parentNode.classList.toggle('open'); }
+
+// 圖釘點擊 → 平滑捲動至該站卡片、自動展開並短暫高亮
+function saGotoStop(n){
+  var el = document.getElementById('sa-stop-'+n);
+  if(!el) return;
+  el.classList.add('open');
+  var sc = document.getElementById('scroll');
+  var top = el.getBoundingClientRect().top - sc.getBoundingClientRect().top + sc.scrollTop - 12;
+  sc.scrollTo({ top: top, behavior:'smooth' });
+  el.classList.add('hl');
+  setTimeout(function(){ el.classList.remove('hl'); }, 1600);
+}
+
+// 依真實經緯度自繪 SVG 地圖（離線、不用線上圖磚）
+function saBuildMap(stops){
+  var W = 300, H = 372, pad = 30;
+  var meanLat = stops.reduce(function(a,s){return a+s.lat;},0) / stops.length;
+  var cosLat = Math.cos(meanLat * Math.PI/180);            // x 乘以 cos(lat) 校正長寬比
+  var pts = stops.map(function(s){ return { n:s.n, cat:s.cat, px:s.lng*cosLat, py:s.lat }; });
+  var minPx = Math.min.apply(null, pts.map(function(p){return p.px;}));
+  var maxPx = Math.max.apply(null, pts.map(function(p){return p.px;}));
+  var minPy = Math.min.apply(null, pts.map(function(p){return p.py;}));
+  var maxPy = Math.max.apply(null, pts.map(function(p){return p.py;}));
+  var spanX = (maxPx-minPx) || 1e-6, spanY = (maxPy-minPy) || 1e-6;
+  var scale = Math.min((W-2*pad)/spanX, (H-2*pad)/spanY);  // 等比例縮放
+  var offX = (W - spanX*scale)/2, offY = (H - spanY*scale)/2;
+  function sx(px){ return offX + (px-minPx)*scale; }
+  function sy(py){ return offY + (maxPy-py)*scale; }      // 北朝上：緯度高者在上
+
+  var pos = {};
+  pts.forEach(function(p){ pos[p.n] = { x:sx(p.px), y:sy(p.py), cat:p.cat }; });
+
+  // 第 10、11 站相鄰 → 稍作位移以利點選（lat/lng 原值保留供導航用）
+  var disp = JSON.parse(JSON.stringify(pos));
+  disp[10].x -= 7; disp[10].y -= 6;
+  disp[11].x += 9; disp[11].y += 8;
+
+  var svg = '<svg class="sa-map" viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="林地公墓 13 站離線地圖">';
+
+  // 森林點狀紋理（決定論偽隨機，避免每次不同）
+  var seed = 20260604, dots = '';
+  function rnd(){ seed = (seed*1103515245 + 12345) & 0x7fffffff; return seed/0x7fffffff; }
+  for(var i=0;i<150;i++){
+    var dx = 6+rnd()*(W-12), dy = 6+rnd()*(H-12), dr = 0.5+rnd()*1.1;
+    dots += '<circle cx="'+dx.toFixed(1)+'" cy="'+dy.toFixed(1)+'" r="'+dr.toFixed(1)+'" fill="#7c8b66" opacity="'+(0.06+rnd()*0.10).toFixed(2)+'"/>';
+  }
+  svg += '<g>'+dots+'</g>';
+
+  // 步行順序虛線（1→13）
+  var order = stops.slice().sort(function(a,b){return a.n-b.n;});
+  var path = order.map(function(s,idx){ var p=disp[s.n]; return (idx?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1); }).join(' ');
+  svg += '<path d="'+path+'" fill="none" stroke="#6c7068" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.55"/>';
+
+  // 七井之路軸線：第 4 站 → 第 6 站（約 900m，粗虛線 + 標籤）
+  var a = pos[4], b = pos[6];
+  svg += '<line x1="'+a.x.toFixed(1)+'" y1="'+a.y.toFixed(1)+'" x2="'+b.x.toFixed(1)+'" y2="'+b.y.toFixed(1)+'" stroke="#3a513f" stroke-width="3.2" stroke-dasharray="9 5" stroke-linecap="round" opacity="0.85"/>';
+  var mx = (a.x+b.x)/2, my = (a.y+b.y)/2;
+  var ang = Math.atan2(b.y-a.y, b.x-a.x) * 180/Math.PI;
+  svg += '<text class="sa-axislbl" x="'+mx.toFixed(1)+'" y="'+my.toFixed(1)+'" text-anchor="middle" transform="rotate('+ang.toFixed(1)+' '+mx.toFixed(1)+' '+my.toFixed(1)+')" dy="-5">七井之路 · 約 900 m</text>';
+
+  // 指北針（右上角）
+  svg += '<g transform="translate('+(W-22)+',26)">'
+       + '<line x1="0" y1="13" x2="0" y2="-11" stroke="#5a4519" stroke-width="1.4"/>'
+       + '<path d="M0 -15 L4 -7 L0 -10 L-4 -7 Z" fill="#5a4519"/>'
+       + '<text x="0" y="-18" text-anchor="middle" font-size="9" font-weight="700" fill="#5a4519" font-family="DM Sans,sans-serif">N</text>'
+       + '</g>';
+
+  // 圖釘：編號圓點（依 cat 上色）
+  stops.forEach(function(s){
+    var p = disp[s.n]; var c = (SA_CAT[s.cat]||SA_CAT.path).color;
+    svg += '<g class="sa-pin" onclick="saGotoStop('+s.n+')">'
+         + '<circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="9" fill="'+c+'" stroke="#fdfaf4" stroke-width="2"/>'
+         + '<text class="sa-pinlbl" x="'+p.x.toFixed(1)+'" y="'+(p.y+3.2).toFixed(1)+'" text-anchor="middle">'+s.n+'</text>'
+         + '</g>';
+  });
+
+  svg += '</svg>';
+  return svg;
+}
+
+var saRendered = false;
+function renderSkogsAudio(){
+  if(saRendered) return;
+  var root = document.getElementById('sa-root');
+  if(!root) return;
+  var D = SA_DATA, html = '';
+
+  // 頁首
+  html += '<div class="sa-hero">'
+        + '<div class="sa-kicker">Skogskyrkogården · 語音導覽</div>'
+        + '<div class="sa-title">林地公墓<br>語音漫步 13 站</div>'
+        + '<div class="sa-sub">Gunnar Asplund &amp; Sigurd Lewerentz · UNESCO 世界遺產</div>'
+        + '<div class="sa-chips">'
+        +   '<span class="sa-chip">起點 · '+saEsc(D.meta.start)+'</span>'
+        +   '<span class="sa-chip"><b>'+D.meta.distanceKm+'</b> km</span>'
+        +   '<span class="sa-chip">約 <b>'+D.meta.durationMin+'</b> 分</span>'
+        +   '<span class="sa-chip"><b>'+D.meta.stopCount+'</b> 站</span>'
+        + '</div></div>';
+
+  // 整修提醒橫幅
+  html += '<div class="sa-reno"><span class="sa-ricon">⚠️</span><div class="sa-rtx">'+saEsc(D.renovation)+'</div></div>';
+
+  // 可收合：簡介
+  html += '<div class="sa-fold open"><button class="sa-fhead" onclick="saToggleFold(this)"><span class="sa-fic">📖</span><span class="sa-ftl">簡介</span><span class="sa-farr">›</span></button>'
+        + '<div class="sa-fbody"><p>'+saEsc(D.intro)+'</p></div></div>';
+
+  // 可收合：歷史背景
+  html += '<div class="sa-fold"><button class="sa-fhead" onclick="saToggleFold(this)"><span class="sa-fic">🏛️</span><span class="sa-ftl">歷史背景</span><span class="sa-farr">›</span></button>'
+        + '<div class="sa-fbody">'
+        + D.background.map(function(s){ return '<div class="sa-bgh">'+saEsc(s.h)+'</div><p>'+saEsc(s.b)+'</p>'; }).join('')
+        + '</div></div>';
+
+  // 可收合：年表
+  html += '<div class="sa-fold"><button class="sa-fhead" onclick="saToggleFold(this)"><span class="sa-fic">🕰️</span><span class="sa-ftl">年表</span><span class="sa-farr">›</span></button>'
+        + '<div class="sa-fbody">'
+        + D.timeline.map(function(t){ return '<div class="sa-tl"><span class="sa-tly">'+saEsc(t[0])+'</span><span class="sa-tlt">'+saEsc(t[1])+'</span></div>'; }).join('')
+        + '</div></div>';
+
+  // 路線地圖
+  html += '<div class="sa-mapwrap">'
+        + '<div class="sa-maptl">🗺️ 路線地圖</div>'
+        + '<div class="sa-maphint">依 13 站真實經緯度自繪（離線・北朝上・經度經 cos(lat) 校正）。粗虛線為七井之路軸線（4→6），細虛線為步行順序 1→13。點圖釘可跳至該站。</div>'
+        + saBuildMap(D.stops)
+        + '<div class="sa-legend">'
+        + Object.keys(SA_CAT).map(function(k){ return '<span><i style="background:'+SA_CAT[k].color+'"></i>'+SA_CAT[k].label+'</span>'; }).join('')
+        + '</div></div>';
+
+  // 13 站卡片
+  html += D.stops.map(saRenderStop).join('');
+
+  // 頁尾
+  html += '<div class="sa-footer">'
+        + '<div class="sa-fttl">Credits · 來源 · 離線</div>'
+        + '<p>'+saEsc(D.credits)+'</p>'
+        + '<p>官方語音漫步：<a href="'+saAttr(D.audioWalkUrl)+'" target="_blank" rel="noopener">'+saEsc(D.audioWalkUrl)+'</a></p>'
+        + '<p>資料來源：<a href="'+saAttr(D.source)+'" target="_blank" rel="noopener">'+saEsc(D.source)+'</a></p>'
+        + '<p>本頁所有文字、座標與地圖皆內嵌於檔案，可離線收藏瀏覽；僅照片與外部連結需連線。逐站音檔旁白無法擷取為文字，內文為官方各地點圖文之完整翻譯。第 2、3 站為步行過場點、第 8 站官方無獨立內文，已於各站 note 如實標註。</p>'
+        + '</div>';
+
+  root.innerHTML = html;
+  saRendered = true;
+}
 </script>
 </body>
 </html>
